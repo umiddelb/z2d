@@ -15,7 +15,7 @@ r_pkg_upgrade
 i_base
 i_extra
 i_gcc
-i_kernel_cubox-i
+i_kernel_cubox_i
 c_if_lo
 c_if_dhcp "eth0"
 c_ttyS "ttymxc0"
