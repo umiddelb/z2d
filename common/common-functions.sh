@@ -62,7 +62,7 @@ i_kernel_odroid_c1 () {
   cp boot/uImage-3.10.* /media/boot/uImage  
 }
 
-i_kernel_cubox-i () {
+i_kernel_cubox_i () {
   curl -sSL http://xilka.com/kernel/3/3.14/3.14.44/release/1/imx-3.14.44-Modules.tar.gz | tar --numeric-owner -xzpvf -
   curl -sSL http://xilka.com/kernel/3/3.14/3.14.44/release/1/imx-3.14.44-System.map > /boot/System.map
   curl -sSL http://xilka.com/kernel/3/3.14/3.14.44/release/1/imx-3.14.44-zImage > /boot/zImage
