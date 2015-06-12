@@ -62,6 +62,17 @@ i_kernel_odroid_c1 () {
   cp boot/uImage-3.10.* /media/boot/uImage  
 }
 
+i_kernel_cubox-i () {
+  curl -sSL http://xilka.com/kernel/3/3.14/3.14.44/release/1/imx-3.14.44-Modules.tar.gz | tar --numeric-owner -xzpvf -
+  curl -sSL http://xilka.com/kernel/3/3.14/3.14.44/release/1/imx-3.14.44-System.map > /boot/System.map
+  curl -sSL http://xilka.com/kernel/3/3.14/3.14.44/release/1/imx-3.14.44-zImage > /boot/zImage
+  curl -sSL http://xilka.com/kernel/3/3.14/3.14.44/release/1/imx-3.14.44.config > /boot/config
+  curl -sSL http://xilka.com/kernel/3/3.14/3.14.44/release/1/imx6dl-cubox-i-3.14.44.dtb > /boot/imx6dl-cubox-i.dtb
+  curl -sSL http://xilka.com/kernel/3/3.14/3.14.44/release/1/imx6dl-hummingboard-3.14.44.dtb > /boot/imx6dl-hummingboard.dtb
+  curl -sSL http://xilka.com/kernel/3/3.14/3.14.44/release/1/imx6q-cubox-i-3.14.44.dtb > /boot/imx6q-cubox-i.dtb
+  curl -sSL http://xilka.com/kernel/3/3.14/3.14.44/release/1/imx6q-hummingboard-3.14.44.dtb > /boot/imx6q-hummingboard.dtb 
+}
+
 c_if_lo () {
   echo "auto lo" > /etc/network/interfaces.d/lo
   echo "iface lo inet loopback" >> /etc/network/interfaces.d/lo
