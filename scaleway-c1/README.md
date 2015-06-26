@@ -1,1 +1,1 @@
-This is the script compilation to set up Ubuntu Core 14.04.2 & Docker on the SolidRun CuBox-i and HummingBoard
+This is the script compilation to set up Ubuntu Core 14.04.2 & Docker on the [Scaleway C1](https://www.scaleway.com/) server
