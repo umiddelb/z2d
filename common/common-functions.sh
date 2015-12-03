@@ -62,8 +62,12 @@ i_kernel_odroid_c1 () {
   cp boot/uImage-3.10.* /media/boot/uImage  
 }
 
+i_kernel_utilite_pro () {
+  curl -sSL https://github.com/umiddelb/z2d/raw/master/kernel/linux-3.14.51%2B-upro.tar.xz | unxz | tar --numeric-owner -xpf
+}
+
 i_kernel_cubox_i () {
-  curl -sSL http://xilka.com/kernel/3/3.14/3.14.44/release/1/imx-3.14.44-Modules.tar.gz | tar --numeric-owner -xzpvf -
+  curl -sSL http://xilka.com/kernel/3/3.14/3.14.44/release/1/imx-3.14.44-Modules.tar.gz | tar --numeric-owner -xzpf -
   curl -sSL http://xilka.com/kernel/3/3.14/3.14.44/release/1/imx-3.14.44-System.map > /boot/System.map
   curl -sSL http://xilka.com/kernel/3/3.14/3.14.44/release/1/imx-3.14.44-zImage > /boot/zImage
   curl -sSL http://xilka.com/kernel/3/3.14/3.14.44/release/1/imx-3.14.44.config > /boot/config
