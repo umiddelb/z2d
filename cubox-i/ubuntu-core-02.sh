@@ -5,7 +5,7 @@ export DEBIAN_FRONTEND=noninteractive
 
 c_locale "en_GB.UTF-8"
 c_tzone "Europe/Berlin"
-c_hostname "armv7"
+c_hostname "cbxi"
 c_apt_list "trusty"
 c_nameserver "8.8.8.8"
 
