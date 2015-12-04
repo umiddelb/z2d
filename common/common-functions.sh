@@ -47,8 +47,10 @@ i_extra () {
 i_gcc () {
   apt-get -q=2 -y install python-software-properties
   add-apt-repository -y ppa:ubuntu-toolchain-r/test
-  apt-get -q=2 update
-  apt-get -q=2 -y install gcc
+  apt-get -q=2 -y update
+  apt-get -y install gcc-5 g++-5
+  update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-5 50
+  update-alternatives --install /usr/bin/g++ g++ /usr/bin/g++-5 50
 }
 
 i_kernel_odroid_c1 () {
@@ -63,7 +65,7 @@ i_kernel_odroid_c1 () {
 }
 
 i_kernel_utilite_pro () {
-  curl -sSL https://github.com/umiddelb/z2d/raw/master/kernel/linux-3.14.51%2B-upro.tar.xz | unxz | tar --numeric-owner -xpf
+  curl -sSL https://github.com/umiddelb/z2d/raw/master/kernel/linux-3.14.51%2B-upro.tar.xz | unxz | tar --numeric-owner -xpf -
 }
 
 i_kernel_cubox_i () {

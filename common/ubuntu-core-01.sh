@@ -1,6 +1,6 @@
 #!/bin/sh
 
-curl -sSL http://cdimage.ubuntu.com/ubuntu-core/releases/14.04.3/release/ubuntu-core-14.04-core-armhf.tar.gz | sudo tar --numeric-owner -xpzf - -C rootfs/
+curl -sSL http://cdimage.ubuntu.com/ubuntu-core/releases/14.04.3/release/ubuntu-core-14.04.3-core-armhf.tar.gz | sudo tar --numeric-owner -xpzf - -C rootfs/
 
 sudo mount -o bind /dev ./rootfs/dev
 sudo mount -o bind /dev/pts ./rootfs/dev/pts
