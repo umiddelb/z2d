@@ -60,8 +60,14 @@ i_kernel_odroid_c1 () {
   apt-get -q=2 update
   mkdir -p /media/boot
   apt-get -q=2 -y install linux-image-c1 bootini
-  cp boot/uInitrd-3.10.* /media/boot/uInitrd 
-  cp boot/uImage-3.10.* /media/boot/uImage  
+}
+
+i_kernel_odroid_xu4 () {
+  curl -sSL http://deb.odroid.in/5422/pool/main/b/bootini/bootini_20151203-13_armhf.deb >/tmp/bootini_20151203-13_armhf.deb
+  curl -sSL http://deb.odroid.in/5422/pool/main/l/linux-headers-xu3/linux-headers-xu3_64-1_armhf.deb >/tmp/linux-headers-xu3_64-1_armhf.deb
+  curl -sSL http://deb.odroid.in/umiddelb/linux-image-3.10.92-67_20151123_armhf.deb >/tmp/linux-image-3.10.92-67_20151123_armhf.deb
+  dpkg -i /tmp/bootini_20151203-13_armhf.deb /tmp/linux-headers-xu3_64-1_armhf.deb /tmp/linux-image-3.10.92-67_20151123_armhf.deb
+  rm -f /tmp/bootini_20151203-13_armhf.deb /tmp/linux-headers-xu3_64-1_armhf.deb /tmp/linux-image-3.10.92-67_20151123_armhf.deb
 }
 
 i_kernel_utilite_pro () {
