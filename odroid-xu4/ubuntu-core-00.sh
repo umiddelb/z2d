@@ -3,14 +3,14 @@
 dev=sda
 
 mkdir /tmp/u-boot
-curl -sSL https://github.com/hardkernel/u-boot/blob/odroid-v2010.12/sd_fuse/bl1.HardKernel?raw=true > /tmp/u-boot/bl1.HardKernel
-curl -sSL https://github.com/hardkernel/u-boot/blob/odroid-v2010.12/sd_fuse/bl2.HardKernel?raw=true > /tmp/u-boot/bl2.HardKernel
-curl -sSL https://raw.githubusercontent.com/hardkernel/u-boot/odroid-v2010.12/sd_fuse/sd_fusing.sh >/tmp/u-boot/sd_fusing.sh
-curl -sSL https://github.com/hardkernel/u-boot/blob/odroid-v2010.12/sd_fuse/tzsw.HardKernel?raw=true > /tmp/u-boot/tzsw.HardKernel
-curl -sSL https://github.com/hardkernel/u-boot/blob/odroid-v2010.12/sd_fuse/u-boot.bin.HardKernel?raw=true >/tmp/u-boot.bin
+curl -sSL https://github.com/hardkernel/u-boot/raw/odroidxu3-v2012.07/sd_fuse/hardkernel/bl1.bin.hardkernel > /tmp/u-boot/bl1.bin.hardkernel
+curl -sSL https://github.com/hardkernel/u-boot/raw/odroidxu3-v2012.07/sd_fuse/hardkernel/bl2.bin.hardkernel > /tmp/u-boot/bl2.bin.hardkernel
+curl -sSL https://raw.githubusercontent.com/hardkernel/u-boot/odroidxu3-v2012.07/sd_fuse/hardkernel/sd_fusing.sh >/tmp/u-boot/sd_fusing.sh
+curl -sSL https://github.com/hardkernel/u-boot/raw/odroidxu3-v2012.07/sd_fuse/hardkernel/tzsw.bin.hardkernel > /tmp/u-boot/tzsw.bin.hardkernel
+curl -sSL https://github.com/hardkernel/u-boot/raw/odroidxu3-v2012.07/sd_fuse/hardkernel/u-boot.bin.hardkernel >/tmp/u-boot/u-boot.bin.hardkernel
  
 (cd /tmp/u-boot/ ; sudo sh sd_fusing.sh /dev/$dev )
-rm -f /tmp/u-boot/bl1.HardKernel /tmp/u-boot/bl2.HardKernel /tmp/u-boot/sd_fusing.sh /tmp/u-boot/tzsw.HardKernel /tmp/u-boot.bin
+rm -f /tmp/u-boot/bl1.bin.hardkernel /tmp/u-boot/bl2.bin.hardkernel /tmp/u-boot/sd_fusing.sh /tmp/u-boot/tzsw.bin.hardkernel /tmp/u-boot/u-boot.bin.hardkernel
 rmdir /tmp/u-boot
 
 sync
