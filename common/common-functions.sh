@@ -64,10 +64,10 @@ i_kernel_odroid_c1 () {
 
 i_kernel_odroid_xu4 () {
   curl -sSL http://deb.odroid.in/5422/pool/main/b/bootini/bootini_20151203-13_armhf.deb >/tmp/bootini_20151203-13_armhf.deb
-  curl -sSL http://deb.odroid.in/5422/pool/main/l/linux-headers-xu3/linux-headers-xu3_64-1_armhf.deb >/tmp/linux-headers-xu3_64-1_armhf.deb
   curl -sSL http://deb.odroid.in/umiddelb/linux-image-3.10.92-67_20151123_armhf.deb >/tmp/linux-image-3.10.92-67_20151123_armhf.deb
-  dpkg -i /tmp/bootini_20151203-13_armhf.deb /tmp/linux-headers-xu3_64-1_armhf.deb /tmp/linux-image-3.10.92-67_20151123_armhf.deb
-  rm -f /tmp/bootini_20151203-13_armhf.deb /tmp/linux-headers-xu3_64-1_armhf.deb /tmp/linux-image-3.10.92-67_20151123_armhf.deb
+  mkdir /media/boot
+  dpkg -i /tmp/bootini_20151203-13_armhf.deb /tmp/linux-image-3.10.92-67_20151123_armhf.deb
+  rm -f /tmp/bootini_20151203-13_armhf.deb /tmp/linux-image-3.10.92-67_20151123_armhf.deb
 }
 
 i_kernel_utilite_pro () {
@@ -100,6 +100,10 @@ c_ttyS () {
   echo "stop on runlevel [!12345]" >> /etc/init/${1}.conf
   echo "respawn" >> /etc/init/${1}.conf
   echo "exec /sbin/getty -L 115200 $1 vt102" >> /etc/init/${1}.conf
+}
+
+c_fw_utils () {
+  echo "$1" > /etc/fw_env.config
 }
 
 c_user () {

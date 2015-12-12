@@ -19,6 +19,7 @@ i_kernel_cubox_i
 c_if_lo
 c_if_dhcp "eth0"
 c_ttyS "ttymxc0"
+c_fw_utils "/dev/mmcblk0 0x60000 0x2000 0x2000"
 c_user "ubuntu"
 
 apt-get clean

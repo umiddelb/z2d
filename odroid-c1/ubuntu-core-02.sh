@@ -19,6 +19,7 @@ i_kernel_odroid_c1
 c_if_lo
 c_if_dhcp "eth0"
 c_ttyS "ttyS0"
+c_fw_utils "/dev/mmcblk0 0x80000 0x8000"
 c_user "ubuntu"
 
 apt-get clean
