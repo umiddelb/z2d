@@ -36,10 +36,18 @@ c_apt_list () {
 }
 
 c_apt_list_debian () {
-  echo "deb http://ftp.debian.org/debian ${1} main contrib non-free" > etc/apt/sources.list
-  echo "deb http://ftp.debian.org/debian ${1}-updates main contrib non-free" >> etc/apt/sources.list
-  echo "deb http://ftp.debian.org/debian ${1}-backports main contrib non-free" >> etc/apt/sources.list
-  echo "deb http://security.debian.org/ ${1}/updates main contrib non-free" >> etc/apt/sources.list
+  echo "deb http://ftp.debian.org/debian/ ${1} main contrib non-free" > /etc/apt/sources.list
+  echo "deb http://ftp.debian.org/debian/ ${1}-updates main contrib non-free" >> /etc/apt/sources.list
+  echo "deb http://ftp.debian.org/debian/ ${1}-backports main contrib non-free" >> /etc/apt/sources.list
+  echo "deb http://security.debian.org/ ${1}/updates main contrib non-free" >> /etc/apt/sources.list
+
+  echo "APT::Default-Release \"${1}\";" > /etc/apt/apt.conf.d/99defaultrelease
+
+  echo "deb http://ftp.debian.org/debian/ stable main contrib non-free" > /etc/apt/sources.list.d/stable.list
+  echo "deb http://security.debian.org/ stable/updates main contrib non-free" >> /etc/apt/sources.list.d/stable.list
+
+  echo "deb http://ftp.debian.org/debian/ testing main contrib non-free" > /etc/apt/sources.list.d/testing.list
+  echo "deb http://security.debian.org/ testing/updates main contrib non-free" >> /etc/apt/sources.list.d/testing.list
 }
 
 c_nameserver () {
@@ -70,6 +78,13 @@ i_gcc () {
   add-apt-repository -y ppa:ubuntu-toolchain-r/test
   apt-get -q=2 -y update
   apt-get -y install gcc-5 g++-5
+  update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-5 50
+  update-alternatives --install /usr/bin/g++ g++ /usr/bin/g++-5 50
+}
+
+i_gcc_debian () {
+  apt-get -q=2 -y update
+  apt-get -q=2 -y -t testing install gcc-5 g++-5
   update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-5 50
   update-alternatives --install /usr/bin/g++ g++ /usr/bin/g++-5 50
 }
