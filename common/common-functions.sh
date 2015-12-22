@@ -5,8 +5,17 @@ c_locale () {
   locale-gen de_DE.UTF-8
   export LC_ALL="$1"
   update-locale LC_ALL="$1" LANG="$1" LC_MESSAGES=POSIX
-  dpkg-reconfigure locales
+  dpkg-reconfigure -f noninteractive locales
 }
+
+c_locale_debian () {
+  echo "$1 UTF-8" > /etc/locale.gen
+  echo "de_DE.UTF-8 UTF-8" >> /etc/locale.gen
+  locale-gen
+  debconf-set-selections <<< "locales locales/default_environment_locale select $1"
+  dpkg-reconfigure -f noninteractive locales
+}
+
 
 c_tzone () {
   echo "$1" > /etc/timezone
@@ -26,6 +35,13 @@ c_apt_list () {
   echo "deb http://ports.ubuntu.com/ ${1}-backports main restricted universe multiverse" >> /etc/apt/sources.list
 }
 
+c_apt_list_debian () {
+  echo "deb http://ftp.debian.org/debian ${1} main contrib non-free" > etc/apt/sources.list
+  echo "deb http://ftp.debian.org/debian ${1}-updates main contrib non-free" >> etc/apt/sources.list
+  echo "deb http://ftp.debian.org/debian ${1}-backports main contrib non-free" >> etc/apt/sources.list
+  echo "deb http://security.debian.org/ ${1}/updates main contrib non-free" >> etc/apt/sources.list
+}
+
 c_nameserver () {
   echo "nameserver $1" > /etc/resolv.conf
 }
@@ -37,11 +53,16 @@ r_pkg_upgrade () {
 }
 
 i_base () {
-  apt-get -q=2 -y install software-properties-common u-boot-tools isc-dhcp-client ubuntu-minimal ssh
+  apt-get -q=2 -y install software-properties-common curl u-boot-tools isc-dhcp-client ubuntu-minimal ssh linux-firmware linux-firmware-nonfree
+}
+
+i_base_debian () {
+  apt-get -q=2 -y install curl u-boot-tools sudo openssh-server ntpdate ntp usbutils pciutils less lsof most sysfsutils ntfs-3g exfat-utils exfat-fuse firmware-linux
+
 }
 
 i_extra () {
-  apt-get -q=2 -y install cifs-utils screen wireless-tools iw curl libncurses5-dev cpufrequtils rcs aptitude make bc lzop man-db ntp usbutils pciutils lsof most sysfsutils linux-firmware linux-firmware-nonfree
+  apt-get -q=2 -y install screen wireless-tools iw libncurses5-dev cpufrequtils rcs aptitude make bc lzop man-db ntp usbutils pciutils lsof most sysfsutils
 }
 
 i_gcc () {
@@ -100,6 +121,10 @@ c_ttyS () {
   echo "stop on runlevel [!12345]" >> /etc/init/${1}.conf
   echo "respawn" >> /etc/init/${1}.conf
   echo "exec /sbin/getty -L 115200 $1 vt102" >> /etc/init/${1}.conf
+}
+
+c_ttyS_debian () {
+  echo T0:2345:respawn:/sbin/getty -L $1 115200 vt100 >> etc/inittab
 }
 
 c_fw_utils () {
