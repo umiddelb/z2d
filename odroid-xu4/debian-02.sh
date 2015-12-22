@@ -5,7 +5,7 @@ debootstrap/debootstrap --second-stage
 
 c_locale_debian "en_GB.UTF-8"
 c_tzone "Europe/Berlin"
-c_hostname "cbxi"
+c_hostname "xu4"
 c_apt_list_debian "jessie"
 c_nameserver "8.8.8.8"
 
@@ -17,12 +17,12 @@ r_pkg_upgrade
 i_base_debian
 i_extra
 i_gcc_debian
-i_kernel_cubox_i
+i_kernel_odroid_xu4
 
 c_if_lo
 c_if_dhcp "eth0"
-c_ttyS_debian "ttymxc0"
-c_fw_utils "/dev/mmcblk0 0x60000 0x2000 0x2000"
+c_ttyS_debian "ttySAC2"
+c_fw_utils "/dev/mmcblk0 0x99E00 0x4000"
 c_user "debian"
 
 apt-get clean

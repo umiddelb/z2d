@@ -16,7 +16,8 @@ sudo LC_ALL=C LANGUAGE=C LANG=C chroot ./rootfs bash /debian-02.sh
 sudo rm ./rootfs/debian-02.sh
 sudo rm ./rootfs/common-functions.sh
 
-#sudo umount ./rootfs/dev/pts
-#sudo umount ./rootfs/sys
-#sudo umount -l ./rootfs/dev
-#sudo umount -l ./rootfs/proc
+sudo umount ./rootfs/dev/pts
+sudo umount ./rootfs/sys
+sudo umount -l ./rootfs/dev
+sudo umount -l ./rootfs/proc
+sudo umount ./rootfs
