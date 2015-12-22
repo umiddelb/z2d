@@ -17,7 +17,7 @@ r_pkg_upgrade
 i_base_debian
 i_extra
 #i_gcc
-#i_kernel_cubox_i
+i_kernel_cubox_i
 
 c_if_lo
 c_if_dhcp "eth0"

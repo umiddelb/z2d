@@ -57,7 +57,7 @@ i_base () {
 }
 
 i_base_debian () {
-  apt-get -q=2 -y install curl u-boot-tools sudo openssh-server ntpdate ntp usbutils pciutils less lsof most sysfsutils ntfs-3g exfat-utils exfat-fuse firmware-linux
+  apt-get -q=2 -y install curl xz-utils u-boot-tools sudo openssh-server ntpdate ntp usbutils pciutils less lsof most sysfsutils ntfs-3g exfat-utils exfat-fuse firmware-linux
 
 }
 
@@ -92,18 +92,11 @@ i_kernel_odroid_xu4 () {
 }
 
 i_kernel_utilite_pro () {
-  curl -sSL https://github.com/umiddelb/z2d/raw/master/kernel/linux-3.14.51%2B-upro.tar.xz | unxz | tar --numeric-owner -xpf -
+  curl -sSL https://github.com/umiddelb/z2d/raw/master/kernel/linux-3.14.51%2B-upro.tar.xz | tar --numeric-owner -xJpf -
 }
 
 i_kernel_cubox_i () {
-  curl -sSL http://xilka.com/kernel/3/3.14/3.14.44/release/1/imx-3.14.44-Modules.tar.gz | tar --numeric-owner -xzpf -
-  curl -sSL http://xilka.com/kernel/3/3.14/3.14.44/release/1/imx-3.14.44-System.map > /boot/System.map
-  curl -sSL http://xilka.com/kernel/3/3.14/3.14.44/release/1/imx-3.14.44-zImage > /boot/zImage
-  curl -sSL http://xilka.com/kernel/3/3.14/3.14.44/release/1/imx-3.14.44.config > /boot/config
-  curl -sSL http://xilka.com/kernel/3/3.14/3.14.44/release/1/imx6dl-cubox-i-3.14.44.dtb > /boot/imx6dl-cubox-i.dtb
-  curl -sSL http://xilka.com/kernel/3/3.14/3.14.44/release/1/imx6dl-hummingboard-3.14.44.dtb > /boot/imx6dl-hummingboard.dtb
-  curl -sSL http://xilka.com/kernel/3/3.14/3.14.44/release/1/imx6q-cubox-i-3.14.44.dtb > /boot/imx6q-cubox-i.dtb
-  curl -sSL http://xilka.com/kernel/3/3.14/3.14.44/release/1/imx6q-hummingboard-3.14.44.dtb > /boot/imx6q-hummingboard.dtb 
+  curl -sSL https://github.com/umiddelb/z2d/raw/master/kernel/linux-4.4.0%2C3.14.51%2B-cbxi.tar.xz | tar --numeric-owner -xJpf -
 }
 
 c_if_lo () {
