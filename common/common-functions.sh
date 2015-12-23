@@ -99,11 +99,12 @@ i_kernel_odroid_c1 () {
 }
 
 i_kernel_odroid_xu4 () {
-  curl -sSL http://deb.odroid.in/5422/pool/main/b/bootini/bootini_20151203-13_armhf.deb >/tmp/bootini_20151203-13_armhf.deb
+  apt-get -q=2 -y install initramfs-tools
+  curl -sSL http://deb.odroid.in/5422/pool/main/b/bootini/bootini_20151220-14_armhf.deb >/tmp/bootini.deb
   curl -sSL http://deb.odroid.in/umiddelb/linux-image-3.10.92-67_20151123_armhf.deb >/tmp/linux-image-3.10.92-67_20151123_armhf.deb
   mkdir /media/boot
-  dpkg -i /tmp/bootini_20151203-13_armhf.deb /tmp/linux-image-3.10.92-67_20151123_armhf.deb
-  rm -f /tmp/bootini_20151203-13_armhf.deb /tmp/linux-image-3.10.92-67_20151123_armhf.deb
+  dpkg -i /tmp/bootini.deb /tmp/linux-image-3.10.92-67_20151123_armhf.deb
+  rm -f /tmp/bootini.deb /tmp/linux-image-3.10.92-67_20151123_armhf.deb
 }
 
 i_kernel_utilite_pro () {
