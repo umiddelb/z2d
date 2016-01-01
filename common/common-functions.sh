@@ -90,12 +90,14 @@ i_gcc_debian () {
 }
 
 i_kernel_odroid_c1 () {
+  apt-get -q=2 -y install initramfs-tools
   apt-key adv --keyserver keyserver.ubuntu.com --recv-keys AB19BAC9
   echo "deb http://deb.odroid.in/c1/ trusty main" > /etc/apt/sources.list.d/odroid.list
   echo "deb http://deb.odroid.in/ trusty main" >> /etc/apt/sources.list.d/odroid.list
   apt-get -q=2 update
   mkdir -p /media/boot
   apt-get -q=2 -y install linux-image-c1 bootini
+  sudo cp /boot/uImage* /media/boot/uImage
 }
 
 i_kernel_odroid_xu4 () {
