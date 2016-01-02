@@ -1,7 +1,9 @@
 #!/bin/sh
 
 sudo apt-get install qemu qemu-user-static binfmt-support debootstrap
-sudo echo ':qemu-arm64:M::\x7fELF\x02\x01\x01\x00\x00\x00\x00\x00\x00\x00\x00\x00\x02\x00\xb7:\xff\xff\xff\xff\xff\xff\xff\x00\xff\xff\xff\xff\xff\xff\xff\xff\xfe\xff\xff:/qemu-arm64:OC' > /etc/binfmt.d/qemu-arm64.conf
+
+echo ':qemu-arm64:M::\x7fELF\x02\x01\x01\x00\x00\x00\x00\x00\x00\x00\x00\x00\x02\x00\xb7:\xff\xff\xff\xff\xff\xff\xff\x00\xff\xff\xff\xff\xff\xff\xff\xff\xfe\xff\xff:/qemu-arm64:OC' | sudo dd of=/etc/binfmt.d/qemu-arm64.conf
+
 sudo service systemd-binfmt restart
 
 sudo debootstrap --foreign --include=vim,dialog,apt --variant=minbase --arch=arm64 trusty rootfs http://ports.ubuntu.com/
