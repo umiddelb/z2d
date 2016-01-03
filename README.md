@@ -17,4 +17,4 @@ on your ARMv7 device within less then five minutes. Each subdirectory has this c
 
 Please choose the correct device (e.g. SD card reader) to be taken in `ubuntu-core-00.sh` / `debian-00.sh`.
 
-You can find a step by step description [here](http://forum.odroid.com/viewtopic.php?p=91036#p91036)
+You can find a step by step description [here](http://forum.odroid.com/viewtopic.php?p=91036#p91036).
