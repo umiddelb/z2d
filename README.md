@@ -3,11 +3,13 @@
 This repo contains a collection of scripts helping you to set up Ubuntu Core 14.04.3 / Debian 8 Jessie and Docker 
 on your ARMv7 device within less then five minutes. Each subdirectory has this collection of scripts: 
 
+## Ubuntu
 - ubuntu-core-00.sh: set up u-boot, partition & format the boot device, do the correct mounts
 - ubuntu-core-01.sh: unpacks the Ubuntu Core userland, prepare and jump into the chroot environment
 - ubuntu-core-02.sh: (invoked by ubuntu-core-01.sh) customize the userland, install gcc-5, install the kernel image
 - ubuntu-docker-00.sh: setup docker in the newly booted environment (doesn't work in chroot)
 
+## Debian
 - debian-00.sh: set up u-boot, partition & format the boot device, do the correct mounts
 - debian-01.sh: debootstraps the Debian userland, prepare and jump into the chroot environment
 - debian-02.sh: (invoked by ubuntu-core-01.sh) customize the userland, install gcc-5, install the kernel image
