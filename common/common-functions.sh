@@ -100,6 +100,16 @@ i_kernel_odroid_c1 () {
   sudo cp /boot/uImage* /media/boot/uImage
 }
 
+i_kernel_odroid_c2 () {
+  apt-get -q=2 -y install initramfs-tools
+  apt-key adv --keyserver keyserver.ubuntu.com --recv-keys AB19BAC9
+  echo "deb http://deb.odroid.in/c2/ xenial main" > /etc/apt/sources.list.d/odroid.list
+  apt-get -q=2 update
+  mkdir -p /media/boot
+  apt-get -q=2 -y install linux-image-c2 bootini
+  sudo cp /boot/Image* /media/boot/uImage
+}
+
 i_kernel_odroid_xu4 () {
   apt-get -q=2 -y install initramfs-tools
   curl -sSL http://deb.odroid.in/5422/pool/main/b/bootini/bootini_20151220-14_armhf.deb >/tmp/bootini.deb
