@@ -19,7 +19,7 @@ sudo cp ubuntu-02.sh ./rootfs
 sudo cp common-functions.sh ./rootfs
 sudo cp ubuntu-docker-00.sh ./rootfs
 
-sudo chroot ./rootfs sh /ubuntu-02.sh
+sudo chroot ./rootfs bash /ubuntu-02.sh
 sudo rm ./rootfs/ubuntu-02.sh
 sudo rm ./rootfs/common-functions.sh
 
