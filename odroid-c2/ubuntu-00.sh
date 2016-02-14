@@ -3,13 +3,9 @@
 dev=mmcblk1
 curl -sSL http://dn.odroid.com/S905/BootLoader/ODROID-C2/c2_bootloader.tar.gz | tar -C /tmp -xzvf -
 
-sudo dd if=$BL1 of=$1 conv=fsync bs=1 count=442
-sudo dd if=$BL1 of=$1 conv=fsync bs=512 skip=1 seek=1
-sudo dd if=$UBOOT of=$1 conv=fsync bs=512 seek=97
-
-sudo dd if=/tmp/c2_bootloader/bl1.bin.hardkernel of=/dev/$dev bs=1 count=442
-sudo dd if=/tmp/c2_bootloader/bl1.bin.hardkernel of=/dev/$dev bs=512 skip=1 seek=1
-sudo dd if=/tmp/c2_bootloader/u-boot.bin of=/dev/$dev bs=512 seek=97
+sudo dd if=/tmp/c2_bootloader/bl1.bin.hardkernel of=/dev/$dev conv=fsync bs=1 count=442
+sudo dd if=/tmp/c2_bootloader/bl1.bin.hardkernel of=/dev/$dev conv=fsync bs=512 skip=1 seek=1
+sudo dd if=/tmp/c2_bootloader/u-boot.bin of=/dev/$dev conv=fsync bs=512 seek=97
 
 rm -rf /tmp/c2_bootloader/
 sync
