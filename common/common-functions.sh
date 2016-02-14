@@ -102,6 +102,11 @@ i_kernel_odroid_c1 () {
 
 i_kernel_odroid_c2 () {
   apt-get -q=2 -y install initramfs-tools
+  echo "#!/bin/sh" > /etc/initramfs-tools/hooks/e2fsck.sh
+  echo ". /usr/share/initramfs-tools/hook-functions" >> /etc/initramfs-tools/hooks/e2fsck.sh
+  echo "copy_exec /sbin/e2fsck /sbin" >> /etc/initramfs-tools/hooks/e2fsck.sh
+  echo "copy_exec /sbin/fsck.ext4 /sbin" >> /etc/initramfs-tools/hooks/e2fsck.sh
+  chmod +x /etc/initramfs-tools/hooks/e2fsck.sh
   apt-key adv --keyserver keyserver.ubuntu.com --recv-keys AB19BAC9
   echo "deb http://deb.odroid.in/c2/ xenial main" > /etc/apt/sources.list.d/odroid.list
   apt-get -q=2 update
