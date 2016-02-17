@@ -1,4 +1,5 @@
 #!/bin/sh
+set -ex
 . ./common-functions.sh
 
 debootstrap/debootstrap --second-stage
@@ -12,9 +13,6 @@ c_nameserver "8.8.8.8"
 dpkg-divert --local --rename --add /sbin/initctl; ln -s /bin/true /sbin/initctl
 export DEBIAN_FRONTEND=noninteractive
 
-echo 'APT::Cache-Limit "500000000";' >> /etc/apt/apt.conf.d/70debconf
-echo 'APT::Cache-Start "100000000";' >> /etc/apt/apt.conf.d/70debconf
-
 r_pkg_upgrade
 i_base_debian
 
@@ -27,6 +25,7 @@ i_gcc_debian
 
 c_if_lo
 c_if_dhcp "eth0"
+c_ttyS_debian "ttyS0"
 c_user "debian"
 
 apt-get clean
