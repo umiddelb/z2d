@@ -12,11 +12,11 @@ root filesystem for your 64bit ARMv8 device (aarch64 platform):
 You need a working qemu environment with aarch64 support (e.g. Debian Jessie) to run the scripts on an non-aarch64 device. Due to the emulation, the scripts will take some time to complete. 
 
 You can find a prebuild root filesystem here:
- - [trusty-arm64.tar.xz](https://www.dropbox.com/s/ctlgs3qnumfdnnf/trusty-arm64.tar.xz?dl=0), user: ubuntu, password: 111111
+ - [trusty-pine64.tar.xz](https://www.dropbox.com/s/30h2jcejynco7d0/trusty_pine64.tar.xz?dl=0), user: ubuntu, password: 111111
  - [jessie_pine64.tar.xz](https://www.dropbox.com/s/zwfhz30nbvo4lyp/jessie_pine64.tar.xz?dl=0), user: debian, password: 111111
 
 You can extract the tar archive with:
- - Ubuntu: `curl -sSL 'https://www.dropbox.com/s/ctlgs3qnumfdnnf/trusty-arm64.tar.xz?dl=0' | sudo tar --numeric-owner -xpJf -`
+ - Ubuntu: `curl -sSL 'https://www.dropbox.com/s/30h2jcejynco7d0/trusty_pine64.tar.xz?dl=0' | sudo tar --numeric-owner -xpJf -`
  - Debian: `curl -sSL 'https://www.dropbox.com/s/zwfhz30nbvo4lyp/jessie_pine64.tar.xz?dl=0' | sudo tar --numeric-owner -xpJf -`
  
 # Install procedure
@@ -50,10 +50,14 @@ The second partiton needs to be enlarged in order to consume the entire SD card 
     sudo mkdir /mnt/boot
     sudo mount /dev/<device_node_of_the_uSD_card>1 /mnt/boot
 
-## Step 5: Extract the Debian Jessie root filesystem (containing a 3.10.65+ Linux kernel)
+## Step 5a: Extract the Debian Jessie root filesystem (containing a 3.10.65+ Linux kernel)
 
     curl -sSL 'https://www.dropbox.com/s/zwfhz30nbvo4lyp/jessie_pine64.tar.xz?dl=0' | sudo tar --numeric-owner -C /mnt -xpJf -
     
+## Step 5b: Extract the Ubuntu Trusty root filesystem (containing a 3.10.65+ Linux kernel)
+
+    curl -sSL 'https://www.dropbox.com/s/30h2jcejynco7d0/trusty_pine64.tar.xz?dl=0 | sudo tar --numeric-owner -C /mnt -xpJf -
+
 ## Step 6: Unmount boot and rootfs partition
 
     sudo umount /mnt/boot; sudo umount /mnt;
