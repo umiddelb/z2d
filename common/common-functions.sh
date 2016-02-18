@@ -125,11 +125,15 @@ i_kernel_odroid_xu4 () {
 }
 
 i_kernel_utilite_pro () {
-  curl -sSL https://github.com/umiddelb/z2d/raw/master/kernel/linux-3.14.51%2B-upro.tar.xz | tar --numeric-owner -xJpf -
+  curl -sSL https://github.com/umiddelb/z2d/blob/master/kernel/linux-3.14.51+-upro.tar.xz?raw=true | tar --numeric-owner -xJpf -
 }
 
 i_kernel_cubox_i () {
-  curl -sSL https://github.com/umiddelb/z2d/raw/master/kernel/linux-4.4.0%2C3.14.51%2B-cbxi.tar.xz | tar --numeric-owner -xJpf -
+  curl -sSL https://github.com/umiddelb/z2d/blob/master/kernel/linux-4.4.0,3.14.51+-cbxi.tar.xz?raw=true | tar --numeric-owner -xJpf -
+}
+
+i_kernel_pine64 () {
+  curl -sSL https://github.com/umiddelb/z2d/blob/master/kernel/linux-3.10.65+-p64.tar.xz?raw=true | tar --numeric-owner -xJpf -
 }
 
 c_if_lo () {
