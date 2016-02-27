@@ -58,7 +58,11 @@ The second partiton needs to be enlarged in order to consume the entire SD card 
 
     curl -sSL 'https://www.dropbox.com/s/30h2jcejynco7d0/trusty_pine64.tar.xz?dl=0' | sudo tar --numeric-owner -C /mnt -xpJf -
 
-## Step 6: Unmount boot and rootfs partition
+## Step 6: Update to the latest 3.10.65+ Linux kernel
+
+    curl -sSL 'https://github.com/umiddelb/z2d/blob/master/kernel/linux-3.10.65+-p64.tar.xz?raw=true' | sudo tar --numeric-owner -C /mnt -xpJf -
+
+## Step 7: Unmount boot and rootfs partition
 
     sudo umount /mnt/boot; sudo umount /mnt;
     sync; sync
