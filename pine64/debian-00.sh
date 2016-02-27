@@ -1,7 +1,7 @@
 #!/bin/sh
 set -ex
 
-dev=sdc
+dev=sdb
 curl -sSL https://www.stdin.xyz/downloads/people/longsleep/tmp/pine64-images/simpleimage-pine64-20160221-4.img.xz | unxz | sudo dd of=/dev/$dev
 sync
 /bin/echo -e "d\n2\nn\np\n2\n143360\n\nw\n" | sudo fdisk /dev/$dev
