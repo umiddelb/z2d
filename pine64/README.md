@@ -56,7 +56,7 @@ The second partiton needs to be enlarged in order to consume the entire SD card 
     
 ## Step 5b: Extract the Ubuntu Trusty root filesystem (containing a 3.10.65+ Linux kernel)
 
-    curl -sSL 'https://www.dropbox.com/s/30h2jcejynco7d0/trusty_pine64.tar.xz?dl=0 | sudo tar --numeric-owner -C /mnt -xpJf -
+    curl -sSL 'https://www.dropbox.com/s/30h2jcejynco7d0/trusty_pine64.tar.xz?dl=0' | sudo tar --numeric-owner -C /mnt -xpJf -
 
 ## Step 6: Unmount boot and rootfs partition
 
