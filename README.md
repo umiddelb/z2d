@@ -1,7 +1,7 @@
 # Zero to Docker with Ubuntu Core or Debian within 5 minutes
 
 This repo contains a collection of scripts helping you to set up Ubuntu Core 14.04.3 / Debian 8 Jessie and Docker 
-on your ARMv7 device within less then five minutes. Each subdirectory has this collection of scripts: 
+on your ARMv7 device within less than five minutes. Each subdirectory has this collection of scripts: 
 
 ## Ubuntu Core
 - ubuntu-core-00.sh: set up u-boot, partition & format the boot device, do the correct mounts
