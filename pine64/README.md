@@ -66,3 +66,14 @@ The second partiton needs to be enlarged in order to consume the entire SD card 
 
     sudo umount /mnt/boot; sudo umount /mnt;
     sync; sync
+
+## Step 8: Enable automated loading of the `mali.ko` kernel module (after booting)
+The `mali.ko` kernel module needs to be included into the list of available kernel modules for automated loading. This can be done by executing
+
+    sudo depmod
+    
+after you have booted into new environment. Then this module can be activated by
+
+    sudo modprobe mali
+
+or by just rebooting.
