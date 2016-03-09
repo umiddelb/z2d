@@ -25,11 +25,11 @@ In order to get a complete image for your ARMv8 board, you need to add a kernel 
 
 ## Step 0: Boot loader
 
-Thanks to @longsleep there is an [up-to-date u-boot bootloader](https://github.com/longsleep/u-boot-pine64/tree/pine64-hacks) available for PINE64. This version is able to load its configuration and image files from ordinary plain files instead of Android/Nand partitions. @longsleep also published a [minimal image](https://www.stdin.xyz/downloads/people/longsleep/tmp/pine64-images/OLD/simpleimage-pine64-20160304-1.img.xz) containing the boot loader binaries and two partitions. The first partiton (vfat) contains the u-boot environment and the image of a 4.5 Linux kernel. The second partiton (ext4) is only a placeholder. The u-boot default configuration will load the kernel image from the first partition and passes the second partition as rootfs to the Linux kernel.
+Thanks to @longsleep there is an [up-to-date u-boot bootloader](https://github.com/longsleep/u-boot-pine64/tree/pine64-hacks) available for PINE64. This version is able to load its configuration and image files from ordinary plain files instead of Android/Nand partitions. @longsleep also published a [minimal image](https://www.stdin.xyz/downloads/people/longsleep/pine64-images/simpleimage-pine64-latest.img.xz) containing the boot loader binaries and two partitions. The first partiton (vfat) contains the u-boot environment and the image of a 4.5 Linux kernel. The second partiton (ext4) is only a placeholder. The u-boot default configuration will load the kernel image from the first partition and passes the second partition as rootfs to the Linux kernel.
 
 The first step is to initialize the uSD card with this minimal image:
 
-    curl -sSL https://www.stdin.xyz/downloads/people/longsleep/tmp/pine64-images/OLD/simpleimage-pine64-20160304-1.img.xz | unxz | sudo dd of=/dev/<device_node_of_the_uSD_card> bs=1M
+    curl -sSL https://www.stdin.xyz/downloads/people/longsleep/pine64-images/simpleimage-pine64-latest.img.xz | unxz | sudo dd of=/dev/<device_node_of_the_uSD_card> bs=1M
 
 ## Step 1: Expand the rootfs partiton
 
