@@ -16,5 +16,5 @@ rmdir /tmp/u-boot
 sync
 /bin/echo -e "o\nn\np\n1\n3072\n\nw\n" | sudo fdisk /dev/$dev
 sync
-sudo mkfs.ext4 -O ^has_journal -b 4096 -L rootfs -U e139ce78-9841-40fe-8823-96a304a09859 /dev/${dev}1 
+sudo mkfs.ext4 -O ^has_journal -b 4096 -L rootfs -U deadbeef-dead-beef-dead-beefdeadbeef /dev/${dev}1 
 sudo mount /dev/${dev}1 ./rootfs
