@@ -107,11 +107,13 @@ i_kernel_odroid_c1 () {
 
 i_kernel_odroid_c2 () {
   apt-get -q=2 -y install initramfs-tools
+# <HK quirk>
   echo "#!/bin/sh" > /etc/initramfs-tools/hooks/e2fsck.sh
   echo ". /usr/share/initramfs-tools/hook-functions" >> /etc/initramfs-tools/hooks/e2fsck.sh
   echo "copy_exec /sbin/e2fsck /sbin" >> /etc/initramfs-tools/hooks/e2fsck.sh
   echo "copy_exec /sbin/fsck.ext4 /sbin" >> /etc/initramfs-tools/hooks/e2fsck.sh
   chmod +x /etc/initramfs-tools/hooks/e2fsck.sh
+# </HK quirk>
   apt-key adv --keyserver keyserver.ubuntu.com --recv-keys AB19BAC9
   echo "deb http://deb.odroid.in/c2/ xenial main" > /etc/apt/sources.list.d/odroid.list
   apt-get -q=2 update
@@ -127,19 +129,28 @@ i_kernel_odroid_c2 () {
 
 i_kernel_odroid_xu4 () {
   apt-get -q=2 -y install initramfs-tools
+# <HK quirk>
+  echo "#!/bin/sh" > /etc/initramfs-tools/hooks/e2fsck.sh
+  echo ". /usr/share/initramfs-tools/hook-functions" >> /etc/initramfs-tools/hooks/e2fsck.sh
+  echo "copy_exec /sbin/e2fsck /sbin" >> /etc/initramfs-tools/hooks/e2fsck.sh
+  echo "copy_exec /sbin/fsck.ext4 /sbin" >> /etc/initramfs-tools/hooks/e2fsck.sh
+  chmod +x /etc/initramfs-tools/hooks/e2fsck.sh
+# </HK quirk>
   apt-key adv --keyserver keyserver.ubuntu.com --recv-keys AB19BAC9
   echo "deb http://deb.odroid.in/5422/ wily main" > /etc/apt/sources.list.d/odroid.list
   echo "deb http://deb.odroid.in/ wily main" >> /etc/apt/sources.list.d/odroid.list
   apt-get -q=2 update
   mkdir -p /media/boot
   apt-get -q=2 -y install linux-image-xu3 bootini
-  sudo cp /boot/uImage* /media/boot/uImage
+# <HK quirk>
+  sudo cp /media/boot/zImage /boot
+# </HK quirk>
+# U-571
   mkdir -p /boot/conf.d/system.default
   curl -sSL https://raw.githubusercontent.com/umiddelb/u-571/master/board/odroid_xu4/uEnv.txt > /boot/conf.d/system.default/uEnv.txt
   (cd /boot/conf.d/ ; ln -s system.default default)
   unitrd=`apt-cache depends linux-image-xu3 | grep Depends: | cut -f 4 -d ' ' | sed -e s/linux-image/uInitrd/`
   (cd /boot/conf.d/system.default; ln -s ../../ kernel; ln -s kernel/${unitrd} uInitrd)
-
 }
 
 i_kernel_odroid_xu4_old () {
