@@ -119,7 +119,7 @@ i_kernel_odroid_c2 () {
   apt-get -q=2 update
   mkdir -p /media/boot
   apt-get -q=2 -y install linux-image-c2 bootini
-  sudo cp /boot/Image* /media/boot/Image
+# U-571
   mkdir -p /boot/conf.d/system.default
   curl -sSL https://raw.githubusercontent.com/umiddelb/u-571/master/board/odroid_c2/uEnv.txt > /boot/conf.d/system.default/uEnv.txt
   (cd /boot/conf.d/ ; ln -s system.default default)
