@@ -91,18 +91,30 @@ i_gcc_debian () {
 
 i_kernel_odroid_c1 () {
   apt-get -q=2 -y install initramfs-tools
+# <HK quirk>
+  echo "#!/bin/sh" > /etc/initramfs-tools/hooks/e2fsck.sh
+  echo ". /usr/share/initramfs-tools/hook-functions" >> /etc/initramfs-tools/hooks/e2fsck.sh
+  echo "copy_exec /sbin/e2fsck /sbin" >> /etc/initramfs-tools/hooks/e2fsck.sh
+  echo "copy_exec /sbin/fsck.ext4 /sbin" >> /etc/initramfs-tools/hooks/e2fsck.sh
+  chmod +x /etc/initramfs-tools/hooks/e2fsck.sh
+# </HK quirk>
   apt-key adv --keyserver keyserver.ubuntu.com --recv-keys AB19BAC9
   echo "deb http://deb.odroid.in/c1/ trusty main" > /etc/apt/sources.list.d/odroid.list
   echo "deb http://deb.odroid.in/ trusty main" >> /etc/apt/sources.list.d/odroid.list
   apt-get -q=2 update
   mkdir -p /media/boot
   apt-get -q=2 -y install linux-image-c1 bootini
-  sudo cp /boot/uImage* /media/boot/uImage
+# <HK quirk>
+  cp /boot/uImage* /media/boot/uImage
+  uinitrd=`apt-cache depends linux-image-c1 | grep Depends: | cut -f 4 -d ' ' | sed -e s/linux-image/uInitrd/`
+  cp /boot/${uinitrd} /media/boot/uInitrd
+  cp /media/boot/uImage /media/boot/meson8b_odroidc.dtb /media/boot/uInitrd /boot
+# </HK quirk>
+# U-571
   mkdir -p /boot/conf.d/system.default
-  curl -sSL https://raw.githubusercontent.com/umiddelb/u-571/master/board/odroid_c1/uEnv.txt > /boot/conf.d/system.default/uEnv.txt
+  curl -sSL https://raw.githubusercontent.com/umiddelb/u-571/master/board/odroid-c1/uEnv.txt > /boot/conf.d/system.default/uEnv.txt
   (cd /boot/conf.d/ ; ln -s system.default default)
-  unitrd=`apt-cache depends linux-image-c1 | grep Depends: | cut -f 4 -d ' ' | sed -e s/linux-image/uInitrd/`
-  (cd /boot/conf.d/system.default; ln -s ../../ kernel; ln -s kernel/${unitrd} uInitrd)
+  (cd /boot/conf.d/system.default; ln -s ../../ kernel)
 }
 
 i_kernel_odroid_c2 () {
@@ -121,7 +133,7 @@ i_kernel_odroid_c2 () {
   apt-get -q=2 -y install linux-image-c2 bootini
 # U-571
   mkdir -p /boot/conf.d/system.default
-  curl -sSL https://raw.githubusercontent.com/umiddelb/u-571/master/board/odroid_c2/uEnv.txt > /boot/conf.d/system.default/uEnv.txt
+  curl -sSL https://raw.githubusercontent.com/umiddelb/u-571/master/board/odroid-c2/uEnv.txt > /boot/conf.d/system.default/uEnv.txt
   (cd /boot/conf.d/ ; ln -s system.default default)
   unitrd=`apt-cache depends linux-image-c2 | grep Depends: | cut -f 4 -d ' ' | sed -e s/linux-image/uInitrd/`
   (cd /boot/conf.d/system.default; ln -s ../../ kernel; ln -s kernel/${unitrd} uInitrd)
@@ -147,7 +159,7 @@ i_kernel_odroid_xu4 () {
 # </HK quirk>
 # U-571
   mkdir -p /boot/conf.d/system.default
-  curl -sSL https://raw.githubusercontent.com/umiddelb/u-571/master/board/odroid_xu4/uEnv.txt > /boot/conf.d/system.default/uEnv.txt
+  curl -sSL https://raw.githubusercontent.com/umiddelb/u-571/master/board/odroid-xu4/uEnv.txt > /boot/conf.d/system.default/uEnv.txt
   (cd /boot/conf.d/ ; ln -s system.default default)
   unitrd=`apt-cache depends linux-image-xu3 | grep Depends: | cut -f 4 -d ' ' | sed -e s/linux-image/uInitrd/`
   (cd /boot/conf.d/system.default; ln -s ../../ kernel; ln -s kernel/${unitrd} uInitrd)
