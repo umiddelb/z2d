@@ -103,7 +103,7 @@ i_kernel_odroid_c1 () {
   echo "deb http://deb.odroid.in/ trusty main" >> /etc/apt/sources.list.d/odroid.list
   apt-get -q=2 update
   mkdir -p /media/boot
-  apt-get -q=2 -y install linux-image-c1 bootini
+  sudo -q=2 -y apt-get install linux-image-3.10.80-142 linux-headers-3.10.80-142 bootini
 # <HK quirk>
   cp /boot/uImage* /media/boot/uImage
   uinitrd=`apt-cache depends linux-image-c1 | grep Depends: | cut -f 4 -d ' ' | sed -e s/linux-image/uInitrd/`
