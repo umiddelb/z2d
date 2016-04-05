@@ -128,16 +128,11 @@ i_kernel_odroid_c2 () {
   apt-get -q=2 update
   mkdir -p /media/boot
   apt-get -q=2 -y install linux-image-c2 bootini
-# <HK quirk>
-  uinitrd=`apt-cache depends linux-image-c2 | grep Depends: | cut -f 4 -d ' ' | sed -e s/linux-image/uInitrd/`
-  cp /boot/${uinitrd} /media/boot/uInitrd
-  cp /media/boot/uInitrd /boot
-# </HK quirk>
 # U-571
   mkdir -p /boot/conf.d/system.default
   curl -sSL https://raw.githubusercontent.com/umiddelb/u-571/master/board/odroid-c2/uEnv.txt > /boot/conf.d/system.default/uEnv.txt
   (cd /boot/conf.d/ ; ln -s system.default default)
-  (cd /boot/conf.d/system.default; ln -s ../../ kernel)
+  (cd /boot/conf.d/system.default; ln -s /media/boot/ kernel)
 }
 
 i_kernel_odroid_xu4 () {
