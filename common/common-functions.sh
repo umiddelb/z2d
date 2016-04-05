@@ -106,15 +106,12 @@ i_kernel_odroid_c1 () {
   apt-get -q=2 -y install linux-image-3.10.80-142 linux-headers-3.10.80-142 bootini
 # <HK quirk>
   cp /boot/uImage* /media/boot/uImage
-  uinitrd=`apt-cache depends linux-image-c1 | grep Depends: | cut -f 4 -d ' ' | sed -e s/linux-image/uInitrd/`
-  cp /boot/${uinitrd} /media/boot/uInitrd
-  cp /media/boot/uImage /media/boot/meson8b_odroidc.dtb /media/boot/uInitrd /boot
 # </HK quirk>
 # U-571
   mkdir -p /boot/conf.d/system.default
   curl -sSL https://raw.githubusercontent.com/umiddelb/u-571/master/board/odroid-c1/uEnv.txt > /boot/conf.d/system.default/uEnv.txt
   (cd /boot/conf.d/ ; ln -s system.default default)
-  (cd /boot/conf.d/system.default; ln -s ../../ kernel)
+  (cd /boot/conf.d/system.default; ln -s /media/boot/ kernel)
 }
 
 i_kernel_odroid_c2 () {
