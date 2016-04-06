@@ -150,24 +150,11 @@ i_kernel_odroid_xu4 () {
   apt-get -q=2 update
   mkdir -p /media/boot
   apt-get -q=2 -y install linux-image-xu3 bootini
-# <HK quirk>
-  sudo cp /media/boot/zImage /boot
-# </HK quirk>
 # U-571
   mkdir -p /boot/conf.d/system.default
   curl -sSL https://raw.githubusercontent.com/umiddelb/u-571/master/board/odroid-xu4/uEnv.txt > /boot/conf.d/system.default/uEnv.txt
   (cd /boot/conf.d/ ; ln -s system.default default)
-  unitrd=`apt-cache depends linux-image-xu3 | grep Depends: | cut -f 4 -d ' ' | sed -e s/linux-image/uInitrd/`
-  (cd /boot/conf.d/system.default; ln -s ../../ kernel; ln -s kernel/${unitrd} uInitrd)
-}
-
-i_kernel_odroid_xu4_old () {
-  apt-get -q=2 -y install initramfs-tools
-  curl -sSL http://deb.odroid.in/5422/pool/main/b/bootini/bootini_20151220-14_armhf.deb >/tmp/bootini.deb
-  curl -sSL http://deb.odroid.in/umiddelb/linux-image-3.10.92-67_20151123_armhf.deb >/tmp/linux-image-3.10.92-67_20151123_armhf.deb
-  mkdir /media/boot
-  dpkg -i /tmp/bootini.deb /tmp/linux-image-3.10.92-67_20151123_armhf.deb
-  rm -f /tmp/bootini.deb /tmp/linux-image-3.10.92-67_20151123_armhf.deb
+  (cd /boot/conf.d/system.default; ln -s /media/boot/ kernel)
 }
 
 i_kernel_utilite_pro () {
