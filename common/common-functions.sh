@@ -166,7 +166,11 @@ i_kernel_cubox_i () {
 }
 
 i_kernel_pine64 () {
-  curl -sSL https://github.com/umiddelb/z2d/blob/master/kernel/linux-3.10.65+-p64.tar.xz?raw=true | tar --numeric-owner -xJpf -
+  curl -sSL https://www.stdin.xyz/downloads/people/longsleep/pine64-images/linux/linux-pine64-latest.tar.xz | sudo tar --numeric-owner -xJvf -
+  mkdir -p /boot/conf.d/system.default
+  curl -sSL https://raw.githubusercontent.com/umiddelb/u-571/master/board/pine64/uEnv.txt > /boot/conf.d/system.default/uEnv.txt
+  (cd /boot/conf.d/ ; ln -s system.default default)
+  (cd /boot/conf.d/system.default; ln -s /boot/pine64 kernel; ln -s /boot/initrd.img Initrd)
 }
 
 c_if_lo () {

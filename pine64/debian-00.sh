@@ -8,5 +8,6 @@ sync
 sync
 sudo mkfs.ext4 -O ^has_journal -b 4096 -L rootfs -U deadbeef-dead-beef-dead-beefdeadbeef /dev/${dev}2 
 sudo mount /dev/${dev}2 ./rootfs
-sudo mkdir ./rootfs/boot
-sudo mount /dev/${dev}1 ./rootfs/boot
+sudo mkdir ./rootfs/bootenv
+sudo mount /dev/${dev}1 ./rootfs/bootenv
+curl -sSL https://raw.githubusercontent.com/umiddelb/u-571/master/board/pine64/bundle.uEnv > ./rootfs/bootenv/bundle.uEnv
