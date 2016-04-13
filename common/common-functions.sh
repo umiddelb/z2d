@@ -50,6 +50,15 @@ c_apt_list_debian () {
   echo "deb http://security.debian.org/ testing/updates main contrib non-free" >> /etc/apt/sources.list.d/testing.list
 }
 
+c_yum_list_f24 () {
+  echo '[warning:fedora24]' >/etc/yum.repos.d/Fedora24Repo.repo
+  echo 'name=fedora' >>/etc/yum.repos.d/Fedora24Repo.repo
+  echo 'mirrorlist=http://mirrors.fedoraproject.org/mirrorlist?repo=fedora-24&arch=$basearch' >>/etc/yum.repos.d/Fedora24Repo.repo
+  echo 'enabled=0' >>/etc/yum.repos.d/Fedora24Repo.repo
+  echo 'gpgcheck=1' >>/etc/yum.repos.d/Fedora24Repo.repo
+  echo 'gpgkey=https://getfedora.org/static/030D5AED.txt' >>/etc/yum.repos.d/Fedora24Repo.repo
+}
+
 c_nameserver () {
   echo "nameserver $1" > /etc/resolv.conf
 }
@@ -134,6 +143,16 @@ i_kernel_odroid_c2 () {
   (cd /boot/conf.d/ ; ln -s system.default default)
   (cd /boot/conf.d/system.default; ln -s /media/boot/ kernel)
 }
+
+i_kernel_odroid_c2_31429 () {
+  curl -sSL https://www.dropbox.com/s/mh13gumm9xm2nb7/linux-3.14.29-c2.tar.xz?dl=0 | tar --numeric-owner -xhJpf -
+# U-571
+  mkdir -p /boot/conf.d/system.default
+  curl -sSL https://raw.githubusercontent.com/umiddelb/u-571/master/board/odroid-c2/uEnv.txt > /boot/conf.d/system.default/uEnv.txt
+  (cd /boot/conf.d/ ; ln -s system.default default)
+  (cd /boot/conf.d/system.default; ln -s ../../kernel.d/linux-*-c2 kernel)
+}
+
 
 i_kernel_odroid_xu4 () {
   apt-get -q=2 -y install initramfs-tools

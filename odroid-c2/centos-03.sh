@@ -1,0 +1,20 @@
+#!/bin/sh
+set -ex
+
+. ./common-functions.sh
+
+timedatectl set-timezone Europe/Berlin
+localectl set-locale LANG=en_GB.UTF-8
+hostnamectl set-hostname c2 --static
+hostnamectl set-hostname "ODROID-C2" --pretty
+
+yum update -y
+yum install -y bc bridge-utils docker dtc iw lzop rcs screen sysfsutils usbutils wget
+c_yum_list_f24
+yum install -y gcc most ntfs-3g uboot-tools --enablerepo=warning:fedora24
+yum clean all
+
+usermod -aG docker debian
+
+mv /etc/fw_env.config /etc/fw_env.config.rpmdefault
+c_fw_utils "/dev/mmcblk0 0xB4000 0x8000"
