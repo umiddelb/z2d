@@ -4,6 +4,7 @@ dev=mmcblk0
 
 /bin/echo -e "o\nn\np\n1\n3072\n\nw\n" | sudo fdisk /dev/$dev
 sync
+sudo partprobe -s
 
 mkdir /tmp/u-boot
 curl -sSL https://github.com/hardkernel/u-boot/raw/odroidxu3-v2012.07/sd_fuse/hardkernel/bl1.bin.hardkernel > /tmp/u-boot/bl1.bin.hardkernel
@@ -11,7 +12,6 @@ curl -sSL https://github.com/hardkernel/u-boot/raw/odroidxu3-v2012.07/sd_fuse/ha
 curl -sSL https://raw.githubusercontent.com/hardkernel/u-boot/odroidxu3-v2012.07/sd_fuse/hardkernel/sd_fusing.sh >/tmp/u-boot/sd_fusing.sh
 curl -sSL https://github.com/hardkernel/u-boot/raw/odroidxu3-v2012.07/sd_fuse/hardkernel/tzsw.bin.hardkernel > /tmp/u-boot/tzsw.bin.hardkernel
 curl -sSL https://github.com/hardkernel/u-boot/raw/odroidxu3-v2012.07/sd_fuse/hardkernel/u-boot.bin.hardkernel >/tmp/u-boot/u-boot.bin.hardkernel
- 
 (cd /tmp/u-boot/ ; sudo sh sd_fusing.sh /dev/$dev )
 rm -f /tmp/u-boot/bl1.bin.hardkernel /tmp/u-boot/bl2.bin.hardkernel /tmp/u-boot/sd_fusing.sh /tmp/u-boot/tzsw.bin.hardkernel /tmp/u-boot/u-boot.bin.hardkernel
 rmdir /tmp/u-boot
