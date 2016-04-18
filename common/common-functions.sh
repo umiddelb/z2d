@@ -50,7 +50,16 @@ c_apt_list_debian () {
   echo "deb http://security.debian.org/ testing/updates main contrib non-free" >> /etc/apt/sources.list.d/testing.list
 }
 
-c_yum_list_f23 () {
+c_yum_list_f23_prim () {
+  echo '[warning:fedora23]' >/etc/yum.repos.d/Fedora23Repo.repo
+  echo 'name=fedora' >>/etc/yum.repos.d/Fedora23Repo.repo
+  echo 'mirrorlist=http://mirrors.fedoraproject.org/mirrorlist?repo=fedora-23&arch=$basearch' >>/etc/yum.repos.d/Fedora23Repo.repo
+  echo 'enabled=0' >>/etc/yum.repos.d/Fedora23Repo.repo
+  echo 'gpgcheck=1' >>/etc/yum.repos.d/Fedora23Repo.repo
+  echo 'gpgkey=https://getfedora.org/static/34EC9CBA.txt' >>/etc/yum.repos.d/Fedora23Repo.repo
+}
+
+c_yum_list_f23_second () {
   echo '[warning:fedora23]' >/etc/yum.repos.d/Fedora23Repo.repo
   echo 'name=fedora' >>/etc/yum.repos.d/Fedora23Repo.repo
   echo 'mirrorlist=http://mirrors.fedoraproject.org/mirrorlist?repo=fedora-23&arch=$basearch' >>/etc/yum.repos.d/Fedora23Repo.repo
@@ -59,7 +68,16 @@ c_yum_list_f23 () {
   echo 'gpgkey=https://getfedora.org/static/873529B8.txt' >>/etc/yum.repos.d/Fedora23Repo.repo
 }
 
-c_yum_list_f24 () {
+c_yum_list_f24_prim () {
+  echo '[warning:fedora24]' >/etc/yum.repos.d/Fedora24Repo.repo
+  echo 'name=fedora' >>/etc/yum.repos.d/Fedora24Repo.repo
+  echo 'mirrorlist=http://mirrors.fedoraproject.org/mirrorlist?repo=fedora-24&arch=$basearch' >>/etc/yum.repos.d/Fedora24Repo.repo
+  echo 'enabled=0' >>/etc/yum.repos.d/Fedora24Repo.repo
+  echo 'gpgcheck=1' >>/etc/yum.repos.d/Fedora24Repo.repo
+  echo 'gpgkey=https://getfedora.org/static/81B46521.txt' >>/etc/yum.repos.d/Fedora24Repo.repo
+}
+
+c_yum_list_f24_second () {
   echo '[warning:fedora24]' >/etc/yum.repos.d/Fedora24Repo.repo
   echo 'name=fedora' >>/etc/yum.repos.d/Fedora24Repo.repo
   echo 'mirrorlist=http://mirrors.fedoraproject.org/mirrorlist?repo=fedora-24&arch=$basearch' >>/etc/yum.repos.d/Fedora24Repo.repo
@@ -185,8 +203,17 @@ i_kernel_odroid_xu4 () {
   (cd /boot/conf.d/system.default; ln -s /media/boot/ kernel)
 }
 
+i_kernel_odroid_xu3_31096 () {
+  curl -sSL https://www.dropbox.com/s/dq3txlc498i9c41/linux-3.10.96-xu3.tar.xz?dl=0 | tar --numeric-owner -xhJpf -
+# U-571
+  mkdir -p /boot/conf.d/system.default
+  curl -sSL https://raw.githubusercontent.com/umiddelb/u-571/master/board/odroid-xu4/uEnv.txt > /boot/conf.d/system.default/uEnv.txt
+  (cd /boot/conf.d/ ; ln -s system.default default)
+  (cd /boot/conf.d/system.default; ln -s ../../kernel.d/linux-*-xu3 kernel)
+}
+
 i_kernel_odroid_xu4_460 () {
-  curl -sSL https://www.dropbox.com/s/dsmyiz6n98gwdsx/linux-4.6.0-rc3%2B-xu4.tar.xz?dl=0 | tar --numeric-owner -xhJpf -
+  curl -sSL https://www.dropbox.com/s/hifgwt2sqkdqolp/linux-4.6.0-rc4%2B-xu4.tar.xz?dl=0 | tar --numeric-owner -xhJpf -
 # U-571
   mkdir -p /boot/conf.d/system.default
   curl -sSL https://raw.githubusercontent.com/umiddelb/u-571/master/board/odroid-xu4/uEnv.txt > /boot/conf.d/system.default/uEnv.txt
