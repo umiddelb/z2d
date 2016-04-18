@@ -25,7 +25,7 @@ In order to get a complete image for your ARMv8 board, you need to add a kernel 
 
 ## Step 0: Boot loader
 
-Thanks to @longsleep there is an [up-to-date u-boot bootloader](https://github.com/longsleep/u-boot-pine64/tree/pine64-hacks) available for PINE64. This version is able to load its configuration and image files from ordinary plain files instead of Android/Nand partitions. @longsleep also published a [minimal image](https://www.stdin.xyz/downloads/people/longsleep/pine64-images/simpleimage-pine64-latest.img.xz) containing the boot loader binaries and two partitions. The first partiton (vfat) contains the u-boot environment and the image of a 4.5 Linux kernel. The second partiton (ext4) is only a placeholder. The u-boot default configuration will load the kernel image from the first partition and passes the second partition as rootfs to the Linux kernel.
+Thanks to @longsleep there is an [up-to-date u-boot bootloader](https://github.com/longsleep/u-boot-pine64/tree/pine64-hacks) available for PINE64. This version is able to load its configuration and image files from ordinary plain files instead of Android/Nand partitions. @longsleep also published a [minimal image](https://www.stdin.xyz/downloads/people/longsleep/pine64-images/simpleimage-pine64-latest.img.xz) containing the boot loader binaries and two partitions. The first partiton (vfat) contains the u-boot environment. The second partiton (ext4) is only a placeholder. The u-boot default configuration will load the kernel image from the second partition and passes the second partition as rootfs to the Linux kernel.
 
 The first step is to initialize the uSD card with this minimal image:
 
@@ -45,10 +45,10 @@ The second partiton needs to be enlarged in order to consume the entire SD card 
 
     sudo mount /dev/<device_node_of_the_uSD_card>2 /mnt
     
-## Step 4: Mount the boot partition
+## Step 4: Mount the bootenv partition
 
-    sudo mkdir /mnt/boot
-    sudo mount /dev/<device_node_of_the_uSD_card>1 /mnt/boot
+    sudo mkdir /mnt/bootenv
+    sudo mount /dev/<device_node_of_the_uSD_card>1 /mnt/bootenv
 
 ## Step 5a: Extract the Debian Jessie root filesystem (containing a 3.10.65+ Linux kernel)
 
@@ -60,9 +60,9 @@ The second partiton needs to be enlarged in order to consume the entire SD card 
 
 ## Step 6: Update to the latest 3.10.65+ Linux kernel
 
-    curl -sSL 'https://github.com/umiddelb/z2d/blob/master/kernel/linux-3.10.65+-p64.tar.xz?raw=true' | sudo tar --numeric-owner -C /mnt -xpJf -
+    curl -sSL 'https://www.dropbox.com/s/vtg6zkw8l9dbc1w/linux-3.10.65-5-pine64%2B-p64.tar.xz?dl=0' | sudo tar --numeric-owner -C /mnt -xpJf -
 
-## Step 7: Unmount boot and rootfs partition
+## Step 7: Unmount bootenv and rootfs partition
 
-    sudo umount /mnt/boot; sudo umount /mnt;
+    sudo umount /mnt/bootenv; sudo umount /mnt;
     sync; sync
