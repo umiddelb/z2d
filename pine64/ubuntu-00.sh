@@ -17,3 +17,4 @@ sudo mkdir ./rootfs/bootenv
 sudo mount /dev/${dev}1 ./rootfs/bootenv
 sudo rm -rf rootfs/bootenv/initrd.img rootfs/bootenv/pine64/
 curl -sSL https://raw.githubusercontent.com/umiddelb/u-571/master/board/pine64+/bundle.uEnv | sudo dd of=./rootfs/bootenv/bundle.uEnv
+curl -sSL https://github.com/umiddelb/u-571/blob/master/board/pine64+/uboot.env.xz?raw=true | unxz | sudo dd of=./rootfs/bootenv/uboot.env
