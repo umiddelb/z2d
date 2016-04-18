@@ -20,7 +20,5 @@ c_yum_list_f24_prim
 yum install -y most ntfs-3g uboot-tools --enablerepo=warning:fedora24
 yum clean all
 
-usermod -aG docker debian
-
 mv /etc/fw_env.config /etc/fw_env.config.rpmdefault
 c_fw_utils "/dev/mmcblk0 0x99E00 0x4000"
