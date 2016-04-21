@@ -15,7 +15,7 @@ root filesystem for your 64bit ARMv8 device (aarch64 platform):
  - centos-00.sh: set up u-boot, partition & format the boot device, do the correct mounts
  - centos-01.sh: downloads and unpacks the CentOS userland, prepare and jump into the chroot environment
  - centos-02.sh: (invoked by centos-01.sh) do some basic customization of the userland, install kernel so that the box will be able to boot CentOS
- - centos-03.sh: Execute /centos-03.sh after booted into CentOS (cd /; sudo sh centos-03.sh)
+ - centos-03.sh: Execute /centos-03.sh after booted into CentOS, e.g. `(cd /; sudo sh centos-03.sh)`.
 
 You need a working qemu environment with aarch64 support (e.g. Debian Jessie) to run the scripts on an non-aarch64 device. Due to the emulation, the scripts will take some time to complete. 
 
@@ -49,7 +49,7 @@ The second partiton needs to be enlarged in order to consume the entire SD card 
 
 ## Step 2: Create the filesystem on the rootfs partition
 
-    sudo mkfs.ext4 -O ^has_journal -b 4096 /dev/<device_node_of_the_uSD_card>2
+    sudo mkfs.ext4 -O ^has_journal -b 4096 -L rootfs -U deadbeef-dead-beef-dead-beefdeadbeef /dev/<device_node_of_the_uSD_card>2
 
 ## Step 3: Mount the rootfs partition 
 
