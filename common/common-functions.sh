@@ -222,7 +222,7 @@ i_kernel_odroid_xu4_460 () {
 }
 
 i_kernel_utilite_pro () {
-  curl -sSL https://github.com/umiddelb/z2d/blob/master/kernel/linux-3.14.51+-upro.tar.xz?raw=true | tar --numeric-owner -xJpf -
+  curl -sSL https://www.dropbox.com/s/374th8x274ptto6/linux-3.14.51%2B-upro.tar.xz?dl=0 | tar --numeric-owner -xhJpf -
 }
 
 i_kernel_cubox_i () {
