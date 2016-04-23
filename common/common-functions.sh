@@ -231,7 +231,7 @@ i_kernel_cubox_i () {
   mkdir -p /boot/conf.d/system.default
   curl -sSL https://raw.githubusercontent.com/umiddelb/u-571/master/board/cubox-i/uEnv.txt > /boot/conf.d/system.default/uEnv.txt
   (cd /boot/conf.d/ ; ln -s system.default default)
-  (cd /boot/conf.d/system.default; ln -s ../../kernel.d/linux-*-cbihb kernel; ln -s kernel/Initrd Initrd )
+  (cd /boot/conf.d/system.default; ln -s ../../kernel.d/linux-*-cbihb kernel)
 }
 
 i_kernel_pine64 () {
