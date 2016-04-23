@@ -1,5 +1,7 @@
 #!/bin/sh
 
+set -ex
+
 sudo apt-get install debootstrap
 
 sudo debootstrap --foreign --include=vim,dialog,apt --variant=minbase --arch=arm64 trusty rootfs http://ports.ubuntu.com/

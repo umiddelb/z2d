@@ -1,4 +1,7 @@
 #!/bin/sh
+
+set -ex
+
 . ./common-functions.sh
 
 debootstrap/debootstrap --second-stage
@@ -13,7 +16,7 @@ c_nameserver "8.8.8.8"
 
 dpkg-divert --local --rename --add /sbin/initctl; ln -s /bin/true /sbin/initctl
 
-apt-get -q=2 update
+r_pkg_upgrade
 i_base
 i_extra
 i_gcc
