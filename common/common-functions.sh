@@ -97,7 +97,7 @@ r_pkg_upgrade () {
 }
 
 i_base () {
-  apt-get -q=2 -y install ubuntu-minimal software-properties-common curl u-boot-tools isc-dhcp-client ubuntu-minimal ssh linux-firmware linux-firmware-nonfree
+  apt-get -q=2 -y install ubuntu-minimal software-properties-common curl u-boot-tools isc-dhcp-client ubuntu-minimal ssh linux-firmware vim
 }
 
 i_base_debian () {
@@ -110,12 +110,7 @@ i_extra () {
 }
 
 i_gcc () {
-  apt-get -q=2 -y install python-software-properties
-  add-apt-repository -y ppa:ubuntu-toolchain-r/test
-  apt-get -q=2 -y update
   apt-get -y install gcc-5 g++-5
-  update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-5 50
-  update-alternatives --install /usr/bin/g++ g++ /usr/bin/g++-5 50
 }
 
 i_gcc_debian () {
@@ -236,6 +231,7 @@ i_kernel_cubox_i () {
 
 i_kernel_pine64 () {
   curl -sSL https://www.dropbox.com/s/9jno3c4oizz4btf/linux-3.10.65-5-pine64-p64.tar.xz?dl=0 | tar --numeric-owner -xhJpf -
+  echo "8723bs" >> /etc/modules 
 # U-571
   mkdir -p /boot/conf.d/system.default
   curl -sSL https://raw.githubusercontent.com/umiddelb/u-571/master/board/pine64+/uEnv.txt > /boot/conf.d/system.default/uEnv.txt
@@ -270,5 +266,5 @@ c_fw_utils () {
 
 c_user () {
   adduser --gecos '' $1
-  usermod -aG adm,cdrom,sudo,plugdev $1
+  usermod -aG adm,cdrom,dialout,sudo,plugdev $1
 }
