@@ -226,7 +226,12 @@ i_kernel_utilite_pro () {
 }
 
 i_kernel_cubox_i () {
-  curl -sSL https://github.com/umiddelb/z2d/blob/master/kernel/linux-4.4.0,3.14.51+-cbxi.tar.xz?raw=true | tar --numeric-owner -xJpf -
+  curl -sSL https://www.dropbox.com/s/edlhmov4xo2tfcq/linux-4.6.0-rc4-dev-g050ca76-cbihb.tar.xz?dl=0 | tar --numeric-owner -xhJpf -
+# U-571
+  mkdir -p /boot/conf.d/system.default
+  curl -sSL https://raw.githubusercontent.com/umiddelb/u-571/master/board/cubox-i/uEnv.txt > /boot/conf.d/system.default/uEnv.txt
+  (cd /boot/conf.d/ ; ln -s system.default default)
+  (cd /boot/conf.d/system.default; ln -s ../../kernel.d/linux-*-cbihb kernel; ln -s kernel/Initrd Initrd )
 }
 
 i_kernel_pine64 () {
