@@ -1,6 +1,8 @@
 #!/bin/sh
 
-curl -sSL http://cdimage.ubuntu.com/ubuntu-core/releases/14.04.3/release/ubuntu-core-14.04.3-core-armhf.tar.gz | sudo tar --numeric-owner -xpzf - -C rootfs/
+set -ex
+
+curl -sSL http://cdimage.ubuntu.com/ubuntu-core/releases/16.04/release/ubuntu-core-16.04-core-armhf.tar.gz | sudo tar --numeric-owner -xpzf - -C rootfs/
 
 sudo mount -o bind /dev ./rootfs/dev
 sudo mount -o bind /dev/pts ./rootfs/dev/pts
@@ -11,7 +13,7 @@ sudo cp ubuntu-core-02.sh ./rootfs
 sudo cp common-functions.sh ./rootfs
 sudo cp ubuntu-docker-00.sh ./rootfs
 
-sudo chroot ./rootfs sh /ubuntu-core-02.sh
+sudo chroot ./rootfs bash /ubuntu-core-02.sh
 sudo rm ./rootfs/ubuntu-core-02.sh
 sudo rm ./rootfs/common-functions.sh
 
