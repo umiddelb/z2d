@@ -1,10 +1,10 @@
-This directory contains a collection of scripts helping you to set up a minimal Ubuntu 14.04.3 / Debian 8 Jessie / CentOS 7
+This directory contains a collection of scripts helping you to set up a minimal Ubuntu 16.04 / Debian 8 Jessie / CentOS 7
 root filesystem for your 64bit ARMv8 device (aarch64 platform): 
 
 ## Ubuntu
- - ubuntu-00.sh: set up u-boot, partition & format the boot device, do the correct mounts
- - ubuntu-01.sh: debootstraps the Ubuntu userland, prepare and jump into the chroot environment
- - ubuntu-02.sh: (invoked by ubuntu-01.sh) customize the userland, install gcc-5
+ - ubuntu-core-00.sh: set up u-boot, partition & format the boot device, do the correct mounts
+ - ubuntu-core-01.sh: debootstraps the Ubuntu userland, prepare and jump into the chroot environment
+ - ubuntu-core-02.sh: (invoked by ubuntu-core-01.sh) customize the userland, install gcc-5
 
 ## Debian
  - debian-00.sh: set up u-boot, partition & format the boot device, do the correct mounts
@@ -20,12 +20,12 @@ root filesystem for your 64bit ARMv8 device (aarch64 platform):
 You need a working qemu environment with aarch64 support (e.g. Debian Jessie) to run the scripts on an non-aarch64 device. Due to the emulation, the scripts will take some time to complete. 
 
 You can find a prebuild root filesystem here:
- - [trusty-pine64.tar.xz](https://www.dropbox.com/s/30h2jcejynco7d0/trusty_pine64.tar.xz?dl=0), user: ubuntu, password: 111111
+ - [xenial-pine64.tar.xz](https://www.dropbox.com/s/tp488tlsori4log/xenial_pine64.tar.xz?dl=0), user: ubuntu, password: 111111
  - [jessie_pine64.tar.xz](https://www.dropbox.com/s/zwfhz30nbvo4lyp/jessie_pine64.tar.xz?dl=0), user: debian, password: 111111
  - [centos7_pine64.tar.xz](https://www.dropbox.com/s/atroptjpdslhzo7/centos7_pine64.tar.xz?dl=0), user: centos, password: 111111
 
 You can extract the tar archive with:
- - Ubuntu: `curl -sSL 'https://www.dropbox.com/s/30h2jcejynco7d0/trusty_pine64.tar.xz?dl=0' | sudo tar --numeric-owner -xpJf -`
+ - Ubuntu: `curl -sSL 'https://www.dropbox.com/s/tp488tlsori4log/xenial_pine64.tar.xz?dl=0' | sudo tar --numeric-owner -xpJf -`
  - Debian: `curl -sSL 'https://www.dropbox.com/s/zwfhz30nbvo4lyp/jessie_pine64.tar.xz?dl=0' | sudo tar --numeric-owner -xpJf -`
  - Centos: `curl -sSL 'https://www.dropbox.com/s/atroptjpdslhzo7/centos7_pine64.tar.xz?dl=0' | sudo tar --numeric-owner -xpJf -`
  
@@ -64,9 +64,9 @@ The second partiton needs to be enlarged in order to consume the entire SD card 
 
     curl -sSL 'https://www.dropbox.com/s/zwfhz30nbvo4lyp/jessie_pine64.tar.xz?dl=0' | sudo tar --numeric-owner -C /mnt -xpJf -
     
-## Step 5b: Extract the Ubuntu Trusty root filesystem (containing a 3.10.65+ Linux kernel)
+## Step 5b: Extract the Ubuntu Xenial root filesystem (containing a 3.10.65+ Linux kernel)
 
-    curl -sSL 'https://www.dropbox.com/s/30h2jcejynco7d0/trusty_pine64.tar.xz?dl=0' | sudo tar --numeric-owner -C /mnt -xpJf -
+    curl -sSL 'https://www.dropbox.com/s/tp488tlsori4log/xenial_pine64.tar.xz?dl=0' | sudo tar --numeric-owner -C /mnt -xpJf -
 
 ## Step 5c: Extract the CentOS 7 root filesystem (containing a 3.10.65+ Linux kernel)
 
