@@ -111,6 +111,8 @@ i_extra () {
 
 i_gcc () {
   apt-get -y install gcc-5 g++-5
+  update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-5 50
+  update-alternatives --install /usr/bin/g++ g++ /usr/bin/g++-5 50
 }
 
 i_gcc_debian () {
