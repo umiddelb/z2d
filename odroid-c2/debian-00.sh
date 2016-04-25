@@ -1,1 +1,1 @@
-ubuntu-00.sh
+ubuntu-core-00.sh
