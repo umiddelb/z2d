@@ -1,4 +1,6 @@
 #!/bin/sh
+set -ex 
+
 . ./common-functions.sh
 
 export DEBIAN_FRONTEND=noninteractive
@@ -6,7 +8,7 @@ export DEBIAN_FRONTEND=noninteractive
 c_locale "en_GB.UTF-8"
 c_tzone "Europe/Berlin"
 c_hostname "cbxi"
-c_apt_list "trusty"
+c_apt_list "xenial"
 c_nameserver "8.8.8.8"
 
 dpkg-divert --local --rename --add /sbin/initctl; ln -s /bin/true /sbin/initctl
