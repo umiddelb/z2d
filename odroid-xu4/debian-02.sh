@@ -17,7 +17,7 @@ r_pkg_upgrade
 i_base_debian
 i_extra
 i_gcc_debian
-i_kernel_odroid_xu4
+i_kernel_odroid_xu4_460
 
 c_if_lo
 c_if_dhcp "eth0"

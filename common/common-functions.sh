@@ -210,7 +210,7 @@ i_kernel_odroid_xu3_31096 () {
 }
 
 i_kernel_odroid_xu4_460 () {
-  curl -sSL https://www.dropbox.com/s/hifgwt2sqkdqolp/linux-4.6.0-rc4%2B-xu4.tar.xz?dl=0 | tar --numeric-owner -xhJpf -
+  curl -sSL https://www.dropbox.com/s/hlp9kxpv29k91k6/linux-4.6.0-rc5%2B-xu4.tar.xz?dl=0 | tar --numeric-owner -xhJpf -
 # U-571
   mkdir -p /boot/conf.d/system.default
   curl -sSL https://raw.githubusercontent.com/umiddelb/u-571/master/board/odroid-xu4/uEnv.txt > /boot/conf.d/system.default/uEnv.txt
@@ -223,7 +223,7 @@ i_kernel_utilite_pro () {
 }
 
 i_kernel_cubox_i () {
-  curl -sSL https://www.dropbox.com/s/edlhmov4xo2tfcq/linux-4.6.0-rc4-dev-g050ca76-cbihb.tar.xz?dl=0 | tar --numeric-owner -xhJpf -
+  curl -sSL https://www.dropbox.com/s/ydy7234qjctxazz/linux-4.6.0-rc5-dev-g1356441-cbihb.tar.xz?dl=0 | tar --numeric-owner -xhJpf -
 # U-571
   mkdir -p /boot/conf.d/system.default
   curl -sSL https://raw.githubusercontent.com/umiddelb/u-571/master/board/cubox-i/uEnv.txt > /boot/conf.d/system.default/uEnv.txt
@@ -232,7 +232,7 @@ i_kernel_cubox_i () {
 }
 
 i_kernel_pine64 () {
-  curl -sSL https://www.dropbox.com/s/9jno3c4oizz4btf/linux-3.10.65-5-pine64-p64.tar.xz?dl=0 | tar --numeric-owner -xhJpf -
+  curl -sSL https://www.dropbox.com/s/anqopy4bpsmdtmz/linux-3.10.65-7-pine64-p64.tar.xz?dl=0 | tar --numeric-owner -xhJpf -
   echo "8723bs" >> /etc/modules 
 # U-571
   mkdir -p /boot/conf.d/system.default

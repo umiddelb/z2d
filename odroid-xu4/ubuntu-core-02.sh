@@ -15,7 +15,7 @@ r_pkg_upgrade
 i_base
 i_extra
 i_gcc
-i_kernel_odroid_xu3_31096
+i_kernel_odroid_xu4_460
 c_if_lo
 c_if_dhcp "eth0"
 c_ttyS "ttySAC2"
