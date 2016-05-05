@@ -2,14 +2,15 @@
 set -ex 
 
 . ./common-functions.sh
+. ./system-settings.sh
 
 export DEBIAN_FRONTEND=noninteractive
 
-c_locale "en_GB.UTF-8 de_DE.UTF-8"
-c_tzone "Europe/Berlin"
-c_hostname "c1"
+c_locale $LOCALES
+c_tzone $TIMEZONE
+c_hostname $C1_HOSTNAME
 c_apt_list "xenial"
-c_nameserver "8.8.8.8"
+c_nameserver $NAMESERVERS
 
 dpkg-divert --local --rename --add /sbin/initctl; ln -s /bin/true /sbin/initctl
 
@@ -22,7 +23,7 @@ c_if_lo
 c_if_dhcp "eth0"
 c_ttyS "ttyS0"
 c_fw_utils "/dev/mmcblk0 0x80000 0x8000"
-c_user "ubuntu"
+c_user $USERNAME
 
 apt-get clean
 
