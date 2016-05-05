@@ -4,7 +4,7 @@
 
 debootstrap/debootstrap --second-stage
 
-c_locale $LOCALES
+c_locale_debian $LOCALES
 c_tzone $TIMEZONE
 c_hostname $C1_HOSTNAME
 c_apt_list_debian "jessie"
