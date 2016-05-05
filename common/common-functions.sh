@@ -93,7 +93,13 @@ c_yum_list_f24_second () {
 }
 
 c_nameserver () {
-  echo "nameserver $1" > /etc/resolv.conf
+  for ((i = 1; i <= $#; i++)); do
+    if (($i == 1)); then
+      echo "nameserver ${!i}" > /etc/resolv.conf
+    else
+      echo "nameserver ${!i}" >> /etc/resolv.conf
+    fi
+  done
 }
 
 r_pkg_upgrade () {
