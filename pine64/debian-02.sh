@@ -1,14 +1,15 @@
 #!/bin/sh
 set -ex
 . ./common-functions.sh
+. ./system-settings.sh
 
 debootstrap/debootstrap --second-stage
 
-c_locale_debian "en_GB.UTF-8 de_DE.UTF-8"
-c_tzone "Europe/Berlin"
-c_hostname "p64"
+c_locale_debian $LOCALES
+c_tzone $TIMEZONE
+c_hostname $P64_HOSTNAME
 c_apt_list_debian "jessie"
-c_nameserver "8.8.8.8"
+c_nameserver $NAMESERVERS
 
 dpkg-divert --local --rename --add /sbin/initctl; ln -s /bin/true /sbin/initctl
 export DEBIAN_FRONTEND=noninteractive
@@ -27,7 +28,7 @@ i_kernel_pine64
 c_if_lo
 c_if_dhcp "eth0"
 c_ttyS_debian "ttyS0"
-c_user "debian"
+c_user $USERNAME
 
 apt-get clean
 
