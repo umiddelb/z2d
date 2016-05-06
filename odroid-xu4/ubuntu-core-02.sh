@@ -6,7 +6,7 @@ export DEBIAN_FRONTEND=noninteractive
 
 c_locale $LOCALES
 c_tzone $TIMEZONE
-c_hostname $C2_HOSTNAME
+c_hostname $XU4_HOSTNAME
 c_apt_list "xenial"
 c_nameserver $NAMESERVERS
 

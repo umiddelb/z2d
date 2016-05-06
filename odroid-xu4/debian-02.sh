@@ -6,7 +6,7 @@ debootstrap/debootstrap --second-stage
 
 c_locale_debian $LOCALES
 c_tzone $TIMEZONE
-c_hostname $C2_HOSTNAME
+c_hostname $XU4_HOSTNAME
 c_apt_list_debian "jessie"
 c_nameserver $NAMESERVERS
 
