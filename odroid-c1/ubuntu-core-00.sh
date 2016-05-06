@@ -1,9 +1,6 @@
 #!/bin/sh
-image=$PWD/`basename \`dirname \\\`realpath "$0"\\\`\``-`basename -s -00.sh "$0"`.img
-cd `dirname \`realpath "$0"\``
-dd if=/dev/zero of=${image} bs=1M count=1024
-sudo losetup /dev/loop0 ${image}
-dev=loop0
+
+dev=mmcblk1
 
 /bin/echo -e "o\nn\np\n1\n3072\n\nw\n" | sudo fdisk /dev/${dev}
 sync
@@ -22,16 +19,7 @@ chmod +x uboot-env
 sudo ./uboot-env -d /dev/${dev} -o 0x80000 -l 0x8000 del -I
 sudo ./uboot-env -d /dev/${dev} -o 0x80000 -l 0x8000 del -i
 curl -sSL https://raw.githubusercontent.com/umiddelb/u-571/master/board/odroid-c1/bundle.uEnv | sudo ./uboot-env -d /dev/${dev} -o 0x80000 -l 0x8000 set
-rm ./uboot-env
 sync
 
 sudo mkfs.ext4 -O ^has_journal -b 4096 -L rootfs -U deadbeef-dead-beef-dead-beefdeadbeef /dev/${dev}p1 
 sudo mount /dev/${dev}p1 ./rootfs
-
-sh ./`basename -s -00.sh "$0"`-01.sh
-
-sudo umount ./rootfs
-sync
-
-sudo losetup -d /dev/loop0
-cd -

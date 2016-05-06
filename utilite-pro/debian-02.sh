@@ -23,7 +23,7 @@ c_if_lo
 c_if_dhcp "eth0"
 c_ttyS_debian "ttymxc3"
 c_fw_utils "/dev/mtd1 0xc0000 0x2000 0x2000"
-c_user $USERNAME
+c_user "debian"
 
 apt-get clean
 

@@ -109,15 +109,15 @@ r_pkg_upgrade () {
 }
 
 i_base () {
-  apt-get -q=2 -y install ubuntu-minimal software-properties-common ssh linux-firmware vim
+  apt-get -q=2 -y install ubuntu-minimal software-properties-common curl u-boot-tools ssh linux-firmware vim
 }
 
 i_base_debian () {
-  apt-get -q=2 -y install xz-utils sudo openssh-server less ntfs-3g exfat-utils exfat-fuse firmware-linux
+  apt-get -q=2 -y install curl xz-utils u-boot-tools sudo openssh-server ntpdate ntp usbutils pciutils less lsof most sysfsutils ntfs-3g exfat-utils exfat-fuse firmware-linux
 }
 
 i_extra () {
-  apt-get -q=2 -y install u-boot-tools curl dialog screen wireless-tools iw libncurses5-dev cpufrequtils rcs aptitude make bc lzop ntpdate ntp usbutils pciutils lsof most sysfsutils
+  apt-get -q=2 -y install dialog screen wireless-tools iw libncurses5-dev cpufrequtils rcs aptitude make bc lzop man-db ntp usbutils pciutils lsof most sysfsutils
 }
 
 i_gcc () {

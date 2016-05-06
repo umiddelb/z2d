@@ -20,7 +20,7 @@ i_kernel_pine64
 c_if_lo
 c_if_dhcp "eth0"
 c_ttyS "ttyS0"
-c_user $USERNAME
+c_user "ubuntu"
 
 apt-get clean
 

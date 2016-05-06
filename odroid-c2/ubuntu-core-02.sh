@@ -1,7 +1,6 @@
 #!/bin/sh
 set -ex
 . ./common-functions.sh
-. ./system-settings.sh
 
 export DEBIAN_FRONTEND=noninteractive
 
@@ -22,7 +21,7 @@ c_if_lo
 c_if_dhcp "eth0"
 c_ttyS "ttyS0"
 c_fw_utils "/dev/mmcblk0 0xB4000 0x8000"
-c_user $USERNAME
+c_user "ubuntu"
 
 apt-get clean
 
