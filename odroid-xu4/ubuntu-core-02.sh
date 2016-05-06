@@ -20,7 +20,7 @@ c_if_lo
 c_if_dhcp "eth0"
 c_ttyS "ttySAC2"
 c_fw_utils "/dev/mmcblk0 0x99E00 0x4000"
-c_user "ubuntu"
+c_user $USERNAME
 
 apt-get clean
 

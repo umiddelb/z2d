@@ -27,7 +27,7 @@ i_kernel_pine64
 c_if_lo
 c_if_dhcp "eth0"
 c_ttyS_debian "ttyS0"
-c_user "debian"
+c_user $USERNAME
 
 apt-get clean
 
