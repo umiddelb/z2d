@@ -18,7 +18,6 @@ sudo cp debian-docker-00.sh ./rootfs
 sudo LC_ALL=C LANGUAGE=C LANG=C chroot ./rootfs bash /debian-02.sh
 sudo rm ./rootfs/debian-02.sh
 sudo rm ./rootfs/common-functions.sh
-sudo rm ./rootfs/system-settings.sh
 
 set +e
 sudo umount -lf ./rootfs/dev/pts
