@@ -2,7 +2,7 @@
 
 c_locale () {
   for s in $@; do
-    locale-gen $s
+    locale-gen ${s}
   done
   export LC_ALL="$1"
   update-locale LC_ALL="$1" LANG="$1" LC_MESSAGES=POSIX

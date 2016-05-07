@@ -5,11 +5,11 @@ set -ex
 
 debootstrap/debootstrap --second-stage
 
-c_locale_debian $LOCALES
-c_tzone $TIMEZONE
-c_hostname $P64_HOSTNAME
+c_locale_debian ${LOCALES}
+c_tzone ${TIMEZONE}
+c_hostname ${P64_HOSTNAME}
 c_apt_list_debian "jessie"
-c_nameserver $NAMESERVERS
+c_nameserver ${NAMESERVERS}
 
 dpkg-divert --local --rename --add /sbin/initctl; ln -s /bin/true /sbin/initctl
 export DEBIAN_FRONTEND=noninteractive
@@ -28,7 +28,7 @@ i_kernel_pine64
 c_if_lo
 c_if_dhcp "eth0"
 c_ttyS_debian "ttyS0"
-c_user $USERNAME
+c_user ${USERNAME}
 
 apt-get clean
 
