@@ -21,6 +21,6 @@ on your ARM device within a couple minutes. Each subdirectory has this collectio
 - centos-02.sh: (invoked by centos-01.sh) customize the userland, install the kernel image
 - centos-03.sh: install/update packages, setup Docker in the newly booted environment (doesn't work in chroot)
 
-Please choose the correct device (e.g. SD card reader) to be taken in `ubuntu-core-00.sh` / `debian-00.sh` / `centos-00.sh`.
+Please choose the correct device and system settings (e.g. SD card reader) to be taken in `system-settings.sh`.
 
 You can find a step by step description [here](http://forum.odroid.com/viewtopic.php?p=91036#p91036).

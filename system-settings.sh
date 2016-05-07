@@ -1,5 +1,8 @@
 #!/bin/sh
 
+# Enter the correct device (e.g. SD card reader), /dev/sda /dev/mmcblk0 /dev/mmcblk1
+DEVICE=/dev/mmcblk1
+
 # Enter a space-separated list of valid locales, e.g. "en_US.UTF-8 en_GB.UTF-8".
 LOCALES="en_GB.UTF-8 de_DE.UTF-8"
 
