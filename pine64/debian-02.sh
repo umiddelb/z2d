@@ -4,7 +4,7 @@ set -ex
 
 debootstrap/debootstrap --second-stage
 
-c_locale_debian "en_GB.UTF-8"
+c_locale_debian "en_GB.UTF-8 de_DE.UTF-8"
 c_tzone "Europe/Berlin"
 c_hostname "p64"
 c_apt_list_debian "jessie"

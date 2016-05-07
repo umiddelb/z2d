@@ -8,7 +8,7 @@ set +e
 /bin/echo -e "d\n2\nn\np\n2\n143360\n\nw\n" | sudo fdisk /dev/$dev
 set -e
 sync
-sudo partprobe -s
+sudo partprobe -s /dev/$dev
 
 sudo mkfs.ext4 -O ^has_journal -b 4096 -L rootfs -U deadbeef-dead-beef-dead-beefdeadbeef /dev/${dev}2 
 sudo mount /dev/${dev}2 ./rootfs

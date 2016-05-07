@@ -4,8 +4,8 @@ dev=mmcblk1
 
 /bin/echo -e "o\nn\np\n1\n3072\n\nw\n" | sudo fdisk /dev/$dev
 sync
+sudo partprobe -s /dev/$dev
 
-sudo partprobe -s
 curl -sSL http://dn.odroid.com/S905/BootLoader/ODROID-C2/c2_bootloader.tar.gz | tar -C /tmp -xzf -
 sudo dd if=/tmp/c2_bootloader/bl1.bin.hardkernel of=/dev/$dev conv=fsync bs=1 count=442
 sudo dd if=/tmp/c2_bootloader/bl1.bin.hardkernel of=/dev/$dev conv=fsync bs=512 skip=1 seek=1

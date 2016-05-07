@@ -4,7 +4,7 @@ dev=mmcblk1
 
 /bin/echo -e "o\nn\np\n1\n3072\n\nw\n" | sudo fdisk /dev/${dev}
 sync
-sudo partprobe -s
+sudo partprobe -s /dev/${dev}
 
 curl -sSL https://raw.githubusercontent.com/mdrjr/c1_uboot_binaries/master/bl1.bin.hardkernel > /tmp/bl1.bin.hardkernel
 curl -sSL https://raw.githubusercontent.com/mdrjr/c1_uboot_binaries/master/u-boot.bin > /tmp/u-boot.bin
