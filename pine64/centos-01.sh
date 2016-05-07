@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 set -ex
 
 curl -sSL https://www.dropbox.com/s/nt7m6qcv88va3xt/CentOS7-rootfs-aarch64.tar.xz?dl=0 | sudo tar --numeric-owner -xpJf - -C rootfs/

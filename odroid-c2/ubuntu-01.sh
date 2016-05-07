@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 sudo debootstrap --foreign --include=vim,dialog,apt --variant=minbase --arch=arm64 xenial rootfs http://ports.ubuntu.com/
 

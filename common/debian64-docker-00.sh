@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 . ./system-settings.sh
 
 sudo apt-get -y install lxc aufs-tools cgroupfs-mount cgroup-bin apparmor 

@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 c_locale () {
   for s in $@; do

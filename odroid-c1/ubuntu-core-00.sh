@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 . ./system-settings.sh
 
 re='^[0-9]$'

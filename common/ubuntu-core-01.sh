@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 set -ex
 
 curl -sSL http://cdimage.ubuntu.com/ubuntu-core/releases/16.04/release/ubuntu-core-16.04-core-armhf.tar.gz | sudo tar --numeric-owner -xpzf - -C rootfs/
