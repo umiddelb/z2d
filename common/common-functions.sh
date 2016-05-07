@@ -1,16 +1,22 @@
 #!/bin/sh
 
 c_locale () {
-  locale-gen $1
-  locale-gen de_DE.UTF-8
+  for s in $@; do
+    locale-gen $s
+  done
   export LC_ALL="$1"
   update-locale LC_ALL="$1" LANG="$1" LC_MESSAGES=POSIX
   dpkg-reconfigure -f noninteractive locales
 }
 
 c_locale_debian () {
-  echo "$1 UTF-8" > /etc/locale.gen
-  echo "de_DE.UTF-8 UTF-8" >> /etc/locale.gen
+  for ((i = 1; i <= $#; i++)); do
+    if (($i == 1)); then
+      echo "${!i} UTF-8" > /etc/locale.gen
+    else
+      echo "${!i} UTF-8" >> /etc/locale.gen
+    fi
+  done
   locale-gen
   debconf-set-selections <<< "locales locales/default_environment_locale select $1"
   dpkg-reconfigure -f noninteractive locales
@@ -87,7 +93,13 @@ c_yum_list_f24_second () {
 }
 
 c_nameserver () {
-  echo "nameserver $1" > /etc/resolv.conf
+  for ((i = 1; i <= $#; i++)); do
+    if (($i == 1)); then
+      echo "nameserver ${!i}" > /etc/resolv.conf
+    else
+      echo "nameserver ${!i}" >> /etc/resolv.conf
+    fi
+  done
 }
 
 r_pkg_upgrade () {
@@ -97,12 +109,11 @@ r_pkg_upgrade () {
 }
 
 i_base () {
-  apt-get -q=2 -y install ubuntu-minimal software-properties-common curl u-boot-tools isc-dhcp-client ubuntu-minimal ssh linux-firmware vim
+  apt-get -q=2 -y install ubuntu-minimal software-properties-common curl u-boot-tools ssh linux-firmware vim
 }
 
 i_base_debian () {
   apt-get -q=2 -y install curl xz-utils u-boot-tools sudo openssh-server ntpdate ntp usbutils pciutils less lsof most sysfsutils ntfs-3g exfat-utils exfat-fuse firmware-linux
-
 }
 
 i_extra () {

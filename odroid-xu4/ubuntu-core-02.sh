@@ -3,7 +3,7 @@
 
 export DEBIAN_FRONTEND=noninteractive
 
-c_locale "en_GB.UTF-8"
+c_locale "en_GB.UTF-8 de_DE.UTF-8"
 c_tzone "Europe/Berlin"
 c_hostname "xu4"
 c_apt_list "xenial"

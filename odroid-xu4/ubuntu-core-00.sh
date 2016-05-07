@@ -4,7 +4,7 @@ dev=mmcblk0
 
 /bin/echo -e "o\nn\np\n1\n3072\n\nw\n" | sudo fdisk /dev/$dev
 sync
-sudo partprobe -s
+sudo partprobe -s /dev/$dev
 
 mkdir /tmp/u-boot
 curl -sSL https://github.com/hardkernel/u-boot/raw/odroidxu3-v2012.07/sd_fuse/hardkernel/bl1.bin.hardkernel > /tmp/u-boot/bl1.bin.hardkernel
