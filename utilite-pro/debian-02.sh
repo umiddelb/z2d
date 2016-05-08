@@ -3,7 +3,7 @@
 
 debootstrap/debootstrap --second-stage
 
-c_locale_debian "en_GB.UTF-8 de_DE.UTF-8"
+c_locale_debian "en_GB.UTF-8" "de_DE.UTF-8"
 c_tzone "Europe/Berlin"
 c_hostname "upro"
 c_apt_list_debian "jessie"
@@ -22,7 +22,7 @@ i_kernel_utilite_pro
 c_if_lo
 c_if_dhcp "eth0"
 c_ttyS_debian "ttymxc3"
-c_fw_utils "/dev/mtd1 0xc0000 0x2000 0x2000"
+c_fw_utils "/dev/mtd1  0x0  0x2000  0x2000"
 c_user "debian"
 
 apt-get clean
