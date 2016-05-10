@@ -1,28 +1,5 @@
 #!/bin/sh
 
-c_locale () {
-  for s in $@; do
-    locale-gen $s
-  done
-  export LC_ALL="$1"
-  update-locale LC_ALL="$1" LANG="$1" LC_MESSAGES=POSIX
-  dpkg-reconfigure -f noninteractive locales
-}
-
-c_locale_debian () {
-  for ((i = 1; i <= $#; i++)); do
-    if (($i == 1)); then
-      echo "${!i} UTF-8" > /etc/locale.gen
-    else
-      echo "${!i} UTF-8" >> /etc/locale.gen
-    fi
-  done
-  locale-gen
-  debconf-set-selections <<< "locales locales/default_environment_locale select $1"
-  dpkg-reconfigure -f noninteractive locales
-}
-
-
 c_tzone () {
   echo "$1" > /etc/timezone
   dpkg-reconfigure -f noninteractive tzdata
@@ -139,7 +116,10 @@ i_kernel_odroid_c1 () {
   echo "#!/bin/sh" > /etc/initramfs-tools/hooks/e2fsck.sh
   echo ". /usr/share/initramfs-tools/hook-functions" >> /etc/initramfs-tools/hooks/e2fsck.sh
   echo "copy_exec /sbin/e2fsck /sbin" >> /etc/initramfs-tools/hooks/e2fsck.sh
+  echo "copy_exec /sbin/fsck /sbin" >> /etc/initramfs-tools/hooks/e2fsck.sh
+  echo "copy_exec /sbin/fsck.ext2 /sbin" >> /etc/initramfs-tools/hooks/e2fsck.sh
   echo "copy_exec /sbin/fsck.ext4 /sbin" >> /etc/initramfs-tools/hooks/e2fsck.sh
+  echo "copy_exec /sbin/logsave /sbin" >> /etc/initramfs-tools/hooks/e2fsck.sh
   chmod +x /etc/initramfs-tools/hooks/e2fsck.sh
 # </HK quirk>
   apt-key adv --keyserver keyserver.ubuntu.com --recv-keys AB19BAC9
@@ -174,7 +154,10 @@ i_kernel_odroid_c2 () {
   echo "#!/bin/sh" > /etc/initramfs-tools/hooks/e2fsck.sh
   echo ". /usr/share/initramfs-tools/hook-functions" >> /etc/initramfs-tools/hooks/e2fsck.sh
   echo "copy_exec /sbin/e2fsck /sbin" >> /etc/initramfs-tools/hooks/e2fsck.sh
+  echo "copy_exec /sbin/fsck /sbin" >> /etc/initramfs-tools/hooks/e2fsck.sh
+  echo "copy_exec /sbin/fsck.ext2 /sbin" >> /etc/initramfs-tools/hooks/e2fsck.sh
   echo "copy_exec /sbin/fsck.ext4 /sbin" >> /etc/initramfs-tools/hooks/e2fsck.sh
+  echo "copy_exec /sbin/logsave /sbin" >> /etc/initramfs-tools/hooks/e2fsck.sh
   chmod +x /etc/initramfs-tools/hooks/e2fsck.sh
 # </HK quirk>
   apt-key adv --keyserver keyserver.ubuntu.com --recv-keys AB19BAC9
@@ -205,7 +188,10 @@ i_kernel_odroid_xu4 () {
   echo "#!/bin/sh" > /etc/initramfs-tools/hooks/e2fsck.sh
   echo ". /usr/share/initramfs-tools/hook-functions" >> /etc/initramfs-tools/hooks/e2fsck.sh
   echo "copy_exec /sbin/e2fsck /sbin" >> /etc/initramfs-tools/hooks/e2fsck.sh
+  echo "copy_exec /sbin/fsck /sbin" >> /etc/initramfs-tools/hooks/e2fsck.sh
+  echo "copy_exec /sbin/fsck.ext2 /sbin" >> /etc/initramfs-tools/hooks/e2fsck.sh
   echo "copy_exec /sbin/fsck.ext4 /sbin" >> /etc/initramfs-tools/hooks/e2fsck.sh
+  echo "copy_exec /sbin/logsave /sbin" >> /etc/initramfs-tools/hooks/e2fsck.sh
   chmod +x /etc/initramfs-tools/hooks/e2fsck.sh
 # </HK quirk>
   apt-key adv --keyserver keyserver.ubuntu.com --recv-keys AB19BAC9
@@ -295,4 +281,26 @@ c_fw_utils () {
 c_user () {
   adduser --gecos '' $1
   usermod -aG adm,cdrom,dialout,sudo,plugdev $1
+}
+
+c_locale () {
+  for s in $@; do
+    locale-gen $s
+  done
+  export LC_ALL="$1"
+  update-locale LC_ALL="$1" LANG="$1" LC_MESSAGES=POSIX
+  dpkg-reconfigure -f noninteractive locales
+}
+
+c_locale_debian () {
+  for ((i = 1; i <= $#; i++)); do
+    if (($i == 1)); then
+      echo "${!i} UTF-8" > /etc/locale.gen
+    else
+      echo "${!i} UTF-8" >> /etc/locale.gen
+    fi
+  done
+  locale-gen
+  debconf-set-selections <<< "locales locales/default_environment_locale select $1"
+  dpkg-reconfigure -f noninteractive locales
 }
