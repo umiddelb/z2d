@@ -1,5 +1,6 @@
 #!/bin/bash
 
+<<<<<<< HEAD
 c_locale () {
   for s in $@; do
     locale-gen ${s}
@@ -23,6 +24,8 @@ c_locale_debian () {
 }
 
 
+=======
+>>>>>>> master
 c_tzone () {
   echo "$1" > /etc/timezone
   dpkg-reconfigure -f noninteractive tzdata
@@ -139,7 +142,10 @@ i_kernel_odroid_c1 () {
   echo "#!/bin/sh" > /etc/initramfs-tools/hooks/e2fsck.sh
   echo ". /usr/share/initramfs-tools/hook-functions" >> /etc/initramfs-tools/hooks/e2fsck.sh
   echo "copy_exec /sbin/e2fsck /sbin" >> /etc/initramfs-tools/hooks/e2fsck.sh
+  echo "copy_exec /sbin/fsck /sbin" >> /etc/initramfs-tools/hooks/e2fsck.sh
+  echo "copy_exec /sbin/fsck.ext2 /sbin" >> /etc/initramfs-tools/hooks/e2fsck.sh
   echo "copy_exec /sbin/fsck.ext4 /sbin" >> /etc/initramfs-tools/hooks/e2fsck.sh
+  echo "copy_exec /sbin/logsave /sbin" >> /etc/initramfs-tools/hooks/e2fsck.sh
   chmod +x /etc/initramfs-tools/hooks/e2fsck.sh
 # </HK quirk>
   apt-key adv --keyserver keyserver.ubuntu.com --recv-keys AB19BAC9
@@ -174,7 +180,10 @@ i_kernel_odroid_c2 () {
   echo "#!/bin/sh" > /etc/initramfs-tools/hooks/e2fsck.sh
   echo ". /usr/share/initramfs-tools/hook-functions" >> /etc/initramfs-tools/hooks/e2fsck.sh
   echo "copy_exec /sbin/e2fsck /sbin" >> /etc/initramfs-tools/hooks/e2fsck.sh
+  echo "copy_exec /sbin/fsck /sbin" >> /etc/initramfs-tools/hooks/e2fsck.sh
+  echo "copy_exec /sbin/fsck.ext2 /sbin" >> /etc/initramfs-tools/hooks/e2fsck.sh
   echo "copy_exec /sbin/fsck.ext4 /sbin" >> /etc/initramfs-tools/hooks/e2fsck.sh
+  echo "copy_exec /sbin/logsave /sbin" >> /etc/initramfs-tools/hooks/e2fsck.sh
   chmod +x /etc/initramfs-tools/hooks/e2fsck.sh
 # </HK quirk>
   apt-key adv --keyserver keyserver.ubuntu.com --recv-keys AB19BAC9
@@ -205,7 +214,10 @@ i_kernel_odroid_xu4 () {
   echo "#!/bin/sh" > /etc/initramfs-tools/hooks/e2fsck.sh
   echo ". /usr/share/initramfs-tools/hook-functions" >> /etc/initramfs-tools/hooks/e2fsck.sh
   echo "copy_exec /sbin/e2fsck /sbin" >> /etc/initramfs-tools/hooks/e2fsck.sh
+  echo "copy_exec /sbin/fsck /sbin" >> /etc/initramfs-tools/hooks/e2fsck.sh
+  echo "copy_exec /sbin/fsck.ext2 /sbin" >> /etc/initramfs-tools/hooks/e2fsck.sh
   echo "copy_exec /sbin/fsck.ext4 /sbin" >> /etc/initramfs-tools/hooks/e2fsck.sh
+  echo "copy_exec /sbin/logsave /sbin" >> /etc/initramfs-tools/hooks/e2fsck.sh
   chmod +x /etc/initramfs-tools/hooks/e2fsck.sh
 # </HK quirk>
   apt-key adv --keyserver keyserver.ubuntu.com --recv-keys AB19BAC9
@@ -231,7 +243,7 @@ i_kernel_odroid_xu3_31096 () {
 }
 
 i_kernel_odroid_xu4_460 () {
-  curl -sSL https://www.dropbox.com/s/hlp9kxpv29k91k6/linux-4.6.0-rc5%2B-xu4.tar.xz?dl=0 | tar --numeric-owner -xhJpf -
+  curl -sSL https://www.dropbox.com/s/j8hwog963yb1tph/linux-4.6.0-rc6%2B-xu4.tar.xz?dl=0 | tar --numeric-owner -xhJpf -
 # U-571
   mkdir -p /boot/conf.d/system.default
   curl -sSL https://raw.githubusercontent.com/umiddelb/u-571/master/board/odroid-xu4/uEnv.txt > /boot/conf.d/system.default/uEnv.txt
@@ -240,11 +252,16 @@ i_kernel_odroid_xu4_460 () {
 }
 
 i_kernel_utilite_pro () {
-  curl -sSL https://www.dropbox.com/s/374th8x274ptto6/linux-3.14.51%2B-upro.tar.xz?dl=0 | tar --numeric-owner -xhJpf -
+  curl -sSL https://www.dropbox.com/s/juekfyutzdn4cwb/linux-3.14.60-cm-fx6-g7e42427-upro.tar.xz?dl=0 | tar --numeric-owner -xhJpf -
+# U-571
+  mkdir -p /boot/conf.d/system.default
+  curl -sSL https://raw.githubusercontent.com/umiddelb/u-571/master/board/utilite-pro/uEnv.txt > /boot/conf.d/system.default/uEnv.txt
+  (cd /boot/conf.d/ ; ln -s system.default default)
+  (cd /boot/conf.d/system.default; ln -s ../../kernel.d/linux-*-upro kernel)
 }
 
 i_kernel_cubox_i () {
-  curl -sSL https://www.dropbox.com/s/ydy7234qjctxazz/linux-4.6.0-rc5-dev-g1356441-cbihb.tar.xz?dl=0 | tar --numeric-owner -xhJpf -
+  curl -sSL https://www.dropbox.com/s/ex7hi4amf4nlnzd/linux-4.6.0-rc6-dev-g8d9289b-cbihb.tar.xz?dl=0 | tar --numeric-owner -xhJpf -
 # U-571
   mkdir -p /boot/conf.d/system.default
   curl -sSL https://raw.githubusercontent.com/umiddelb/u-571/master/board/cubox-i/uEnv.txt > /boot/conf.d/system.default/uEnv.txt
@@ -253,7 +270,7 @@ i_kernel_cubox_i () {
 }
 
 i_kernel_pine64 () {
-  curl -sSL https://www.dropbox.com/s/anqopy4bpsmdtmz/linux-3.10.65-7-pine64-p64.tar.xz?dl=0 | tar --numeric-owner -xhJpf -
+  curl -sSL https://www.dropbox.com/s/qsx6jhrqjlwrbjd/linux-3.10.101-p64.tar.xz?dl=0 | tar --numeric-owner -xhJpf -
   echo "8723bs" >> /etc/modules 
 # U-571
   mkdir -p /boot/conf.d/system.default
@@ -290,4 +307,26 @@ c_fw_utils () {
 c_user () {
   adduser --gecos '' $1
   usermod -aG adm,cdrom,dialout,sudo,plugdev $1
+}
+
+c_locale () {
+  for s in $@; do
+    locale-gen $s
+  done
+  export LC_ALL="$1"
+  update-locale LC_ALL="$1" LANG="$1" LC_MESSAGES=POSIX
+  dpkg-reconfigure -f noninteractive locales
+}
+
+c_locale_debian () {
+  for ((i = 1; i <= $#; i++)); do
+    if (($i == 1)); then
+      echo "${!i} UTF-8" > /etc/locale.gen
+    else
+      echo "${!i} UTF-8" >> /etc/locale.gen
+    fi
+  done
+  locale-gen
+  debconf-set-selections <<< "locales locales/default_environment_locale select $1"
+  dpkg-reconfigure -f noninteractive locales
 }
