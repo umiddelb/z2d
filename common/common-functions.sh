@@ -1,31 +1,5 @@
 #!/bin/bash
 
-<<<<<<< HEAD
-c_locale () {
-  for s in $@; do
-    locale-gen ${s}
-  done
-  export LC_ALL="$1"
-  update-locale LC_ALL="$1" LANG="$1" LC_MESSAGES=POSIX
-  dpkg-reconfigure -f noninteractive locales
-}
-
-c_locale_debian () {
-  for ((i = 1; i <= $#; i++)); do
-    if (($i == 1)); then
-      echo "${!i} UTF-8" > /etc/locale.gen
-    else
-      echo "${!i} UTF-8" >> /etc/locale.gen
-    fi
-  done
-  locale-gen
-  debconf-set-selections <<< "locales locales/default_environment_locale select $1"
-  dpkg-reconfigure -f noninteractive locales
-}
-
-
-=======
->>>>>>> master
 c_tzone () {
   echo "$1" > /etc/timezone
   dpkg-reconfigure -f noninteractive tzdata
@@ -311,7 +285,7 @@ c_user () {
 
 c_locale () {
   for s in $@; do
-    locale-gen $s
+    locale-gen ${s}
   done
   export LC_ALL="$1"
   update-locale LC_ALL="$1" LANG="$1" LC_MESSAGES=POSIX
