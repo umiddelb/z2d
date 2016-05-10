@@ -2,7 +2,7 @@
 
 set -ex
 
-curl -sSL http://cdimage.ubuntu.com/ubuntu-core/releases/16.04/release/ubuntu-core-16.04-core-armhf.tar.gz | sudo tar --numeric-owner -xpzf - -C rootfs/
+curl -sSL http://cdimage.ubuntu.com/ubuntu-base/releases/16.04/release/ubuntu-base-16.04-core-armhf.tar.gz | sudo tar --numeric-owner -xpzf - -C rootfs/
 
 sudo mount -o bind /dev ./rootfs/dev
 sudo mount -o bind /dev/pts ./rootfs/dev/pts
