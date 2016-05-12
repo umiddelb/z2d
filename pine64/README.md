@@ -72,9 +72,9 @@ The second partiton needs to be enlarged in order to consume the entire SD card 
 
     curl -sSL 'https://www.dropbox.com/s/atroptjpdslhzo7/centos7_pine64.tar.xz?dl=0' | sudo tar --numeric-owner -C /mnt -xpJf -
 
-## Step 6: Update to the latest 3.10.65+ Linux kernel
+## Step 6: Update to the latest 3.10.101 Linux kernel
 
-    curl -sSL 'https://www.dropbox.com/s/vtg6zkw8l9dbc1w/linux-3.10.65-5-pine64%2B-p64.tar.xz?dl=0' | sudo tar --numeric-owner -C /mnt -xphJf -
+    curl -sSL 'https://www.dropbox.com/s/qsx6jhrqjlwrbjd/linux-3.10.101-p64.tar.xz?dl=0' | sudo tar --numeric-owner -C /mnt -xphJf -
 
 ## Step 7: Unmount bootenv and rootfs partition
 
