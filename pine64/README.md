@@ -66,7 +66,7 @@ The second partiton needs to be enlarged in order to consume the entire SD card 
     
 ## Step 5b: Extract the Ubuntu Xenial root filesystem (containing a 3.10.65+ Linux kernel)
 
-    curl -sSL 'https://www.dropbox.com/s/tp488tlsori4log/xenial_pine64.tar.xz?dl=0' | sudo tar --numeric-owner -C /mnt -xpJf -
+    curl -sSL 'https://www.dropbox.com/s/uatgjecx6qvne82/xenial_pine64.tar.xz?dl=0' | sudo tar --numeric-owner -C /mnt -xpJf -
 
 ## Step 5c: Extract the CentOS 7 root filesystem (containing a 3.10.65+ Linux kernel)
 
