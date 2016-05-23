@@ -75,6 +75,7 @@ The second partiton needs to be enlarged in order to consume the entire SD card 
 ## Step 6: Update to the latest 3.10.101 Linux kernel
 
     curl -sSL 'https://www.dropbox.com/s/qsx6jhrqjlwrbjd/linux-3.10.101-p64.tar.xz?dl=0' | sudo tar --numeric-owner -C /mnt -xphJf -
+    cd /mnt/boot/conf.d/default/; sudo rm kernel && sudo ln -s ../../kernel.d/linux-3.10.101-p64 kernel
 
 ## Step 7: Unmount bootenv and rootfs partition
 
