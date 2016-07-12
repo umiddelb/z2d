@@ -69,6 +69,16 @@ c_yum_list_f24_second () {
   echo 'gpgkey=https://getfedora.org/static/030D5AED.txt' >>/etc/yum.repos.d/Fedora24Repo.repo
 }
 
+c_yum_list_epel_aarch64 (){
+
+  echo '[unofficial-builds]' > /etc/yum.repos.d/EPEL.repo
+  echo 'name=CentOS unofficial extra package rebuild' >> /etc/yum.repos.d/EPEL.repo
+  echo 'baseurl=http://buildlogs.centos.org/c7-epel.a64/' >> /etc/yum.repos.d/EPEL.repo
+  echo 'metadata_expire=6h' >> /etc/yum.repos.d/EPEL.repo
+  echo 'gpgcheck=0' >> /etc/yum.repos.d/EPEL.repo
+  echo 'skip_if_unavailable=True' >> /etc/yum.repos.d/EPEL.repo
+}
+
 c_nameserver () {
   for ((i = 1; i <= $#; i++)); do
     if (($i == 1)); then
@@ -173,7 +183,7 @@ i_kernel_odroid_c2 () {
 }
 
 i_kernel_odroid_c2_31429 () {
-  curl -sSL https://www.dropbox.com/s/mh13gumm9xm2nb7/linux-3.14.29-c2.tar.xz?dl=0 | tar --numeric-owner -xhJpf -
+  curl -sSL https://www.dropbox.com/s/5enwvtai14cdsyx/linux-3.14.29-gdb20506-dirty-c2.tar.xz?dl=0 | tar --numeric-owner -xhJpf -
 # U-571
   mkdir -p /boot/conf.d/system.default
   curl -sSL https://raw.githubusercontent.com/umiddelb/u-571/master/board/odroid-c2/uEnv.txt > /boot/conf.d/system.default/uEnv.txt
