@@ -6,7 +6,7 @@ dev=mmcblk1
 sync
 sudo partprobe -s /dev/$dev
 
-curl -sSL http://dn.odroid.com/S905/BootLoader/ODROID-C2/c2_bootloader.tar.gz | tar -C /tmp -xzf -
+curl -sSL http://dn.odroid.com/S905/BootLoader/ODROID-C2/c2_boot_ubuntu_release.tar.gz | tar -C /tmp -xzf -
 sudo dd if=/tmp/c2_bootloader/bl1.bin.hardkernel of=/dev/$dev conv=fsync bs=1 count=442
 sudo dd if=/tmp/c2_bootloader/bl1.bin.hardkernel of=/dev/$dev conv=fsync bs=512 skip=1 seek=1
 sudo dd if=/tmp/c2_bootloader/u-boot.bin of=/dev/$dev conv=fsync bs=512 seek=97
