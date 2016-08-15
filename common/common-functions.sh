@@ -182,13 +182,14 @@ i_kernel_odroid_c2 () {
   (cd /boot/conf.d/system.default; ln -s /media/boot/ kernel)
 }
 
-i_kernel_odroid_c2_31429 () {
-  curl -sSL https://www.dropbox.com/s/5enwvtai14cdsyx/linux-3.14.29-gdb20506-dirty-c2.tar.xz?dl=0 | tar --numeric-owner -xhJpf -
+i_kernel_odroid_c2_31465 () {
+  curl -sSL https://www.dropbox.com/s/78pcj95ix9ui41n/linux-3.14.65-c2-00001-gbc4b416-dirty.tar.xz?dl=0 | tar --numeric-owner -xhJpf -
 # U-571
   mkdir -p /boot/conf.d/system.default
   curl -sSL https://raw.githubusercontent.com/umiddelb/u-571/master/board/odroid-c2/uEnv.txt > /boot/conf.d/system.default/uEnv.txt
   (cd /boot/conf.d/ ; ln -s system.default default)
-  (cd /boot/conf.d/system.default; ln -s ../../kernel.d/linux-*-c2 kernel)
+  (cd /boot/conf.d/system.default; ln -s ../../kernel.d/linux-* kernel)
+  (cd /boot; ln -s kernel.d/linux-*/config-* .)
 }
 
 
