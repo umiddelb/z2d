@@ -255,7 +255,7 @@ i_kernel_cubox_i () {
 }
 
 i_kernel_pine64 () {
-  curl -sSL https://www.dropbox.com/s/qsx6jhrqjlwrbjd/linux-3.10.101-p64.tar.xz?dl=0 | tar --numeric-owner -xhJpf -
+  curl -sSL https://www.dropbox.com/s/xkwpyx83nu9gux0/linux-3.10.102-p64.tar.xz?dl=0 | tar --numeric-owner -xhJpf -
   echo "8723bs" >> /etc/modules 
 # U-571
   mkdir -p /boot/conf.d/system.default
