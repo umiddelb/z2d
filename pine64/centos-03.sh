@@ -15,3 +15,5 @@ yum install -y gcc --enablerepo=warning:fedora23
 c_yum_list_f24_second
 yum install -y most ntfs-3g uboot-tools --enablerepo=warning:fedora24
 yum clean all
+
+c_fw_utils "/dev/mmcblk0 0x88000 0x20000"

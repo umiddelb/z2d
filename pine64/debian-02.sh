@@ -27,6 +27,7 @@ i_kernel_pine64
 c_if_lo
 c_if_dhcp "eth0"
 c_ttyS_debian "ttyS0"
+c_fw_utils "/dev/mmcblk0 0x88000 0x20000"
 c_user "debian"
 
 apt-get clean
