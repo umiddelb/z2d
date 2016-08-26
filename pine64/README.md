@@ -20,12 +20,12 @@ root filesystem for your 64bit ARMv8 device (aarch64 platform):
 You need a working qemu environment with aarch64 support (e.g. Debian Jessie) to run the scripts on an non-aarch64 device. Due to the emulation, the scripts will take some time to complete. 
 
 You can find a prebuild root filesystem here:
- - [xenial-pine64.tar.xz](https://www.dropbox.com/s/tp488tlsori4log/xenial_pine64.tar.xz?dl=0), user: ubuntu, password: 111111
+ - [xenial-pine64.tar.xz](https://www.dropbox.com/s/uatgjecx6qvne82/xenial_pine64.tar.xz?dl=0), user: ubuntu, password: 111111
  - [jessie_pine64.tar.xz](https://www.dropbox.com/s/zwfhz30nbvo4lyp/jessie_pine64.tar.xz?dl=0), user: debian, password: 111111
  - [centos7_pine64.tar.xz](https://www.dropbox.com/s/atroptjpdslhzo7/centos7_pine64.tar.xz?dl=0), user: centos, password: 111111
 
 You can extract the tar archive with:
- - Ubuntu: `curl -sSL 'https://www.dropbox.com/s/tp488tlsori4log/xenial_pine64.tar.xz?dl=0' | sudo tar --numeric-owner -xpJf -`
+ - Ubuntu: `curl -sSL 'https://www.dropbox.com/s/uatgjecx6qvne82/xenial_pine64.tar.xz?dl=0' | sudo tar --numeric-owner -xpJf -`
  - Debian: `curl -sSL 'https://www.dropbox.com/s/zwfhz30nbvo4lyp/jessie_pine64.tar.xz?dl=0' | sudo tar --numeric-owner -xpJf -`
  - Centos: `curl -sSL 'https://www.dropbox.com/s/atroptjpdslhzo7/centos7_pine64.tar.xz?dl=0' | sudo tar --numeric-owner -xpJf -`
  
