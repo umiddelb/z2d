@@ -1,7 +1,7 @@
 #!/bin/sh
 set -ex
 
-dev=sdb
+dev=sda
 curl -sSL https://www.stdin.xyz/downloads/people/longsleep/pine64-images/simpleimage-pine64-latest.img.xz | unxz | sudo dd of=/dev/$dev
 sync
 set +e
