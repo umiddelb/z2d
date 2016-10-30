@@ -23,4 +23,33 @@ on your ARM device within a couple minutes. Each subdirectory has this collectio
 
 Please choose the correct device (e.g. SD card reader) to be taken in `ubuntu-core-00.sh` / `debian-00.sh` / `centos-00.sh`.
 
-You can find a step by step description [here](http://forum.odroid.com/viewtopic.php?p=91036#p91036).
+# Instructions for Centos
+
+To create a brand new ubuntu, debian or centos image you will need a running Pine64 board and a USB adapter with the new
+memory microSD card. The following are instructions specific to centos, but it should be very similar for the other 
+distrubutions.
+
+1. Get a Pine64 running with one of the [supported linux distributions](https://www.pine64.org/?page_id=1929)
+
+2. Login to the Pine64 and Ensure that git, curl, dosfstools are installed: apt-get install -y git curl dosfstools -- they may not be installed by default.
+
+3. Checkout this repo: git clone https://github.com/Project31/z2d
+
+4. Stick in the USB drive with the new memory card. Since it is the only device plugged in it should come up as /dev/dba, but
+you should double check this using `fdisk -l` to list all your devices.  Update the `dev` setting with the value you found in step 2.
+
+~~~~
+cd z2d/pine64
+vi centos-00.sh 
+~~~~
+
+5. Run the centos-00.sh script, and the centos-01.sh script as long as there are no errors.
+
+~~~~
+sh centos-00.sh
+sh centos-01.sh
+~~~~
+
+6. If everything completes without errors you know have a bootable microSD card with a base Centos-7 distro running the latest longsleep kernel.
+After you boot up with this card, you will find two extra files on the file system: common-functions.sh an centos-03.sh. Editing and running the 
+centos-03.sh script is optional. You can delete these files right after.
