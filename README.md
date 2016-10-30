@@ -23,7 +23,7 @@ on your ARM device within a couple minutes. Each subdirectory has this collectio
 
 Please choose the correct device (e.g. SD card reader) to be taken in `ubuntu-core-00.sh` / `debian-00.sh` / `centos-00.sh`.
 
-# Instructions for Centos
+# Instructions for Centos (credit goes to [KurtStam](https://github.com/KurtStam))
 
 To create a brand new ubuntu, debian or centos image you will need a running Pine64 board and a USB adapter with the new
 memory microSD card. The following are instructions specific to centos, but it should be very similar for the other 
