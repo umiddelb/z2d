@@ -33,7 +33,7 @@ distrubutions.
 
 2. Login to the Pine64 and Ensure that git, curl, dosfstools are installed: apt-get install -y git curl dosfstools -- they may not be installed by default.
 
-3. Checkout this repo: git clone https://github.com/Project31/z2d
+3. Checkout this repo: git clone https://github.com/umiddelb/z2d
 
 4. Stick in the USB drive with the new memory card. Since it is the only device plugged in it should come up as /dev/dba, but
 you should double check this using `fdisk -l` to list all your devices.  Update the `dev` setting with the value you found in step 2.
