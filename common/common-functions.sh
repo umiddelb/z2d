@@ -34,49 +34,91 @@ c_apt_list_debian () {
 }
 
 c_yum_list_f23_prim () {
-  echo '[warning:fedora23]' >/etc/yum.repos.d/Fedora23Repo.repo
-  echo 'name=fedora' >>/etc/yum.repos.d/Fedora23Repo.repo
-  echo 'mirrorlist=http://mirrors.fedoraproject.org/mirrorlist?repo=fedora-23&arch=$basearch' >>/etc/yum.repos.d/Fedora23Repo.repo
-  echo 'enabled=0' >>/etc/yum.repos.d/Fedora23Repo.repo
-  echo 'gpgcheck=1' >>/etc/yum.repos.d/Fedora23Repo.repo
-  echo 'gpgkey=https://getfedora.org/static/34EC9CBA.txt' >>/etc/yum.repos.d/Fedora23Repo.repo
+  echo "\
+[warning:fedora23]
+name=fedora
+mirrorlist=http://mirrors.fedoraproject.org/mirrorlist?repo=fedora-23&arch=$basearch
+enabled=0
+gpgcheck=1
+gpgkey=https://getfedora.org/static/34EC9CBA.txt " \
+  > /etc/yum.repos.d/Fedora23Repo.repo
 }
 
 c_yum_list_f23_second () {
-  echo '[warning:fedora23]' >/etc/yum.repos.d/Fedora23Repo.repo
-  echo 'name=fedora' >>/etc/yum.repos.d/Fedora23Repo.repo
-  echo 'mirrorlist=http://mirrors.fedoraproject.org/mirrorlist?repo=fedora-23&arch=$basearch' >>/etc/yum.repos.d/Fedora23Repo.repo
-  echo 'enabled=0' >>/etc/yum.repos.d/Fedora23Repo.repo
-  echo 'gpgcheck=1' >>/etc/yum.repos.d/Fedora23Repo.repo
-  echo 'gpgkey=https://getfedora.org/static/873529B8.txt' >>/etc/yum.repos.d/Fedora23Repo.repo
+  echo "\
+[warning:fedora23]
+name=fedora
+mirrorlist=http://mirrors.fedoraproject.org/mirrorlist?repo=fedora-23&arch=$basearch
+enabled=0
+gpgcheck=1
+gpgkey=https://getfedora.org/static/873529B8.txt" \
+  > /etc/yum.repos.d/Fedora23Repo.repo
 }
 
 c_yum_list_f24_prim () {
-  echo '[warning:fedora24]' >/etc/yum.repos.d/Fedora24Repo.repo
-  echo 'name=fedora' >>/etc/yum.repos.d/Fedora24Repo.repo
-  echo 'mirrorlist=http://mirrors.fedoraproject.org/mirrorlist?repo=fedora-24&arch=$basearch' >>/etc/yum.repos.d/Fedora24Repo.repo
-  echo 'enabled=0' >>/etc/yum.repos.d/Fedora24Repo.repo
-  echo 'gpgcheck=1' >>/etc/yum.repos.d/Fedora24Repo.repo
-  echo 'gpgkey=https://getfedora.org/static/81B46521.txt' >>/etc/yum.repos.d/Fedora24Repo.repo
+  echo "\
+[warning:fedora24]
+name=fedora
+mirrorlist=http://mirrors.fedoraproject.org/mirrorlist?repo=fedora-24&arch=$basearch
+enabled=0
+gpgcheck=1
+gpgkey=https://getfedora.org/static/81B46521.txt" \
+  > /etc/yum.repos.d/Fedora24Repo.repo
 }
 
 c_yum_list_f24_second () {
-  echo '[warning:fedora24]' >/etc/yum.repos.d/Fedora24Repo.repo
-  echo 'name=fedora' >>/etc/yum.repos.d/Fedora24Repo.repo
-  echo 'mirrorlist=http://mirrors.fedoraproject.org/mirrorlist?repo=fedora-24&arch=$basearch' >>/etc/yum.repos.d/Fedora24Repo.repo
-  echo 'enabled=0' >>/etc/yum.repos.d/Fedora24Repo.repo
-  echo 'gpgcheck=1' >>/etc/yum.repos.d/Fedora24Repo.repo
-  echo 'gpgkey=https://getfedora.org/static/030D5AED.txt' >>/etc/yum.repos.d/Fedora24Repo.repo
+  echo "\
+[warning:fedora24]
+name=fedora
+mirrorlist=http://mirrors.fedoraproject.org/mirrorlist?repo=fedora-24&arch=$basearch
+enabled=0
+gpgcheck=1
+gpgkey=https://getfedora.org/static/030D5AED.txt" \
+  > /etc/yum.repos.d/Fedora24Repo.repo
+}
+
+c_yum_list_f25_prim () {
+  echo "\
+[warning:fedora25]
+name=fedora
+mirrorlist=http://mirrors.fedoraproject.org/mirrorlist?repo=fedora-25&arch=$basearch
+enabled=0
+gpgcheck=1
+gpgkey=https://getfedora.org/static/FDB19C98.txt" \
+  > /etc/yum.repos.d/Fedora25Repo.repo
+}
+
+c_yum_list_f25_second () {
+  echo "\
+[warning:fedora25]
+name=fedora
+mirrorlist=http://mirrors.fedoraproject.org/mirrorlist?repo=fedora-25&arch=$basearch
+enabled=0
+gpgcheck=1
+gpgkey=https://getfedora.org/static/E372E838.txt" \
+  > /etc/yum.repos.d/Fedora25Repo.repo
 }
 
 c_yum_list_epel_aarch64 (){
+  echo "\
+[unofficial-builds]
+name=CentOS unofficial extra package rebuild
+baseurl=http://buildlogs.centos.org/c7-epel.a64/
+metadata_expire=6h
+gpgcheck=0
+skip_if_unavailable=True" \
+  > /etc/yum.repos.d/EPEL.repo
+}
 
-  echo '[unofficial-builds]' > /etc/yum.repos.d/EPEL.repo
-  echo 'name=CentOS unofficial extra package rebuild' >> /etc/yum.repos.d/EPEL.repo
-  echo 'baseurl=http://buildlogs.centos.org/c7-epel.a64/' >> /etc/yum.repos.d/EPEL.repo
-  echo 'metadata_expire=6h' >> /etc/yum.repos.d/EPEL.repo
-  echo 'gpgcheck=0' >> /etc/yum.repos.d/EPEL.repo
-  echo 'skip_if_unavailable=True' >> /etc/yum.repos.d/EPEL.repo
+c_yum_list_epel_armhf (){
+  echo "\
+[unofficial-builds]
+name=CentOS unofficial extra package rebuild
+baseurl=http://armv7.dev.centos.org/repodir/epel-pass-1/
+metadata_expire=6h
+gpgcheck=0
+skip_if_unavailable=True" \
+  > /etc/yum.repos.d/EPEL.repo
 }
 
 c_nameserver () {
