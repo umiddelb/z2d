@@ -1,7 +1,7 @@
 #!/bin/sh
 set -ex
 
-curl -sSL http://mirror.centos.org/altarch/7/isos/aarch64/CentOS-7-aarch64-rootfs-1606.tar.xz | sudo tar --numeric-owner -xpJf - -C rootfs/
+curl -sSL http://mirror.centos.org/altarch/7/isos/aarch64/CentOS-7-aarch64-rootfs-7.3.1611.tar.xz | sudo tar --numeric-owner -xpJf - -C rootfs/
 
 sudo cp centos-02.sh ./rootfs
 sudo cp centos-03.sh ./rootfs
