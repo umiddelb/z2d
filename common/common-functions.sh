@@ -120,6 +120,7 @@ i_gcc_debian () {
   update-alternatives --install /usr/bin/g++ g++ /usr/bin/g++-5 50
 }
 
+# Install HK default distro kernel
 i_kernel_odroid_c1 () {
   apt-get -q=2 -y install initramfs-tools
 # <HK quirk>
@@ -158,6 +159,7 @@ i_kernel_odroid_c1_31080142 () {
 }
 
 
+# Install HK default distro kernel
 i_kernel_odroid_c2 () {
   apt-get -q=2 -y install initramfs-tools
 # <HK quirk>
@@ -182,13 +184,13 @@ i_kernel_odroid_c2 () {
   (cd /boot/conf.d/system.default; ln -s /media/boot/ kernel)
 }
 
-i_kernel_odroid_c2_31465 () {
-  curl -sSL https://www.dropbox.com/s/78pcj95ix9ui41n/linux-3.14.65-c2-00001-gbc4b416-dirty.tar.xz?dl=0 | tar --numeric-owner -xhJpf -
+i_kernel_odroid_c2_31479 () {
+  curl -sSL https://www.dropbox.com/s/d5kqjuxnaime7m3/linux-3.14.79-c2-g58f19b0-dirty.tar.xz?dl=0 | tar --numeric-owner -xhJpf -
 # U-571
   mkdir -p /boot/conf.d/system.default
   curl -sSL https://raw.githubusercontent.com/umiddelb/u-571/master/board/odroid-c2/uEnv.txt > /boot/conf.d/system.default/uEnv.txt
   (cd /boot/conf.d/ ; ln -s system.default default)
-  (cd /boot/conf.d/system.default; ln -s ../../kernel.d/linux-* kernel)
+  (cd /boot/conf.d/system.default; ln -s ../../kernel.d/linux-*-c2* kernel)
   (cd /boot; ln -s kernel.d/linux-*/config-* .)
 }
 
@@ -227,31 +229,31 @@ i_kernel_odroid_xu3_31096 () {
   (cd /boot/conf.d/system.default; ln -s ../../kernel.d/linux-*-xu3 kernel)
 }
 
-i_kernel_odroid_xu4_460 () {
-  curl -sSL https://www.dropbox.com/s/j8hwog963yb1tph/linux-4.6.0-rc6%2B-xu4.tar.xz?dl=0 | tar --numeric-owner -xhJpf -
+i_kernel_odroid_xu4_490 () {
+  curl -sSL https://www.dropbox.com/s/osacsoginlv5eph/linux-4.9.0-xu4-73255-ga9b081d-dirty.tar.xz?dl=0 | tar --numeric-owner -xhJpf -
 # U-571
   mkdir -p /boot/conf.d/system.default
   curl -sSL https://raw.githubusercontent.com/umiddelb/u-571/master/board/odroid-xu4/uEnv.txt > /boot/conf.d/system.default/uEnv.txt
   (cd /boot/conf.d/ ; ln -s system.default default)
-  (cd /boot/conf.d/system.default; ln -s ../../kernel.d/linux-*-xu4 kernel)
+  (cd /boot/conf.d/system.default; ln -s ../../kernel.d/linux-*-xu4* kernel)
 }
 
 i_kernel_utilite_pro () {
-  curl -sSL https://www.dropbox.com/s/juekfyutzdn4cwb/linux-3.14.60-cm-fx6-g7e42427-upro.tar.xz?dl=0 | tar --numeric-owner -xhJpf -
+  curl -sSL https://www.dropbox.com/s/s1c9yzijcgrgam2/linux-4.9.0-imx6-73180-ga9b081d.tar.xz?dl=0 | tar --numeric-owner -xhJpf -
 # U-571
   mkdir -p /boot/conf.d/system.default
   curl -sSL https://raw.githubusercontent.com/umiddelb/u-571/master/board/utilite-pro/uEnv.txt > /boot/conf.d/system.default/uEnv.txt
   (cd /boot/conf.d/ ; ln -s system.default default)
-  (cd /boot/conf.d/system.default; ln -s ../../kernel.d/linux-*-upro kernel)
+  (cd /boot/conf.d/system.default; ln -s ../../kernel.d/linux-*-imx6* kernel)
 }
 
 i_kernel_cubox_i () {
-  curl -sSL https://www.dropbox.com/s/ex7hi4amf4nlnzd/linux-4.6.0-rc6-dev-g8d9289b-cbihb.tar.xz?dl=0 | tar --numeric-owner -xhJpf -
+  curl -sSL https://www.dropbox.com/s/s1c9yzijcgrgam2/linux-4.9.0-imx6-73180-ga9b081d.tar.xz?dl=0 | tar --numeric-owner -xhJpf -
 # U-571
   mkdir -p /boot/conf.d/system.default
   curl -sSL https://raw.githubusercontent.com/umiddelb/u-571/master/board/cubox-i/uEnv.txt > /boot/conf.d/system.default/uEnv.txt
   (cd /boot/conf.d/ ; ln -s system.default default)
-  (cd /boot/conf.d/system.default; ln -s ../../kernel.d/linux-*-cbihb kernel)
+  (cd /boot/conf.d/system.default; ln -s ../../kernel.d/linux-*-imx6* kernel)
 }
 
 i_kernel_pine64 () {
