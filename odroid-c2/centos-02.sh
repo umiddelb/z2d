@@ -7,7 +7,7 @@ c_nameserver 8.8.8.8
 
 echo "UUID=deadbeef-dead-beef-dead-beefdeadbeef /                       ext4     defaults        0 0" > /etc/fstab
 
-i_kernel_odroid_c2_31465
+i_kernel_odroid_c2_31479
 
 passwd root
 adduser -c '' centos
