@@ -5,7 +5,6 @@ set -ex
 
 c_nameserver 8.8.8.8
 
-mv /etc/fstab /etc/fstab.rpmdefault
 echo "UUID=deadbeef-dead-beef-dead-beefdeadbeef /                       ext4     defaults        0 0" > /etc/fstab
 
 i_kernel_odroid_c2_31479
