@@ -13,12 +13,14 @@ hostnamectl set-hostname cbxi --static
 hostnamectl set-hostname "SolidRun CuBox-i" --pretty
 
 yum update -y
-yum install -y bc bridge-utils dtc iw lzop rcs screen sysfsutils usbutils wget
+yum install -y bc bridge-utils dtc iw lzop rcs screen sysfsutils usbutils pciutils wget lsof ntfs-3g
+c_yum_list_epel_armhf
 c_yum_list_f23_prim
-yum install -y gcc docker --enablerepo=warning:fedora23
 c_yum_list_f24_prim
-yum install -y most ntfs-3g uboot-tools --enablerepo=warning:fedora24
+c_yum_list_f25_prim
+#yum install -y gcc docker --enablerepo=warning:fedora23
+#yum install -y most ntfs-3g uboot-tools --enablerepo=warning:fedora25
 yum clean all
 
-mv /etc/fw_env.config /etc/fw_env.config.rpmdefault
+# mv /etc/fw_env.config /etc/fw_env.config.rpmdefault
 c_fw_utils "/dev/mmcblk0 0x60000 0x2000 0x2000"
