@@ -149,6 +149,13 @@ i_extra () {
   apt-get -q=2 -y install dialog screen wireless-tools iw libncurses5-dev cpufrequtils rcs aptitude make bc lzop man-db ntp usbutils pciutils lsof most sysfsutils
 }
 
+i_gcc-6 () {
+  add-apt-repository ppa:ubuntu-toolchain-r/test
+  apt-get update
+  apt-get -y install gcc-6 g++-6
+  update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-6 60
+  update-alternatives --install /usr/bin/g++ g++ /usr/bin/g++-6 60
+}
 i_gcc () {
   apt-get -y install gcc-5 g++-5
   update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-5 50
