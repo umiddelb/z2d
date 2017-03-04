@@ -233,6 +233,10 @@ i_kernel_odroid_c2 () {
   (cd /boot/conf.d/system.default; ln -s /media/boot/ kernel)
 }
 
+i_kernel_odroid_kvim_31429 () {
+  curl -sSL https://www.dropbox.com/s/beda84t9cfj89t9/linux-3.14.29-kvim-g2e7dc31-dirty.tar.xz?dl=0 | tar --numeric-owner -xhJpf -
+}
+
 i_kernel_odroid_c2_31479 () {
   curl -sSL https://www.dropbox.com/s/d5kqjuxnaime7m3/linux-3.14.79-c2-g58f19b0-dirty.tar.xz?dl=0 | tar --numeric-owner -xhJpf -
 # U-571
