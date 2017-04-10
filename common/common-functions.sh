@@ -310,13 +310,12 @@ i_kernel_cubox_i () {
 }
 
 i_kernel_pine64 () {
-  curl -sSL https://www.dropbox.com/s/xkwpyx83nu9gux0/linux-3.10.102-p64.tar.xz?dl=0 | tar --numeric-owner -xhJpf -
-  echo "8723bs" >> /etc/modules 
+  curl -sSL https://www.dropbox.com/s/ez9h8ziaxf48s36/linux-4.9.21-p64-73262-g520aeba.tar.xz?dl=0 | tar --numeric-owner -xhJpf -
 # U-571
   mkdir -p /boot/conf.d/system.default
-  curl -sSL https://raw.githubusercontent.com/umiddelb/u-571/master/board/pine64+/uEnv.txt > /boot/conf.d/system.default/uEnv.txt
+  curl -sSL https://raw.githubusercontent.com/umiddelb/u-571/master/board/pine64%2B/uEnv.txt > /boot/conf.d/system.default/uEnv.txt
   (cd /boot/conf.d/ ; ln -s system.default default)
-  (cd /boot/conf.d/system.default; ln -s ../../kernel.d/linux-*-p64 kernel; ln -s kernel/Initrd Initrd )
+  (cd /boot/conf.d/system.default; ln -s ../../kernel.d/linux-*-p64* kernel)
 }
 
 c_if_lo () {

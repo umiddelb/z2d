@@ -1,20 +1,21 @@
 #!/bin/sh
 set -ex
 
-dev=sda
-curl -sSL https://www.stdin.xyz/downloads/people/longsleep/pine64-images/simpleimage-pine64-latest.img.xz | unxz | sudo dd of=/dev/$dev
+dev=sdb
+curl -sSL https://github.com/umiddelb/z2d/blob/master/pine64/Armbian_5.24_Pine64_U-Boot.bin?raw=true | sudo dd of=/dev/$dev
 sync
 set +e
-/bin/echo -e "d\n2\nn\np\n2\n143360\n\nw\n" | sudo fdisk /dev/$dev
+/bin/echo -e "o\nn\np\n1\n2048\n\nw\n" | sudo fdisk /dev/$dev
 set -e
 sync
 sudo partprobe -s /dev/$dev
 
-sudo mkfs.ext4 -O ^has_journal -b 4096 -L rootfs -U deadbeef-dead-beef-dead-beefdeadbeef /dev/${dev}2 
-sudo mount /dev/${dev}2 ./rootfs
+curl -sSL https://github.com/umiddelb/u-571/raw/master/uboot-env > uboot-env
+chmod +x uboot-env
+sudo ./uboot-env -d /dev/${dev} -o 0x88000 -l 0x20000 del -I
+sudo ./uboot-env -d /dev/${dev} -o 0x88000 -l 0x20000 del -i
+curl -sSL https://raw.githubusercontent.com/umiddelb/u-571/master/board/pine64%2B/bundle.uEnv | sudo ./uboot-env -d /dev/${dev} -o 0x88000 -l 0x20000 set
+sync
 
-sudo mkdir ./rootfs/bootenv
-sudo mount /dev/${dev}1 ./rootfs/bootenv
-sudo rm -rf rootfs/bootenv/initrd.img rootfs/bootenv/pine64/
-curl -sSL https://raw.githubusercontent.com/umiddelb/u-571/master/board/pine64+/bundle.uEnv | sudo dd of=./rootfs/bootenv/bundle.uEnv
-curl -sSL https://github.com/umiddelb/u-571/blob/master/board/pine64+/uboot.env.xz?raw=true | unxz | sudo dd of=./rootfs/bootenv/uboot.env
+sudo mkfs.ext4 -O ^has_journal -b 4096 -L rootfs -U deadbeef-dead-beef-dead-beefdeadbeef /dev/${dev}1 
+sudo mount /dev/${dev}1 ./rootfs
