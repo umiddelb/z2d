@@ -1,5 +1,5 @@
 This directory contains a collection of scripts helping you to set up a minimal Ubuntu 16.04 / Debian 8 Jessie / CentOS 7
-root filesystem for your 64bit ARMv8 device (aarch64 platform): 
+boot device for your Pine64. I've switched to mainline U-boot firmware and mainline 4.9 Linux kernel, since the HW support has become good enough for running Docker and k8s headless on the Pine64. If you are looking for ready to use desktop / GUI images you might be happy using [Armbian](https://www.armbian.com/pine64/) instead.
 
 ## Ubuntu
  - ubuntu-core-00.sh: set up u-boot, partition & format the boot device, do the correct mounts
