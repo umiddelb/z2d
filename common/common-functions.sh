@@ -99,6 +99,7 @@ gpgkey=https://getfedora.org/static/E372E838.txt" \
   > /etc/yum.repos.d/Fedora25Repo.repo
 }
 
+# yum install epel-release
 c_yum_list_epel_aarch64 (){
   echo "\
 [unofficial-builds]
