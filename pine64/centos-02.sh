@@ -16,3 +16,5 @@ passwd root
 adduser -c '' centos
 usermod -aG adm,cdrom,wheel,dialout centos
 passwd centos
+
+touch /etc/sysconfig/network
