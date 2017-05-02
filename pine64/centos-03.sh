@@ -13,7 +13,7 @@ hostnamectl set-hostname p64 --static
 hostnamectl set-hostname "PINE64+" --pretty
 
 yum update -y
-yum install -y bc bridge-utils docker dtc iw lzop rcs screen sysfsutils usbutils pciutils wget lsof ntfs-3g
+yum install -y bc bridge-utils docker dtc iw lzop rcs screen sysfsutils usbutils pciutils wget lsof ntfs-3g net-tools
 c_yum_list_epel_aarch64
 # c_yum_list_f25_second
 # yum install -y most uboot-tools --enablerepo=warning:fedora24
