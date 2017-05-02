@@ -99,6 +99,7 @@ gpgkey=https://getfedora.org/static/E372E838.txt" \
   > /etc/yum.repos.d/Fedora25Repo.repo
 }
 
+# yum install epel-release
 c_yum_list_epel_aarch64 (){
   echo "\
 [unofficial-builds]
@@ -310,7 +311,7 @@ i_kernel_cubox_i () {
 }
 
 i_kernel_pine64 () {
-  curl -sSL https://www.dropbox.com/s/ez9h8ziaxf48s36/linux-4.9.21-p64-73262-g520aeba.tar.xz?dl=0 | tar --numeric-owner -xhJpf -
+  curl -sSL https://www.dropbox.com/s/g4tkogrbawueu6q/linux-4.9.22-p64-g9a1638e.tar.xz?dl=0 | tar --numeric-owner -xhJpf -
 # U-571
   mkdir -p /boot/conf.d/system.default
   curl -sSL https://raw.githubusercontent.com/umiddelb/u-571/master/board/pine64%2B/uEnv.txt > /boot/conf.d/system.default/uEnv.txt
