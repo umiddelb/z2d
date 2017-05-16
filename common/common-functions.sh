@@ -34,91 +34,91 @@ c_apt_list_debian () {
 }
 
 c_yum_list_f23_prim () {
-  echo "\
-[warning:fedora23]
+  echo \
+'[warning:fedora23]
 name=fedora
 mirrorlist=http://mirrors.fedoraproject.org/mirrorlist?repo=fedora-23&arch=$basearch
 enabled=0
 gpgcheck=1
-gpgkey=https://getfedora.org/static/34EC9CBA.txt " \
+gpgkey=https://getfedora.org/static/34EC9CBA.txt' \
   > /etc/yum.repos.d/Fedora23Repo.repo
 }
 
 c_yum_list_f23_second () {
-  echo "\
-[warning:fedora23]
+  echo \
+'[warning:fedora23]
 name=fedora
 mirrorlist=http://mirrors.fedoraproject.org/mirrorlist?repo=fedora-23&arch=$basearch
 enabled=0
 gpgcheck=1
-gpgkey=https://getfedora.org/static/873529B8.txt" \
+gpgkey=https://getfedora.org/static/873529B8.txt' \
   > /etc/yum.repos.d/Fedora23Repo.repo
 }
 
 c_yum_list_f24_prim () {
-  echo "\
-[warning:fedora24]
+  echo \
+'[warning:fedora24]
 name=fedora
 mirrorlist=http://mirrors.fedoraproject.org/mirrorlist?repo=fedora-24&arch=$basearch
 enabled=0
 gpgcheck=1
-gpgkey=https://getfedora.org/static/81B46521.txt" \
+gpgkey=https://getfedora.org/static/81B46521.txt' \
   > /etc/yum.repos.d/Fedora24Repo.repo
 }
 
 c_yum_list_f24_second () {
-  echo "\
-[warning:fedora24]
+  echo \
+'[warning:fedora24]
 name=fedora
 mirrorlist=http://mirrors.fedoraproject.org/mirrorlist?repo=fedora-24&arch=$basearch
 enabled=0
 gpgcheck=1
-gpgkey=https://getfedora.org/static/030D5AED.txt" \
+gpgkey=https://getfedora.org/static/030D5AED.txt' \
   > /etc/yum.repos.d/Fedora24Repo.repo
 }
 
 c_yum_list_f25_prim () {
-  echo "\
-[warning:fedora25]
+  echo \
+'[warning:fedora25]
 name=fedora
 mirrorlist=http://mirrors.fedoraproject.org/mirrorlist?repo=fedora-25&arch=$basearch
 enabled=0
 gpgcheck=1
-gpgkey=https://getfedora.org/static/FDB19C98.txt" \
+gpgkey=https://getfedora.org/static/FDB19C98.txt' \
   > /etc/yum.repos.d/Fedora25Repo.repo
 }
 
 c_yum_list_f25_second () {
-  echo "\
-[warning:fedora25]
+  echo \
+'[warning:fedora25]
 name=fedora
 mirrorlist=http://mirrors.fedoraproject.org/mirrorlist?repo=fedora-25&arch=$basearch
 enabled=0
 gpgcheck=1
-gpgkey=https://getfedora.org/static/E372E838.txt" \
+gpgkey=https://getfedora.org/static/E372E838.txt' \
   > /etc/yum.repos.d/Fedora25Repo.repo
 }
 
 # yum install epel-release
 c_yum_list_epel_aarch64 (){
-  echo "\
-[unofficial-builds]
+  echo \
+'[unofficial-builds]
 name=CentOS unofficial extra package rebuild
-baseurl=http://buildlogs.centos.org/c7-epel.a64/
+baseurl=https://dl.fedoraproject.org/pub/epel/7/aarch64/
 metadata_expire=6h
 gpgcheck=0
-skip_if_unavailable=True" \
+skip_if_unavailable=True' \
   > /etc/yum.repos.d/EPEL.repo
 }
 
 c_yum_list_epel_armhf (){
-  echo "\
-[unofficial-builds]
+  echo \
+'[unofficial-builds]
 name=CentOS unofficial extra package rebuild
-baseurl=http://armv7.dev.centos.org/repodir/epel-pass-1/
+baseurl=https://armv7.dev.centos.org/repodir/epel-pass-1/
 metadata_expire=6h
 gpgcheck=0
-skip_if_unavailable=True" \
+skip_if_unavailable=True' \
   > /etc/yum.repos.d/EPEL.repo
 }
 
@@ -146,17 +146,25 @@ i_base_debian () {
   apt-get -q=2 -y install curl xz-utils u-boot-tools sudo openssh-server ntpdate ntp usbutils pciutils less lsof most sysfsutils ntfs-3g exfat-utils exfat-fuse firmware-linux libpam-systemd
 }
 
+i_base_centos () {
+  yum update -y
+  yum install -y bc bridge-utils docker dtc iw lzop rcs screen sysfsutils usbutils pciutils wget lsof ntfs-3g net-tools
+  yum install -y uboot-tools --enablerepo=warning:fedora25
+  yum clean all
+}
+
 i_extra () {
   apt-get -q=2 -y install dialog screen wireless-tools iw libncurses5-dev cpufrequtils rcs aptitude make bc lzop man-db ntp usbutils pciutils lsof most sysfsutils
 }
 
-i_gcc-6 () {
+i_gcc_6 () {
   add-apt-repository ppa:ubuntu-toolchain-r/test
   apt-get update
   apt-get -y install gcc-6 g++-6
   update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-6 60
   update-alternatives --install /usr/bin/g++ g++ /usr/bin/g++-6 60
 }
+
 i_gcc () {
   apt-get -y install gcc-5 g++-5
   update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-5 50
@@ -238,16 +246,15 @@ i_kernel_odroid_kvim_31429 () {
   curl -sSL https://www.dropbox.com/s/beda84t9cfj89t9/linux-3.14.29-kvim-g2e7dc31-dirty.tar.xz?dl=0 | tar --numeric-owner -xhJpf -
 }
 
-i_kernel_odroid_c2_31479 () {
-  curl -sSL https://www.dropbox.com/s/d5kqjuxnaime7m3/linux-3.14.79-c2-g58f19b0-dirty.tar.xz?dl=0 | tar --numeric-owner -xhJpf -
+i_kernel_odroid_c2_412 () {
+  curl -sSL https://www.dropbox.com/s/9i4atdzmpgts9cv/linux-4.12.0-rc1-gx-g32c9d83.tar.xz?dl=0 | tar --numeric-owner -xhJpf -
 # U-571
   mkdir -p /boot/conf.d/system.default
   curl -sSL https://raw.githubusercontent.com/umiddelb/u-571/master/board/odroid-c2/uEnv.txt > /boot/conf.d/system.default/uEnv.txt
   (cd /boot/conf.d/ ; ln -s system.default default)
-  (cd /boot/conf.d/system.default; ln -s ../../kernel.d/linux-*-c2* kernel)
+  (cd /boot/conf.d/system.default; ln -s ../../kernel.d/linux-*-gx* kernel)
   (cd /boot; ln -s kernel.d/linux-*/config-* .)
 }
-
 
 i_kernel_odroid_xu4 () {
   apt-get -q=2 -y install initramfs-tools
@@ -349,6 +356,13 @@ c_user () {
   usermod -aG adm,cdrom,dialout,sudo,plugdev $1
 }
 
+c_docker_centos () {
+  echo "STORAGE_DRIVER=overlay" >> /etc/sysconfig/docker-storage-setup
+  docker-storage-setup
+  systemctl enable docker
+  systemctl start docker
+}
+
 c_locale () {
   for s in $@; do
     locale-gen $s
@@ -370,3 +384,4 @@ c_locale_debian () {
   debconf-set-selections <<< "locales locales/default_environment_locale select $1"
   dpkg-reconfigure -f noninteractive locales
 }
+
