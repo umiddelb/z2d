@@ -12,11 +12,10 @@ localectl set-locale LANG=en_GB.UTF-8
 hostnamectl set-hostname c2 --static
 hostnamectl set-hostname "ODROID-C2" --pretty
 
-yum update -y
-yum install -y bc bridge-utils docker dtc iw lzop rcs screen sysfsutils usbutils pciutils wget lsof ntfs-3g net-tools
 c_yum_list_epel_aarch64
-# c_yum_list_f25_second
-# yum install -y most uboot-tools --enablerepo=warning:fedora24
-yum clean all
+c_yum_list_f25_second
+i_base_centos
 
-c_fw_utils "/dev/mmcblk0 0xB4000 0x8000"
+c_docker_centos
+
+c_fw_utils "/dev/mmcblk0 0xB4000 0x8000 0x200"
