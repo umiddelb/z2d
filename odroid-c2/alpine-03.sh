@@ -33,7 +33,7 @@ apk add busybox-initscripts tar curl bc lzo bridge-utils docker dtc iw screen sy
 
 apk add rcs@testing most@testing uboot-tools@testing
 
-i_kernel_odroid_c2_31479
+i_kernel_odroid_c2_412
 
 echo "\
 auto lo

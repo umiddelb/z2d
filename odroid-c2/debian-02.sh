@@ -19,12 +19,12 @@ i_base_debian
 apt-get -q=2 -y install screen wireless-tools iw libncurses5-dev cpufrequtils rcs aptitude make bc man-db ntp usbutils pciutils lsof most sysfsutils
 
 i_gcc_debian
-i_kernel_odroid_c2
+i_kernel_odroid_c2_412
 
 c_if_lo
 c_if_dhcp "eth0"
 c_ttyS_debian "ttyS0"
-c_fw_utils "/dev/mmcblk0 0xB4000 0x8000"
+c_fw_utils "/dev/mmcblk0 0xB4000 0x8000 0x200"
 c_user "debian"
 
 apt-get clean
