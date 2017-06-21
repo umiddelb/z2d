@@ -43,7 +43,7 @@ iface eth0 inet dhcp " \
 > /etc/network/interfaces
 
 echo "\
-ttyS0::respawn:/sbin/getty -L ttyS0 115200 vt100 " \
+ttyS0::respawn:/sbin/getty -L ttyAML0 115200 vt100 " \
 > /etc/inittab
 
 c_fw_utils "/dev/mmcblk0 0xB4000 0x8000"

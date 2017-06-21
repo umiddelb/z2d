@@ -19,7 +19,7 @@ i_gcc
 i_kernel_odroid_c2_412
 c_if_lo
 c_if_dhcp "eth0"
-c_ttyS "ttyS0"
+c_ttyS "ttyAML0"
 c_fw_utils "/dev/mmcblk0 0xB4000 0x8000 0x200"
 c_user "ubuntu"
 
