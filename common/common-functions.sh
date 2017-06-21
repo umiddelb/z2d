@@ -153,6 +153,12 @@ i_base_centos () {
   yum clean all
 }
 
+i_base_fedora () {
+  dnf update && dnf upgrade -y
+  dnf install -y tar ntp bc bridge-utils docker dtc iw lzop rcs screen sysfsutils usbutils pciutils wget lsof ntfs-3g gcc most uboot-tools net-tools
+  dnf clean all
+}
+
 i_extra () {
   apt-get -q=2 -y install dialog screen wireless-tools iw libncurses5-dev cpufrequtils rcs aptitude make bc lzop man-db ntp usbutils pciutils lsof most sysfsutils
 }
