@@ -160,7 +160,7 @@ i_base_fedora () {
 }
 
 i_extra () {
-  apt-get -q=2 -y install dialog screen wireless-tools iw libncurses5-dev cpufrequtils rcs aptitude make bc lzop man-db ntp usbutils pciutils lsof most sysfsutils
+  apt-get -q=2 -y install dialog screen wireless-tools iw libncurses5-dev cpufrequtils rcs aptitude gcc make bc lzop man-db ntp usbutils pciutils lsof most sysfsutils
 }
 
 i_gcc_6 () {
@@ -169,12 +169,6 @@ i_gcc_6 () {
   apt-get -y install gcc-6 g++-6
   update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-6 60
   update-alternatives --install /usr/bin/g++ g++ /usr/bin/g++-6 60
-}
-
-i_gcc () {
-  apt-get -y install gcc-5 g++-5
-  update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-5 50
-  update-alternatives --install /usr/bin/g++ g++ /usr/bin/g++-5 50
 }
 
 # Install HK default distro kernel
