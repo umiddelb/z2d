@@ -23,4 +23,3 @@ sudo umount -lf ./rootfs/dev/pts
 sudo umount -lf ./rootfs/sys
 sudo umount -lf ./rootfs/dev
 sudo umount -lf ./rootfs/proc
-sudo umount ./rootfs

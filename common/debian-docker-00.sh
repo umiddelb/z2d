@@ -1,7 +1,12 @@
 #!/bin/sh
 
-sudo apt-get -y install lxc aufs-tools cgroupfs-mount cgroup-bin apparmor docker.io/jessie-backports
-sudo service docker stop
-curl -sSL https://github.com/umiddelb/armhf/blob/master/bin/docker-1.9.0?raw=true | sudo dd of=/usr/bin/docker
-sudo service docker start
+sudo apt install -y apt-transport-https ca-certificates curl gnupg2 software-properties-common 
+
+curl -fsSL https://download.docker.com/linux/debian/gpg | sudo apt-key add -
+
+echo "deb https://download.docker.com/linux/debian $(lsb_release -cs) test" | sudo tee /etc/apt/sources.list.d/docker.list
+
+sudo apt-get update
+sudo apt-get install -y docker-ce
+
 sudo usermod -aG docker debian
