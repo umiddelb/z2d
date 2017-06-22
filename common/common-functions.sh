@@ -284,7 +284,7 @@ i_kernel_odroid_xu3_31096 () {
 }
 
 i_kernel_odroid_xu4_490 () {
-  curl -sSL https://www.dropbox.com/s/1bzxtxxfc8kq52j/linux-4.9.12-xu4.tar.xz?dl=0 | tar --numeric-owner -xhJpf -
+  curl -sSL https://www.dropbox.com/s/ytny7vvriorv1ac/linux-4.9.33-xu4-00008-gf0e77c0.tar.xz?dl=0 | tar --numeric-owner -xhJpf -
 # U-571
   mkdir -p /boot/conf.d/system.default
   curl -sSL https://raw.githubusercontent.com/umiddelb/u-571/master/board/odroid-xu4/uEnv.txt > /boot/conf.d/system.default/uEnv.txt
