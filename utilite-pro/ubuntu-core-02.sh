@@ -14,7 +14,6 @@ dpkg-divert --local --rename --add /sbin/initctl; ln -s /bin/true /sbin/initctl
 r_pkg_upgrade
 i_base
 i_extra
-i_gcc
 i_kernel_utilite_pro
 c_if_lo
 c_if_dhcp "eth0"
