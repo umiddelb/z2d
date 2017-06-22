@@ -3,7 +3,7 @@ set -ex
 
 sudo apt-get install debootstrap
 
-sudo debootstrap --foreign --include=vim,locales,dialog,apt jessie rootfs http://ftp.debian.org/debian
+sudo debootstrap --foreign --include=vim,locales,dialog,apt stretch rootfs http://ftp.debian.org/debian
 
 sudo mount -o bind /dev ./rootfs/dev
 sudo mount -o bind /dev/pts ./rootfs/dev/pts

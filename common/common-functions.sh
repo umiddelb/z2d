@@ -177,13 +177,6 @@ i_gcc () {
   update-alternatives --install /usr/bin/g++ g++ /usr/bin/g++-5 50
 }
 
-i_gcc_debian () {
-  apt-get -q=2 -y update
-  apt-get -q=2 -y -t testing install gcc-5 g++-5
-  update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-5 50
-  update-alternatives --install /usr/bin/g++ g++ /usr/bin/g++-5 50
-}
-
 # Install HK default distro kernel
 i_kernel_odroid_c1 () {
   apt-get -q=2 -y install initramfs-tools
