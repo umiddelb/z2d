@@ -15,12 +15,13 @@ dpkg-divert --local --rename --add /sbin/initctl; ln -s /bin/true /sbin/initctl
 r_pkg_upgrade
 i_base
 i_extra
-i_gcc
-#i_kernel_odroid_kvim_31429
+#i_kernel_...
+curl -sSL https://www.dropbox.com/s/eyvezh8ryiil7q8/linux-4.12.0-rc7-ebin-117011-g14be5bf.tar.xz?dl=0 | tar --numeric-owner -C / -xhpPJf -
 c_if_lo
 c_if_dhcp "eth0"
+echo "  pre-up /sbin/ip link set eth0 up" >> /etc/network/interfaces.d/lan0
 c_ttyS "ttyMV0"
-c_fw_utils "/dev/mdt0 0x00180000 0x00010000"
+c_fw_utils "/dev/mtd1 0x0 0x00010000 0x1000 0x10"
 c_user "ubuntu"
 
 apt-get clean
