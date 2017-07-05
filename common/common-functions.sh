@@ -290,6 +290,18 @@ i_kernel_odroid_xu3_31096 () {
 }
 
 i_kernel_odroid_xu4_490 () {
+  apt-get -q=2 -y install initramfs-tools
+  echo \
+'#!/bin/sh
+. /usr/share/initramfs-tools/hook-functions
+copy_exec /sbin/e2fsck /sbin
+copy_exec /sbin/fsck /sbin
+copy_exec /sbin/fsck.ext2 /sbin
+copy_exec /sbin/fsck.ext4 /sbin
+copy_exec /sbin/logsave /sbin' \
+  > /etc/initramfs-tools/hooks/e2fsck.sh
+  chmod +x /etc/initramfs-tools/hooks/e2fsck.sh
+
   curl -sSL https://www.dropbox.com/s/qfwfq3ctjg5g6eo/linux-4.9.35-xu4-00010-gbb4d025.tar.xz?dl=0 | tar --numeric-owner -xhJpf -
 # U-571
   mkdir -p /boot/conf.d/system.default
