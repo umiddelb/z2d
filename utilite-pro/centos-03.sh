@@ -12,13 +12,10 @@ localectl set-locale LANG=en_GB.UTF-8
 hostnamectl set-hostname upro --static
 hostnamectl set-hostname "Utilite Pro" --pretty
 
-yum update -y
-yum install -y bc bridge-utils dtc iw lzop rcs screen sysfsutils usbutils wget
-c_yum_list_f23_prim
-yum install -y gcc docker --enablerepo=warning:fedora23
-c_yum_list_f24_prim
-yum install -y most ntfs-3g uboot-tools --enablerepo=warning:fedora24
-yum clean all
+c_yum_list_epel_armhf
+c_yum_list_f25_prim
+i_base_centos
 
-mv /etc/fw_env.config /etc/fw_env.config.rpmdefault
+# c_docker_centos
+
 c_fw_utils "/dev/mtd1  0x0  0x2000  0x2000"
