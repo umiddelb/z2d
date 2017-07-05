@@ -16,6 +16,6 @@ c_yum_list_epel_armhf
 c_yum_list_f25_prim
 i_base_centos
 
-c_docker_centos
+#c_docker_centos
 
 c_fw_utils "/dev/mmcblk0 0x99E00 0x4000"
