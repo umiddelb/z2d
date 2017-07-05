@@ -1,4 +1,5 @@
 #!/bin/sh
+set -ex
 . ./common-functions.sh
 
 export DEBIAN_FRONTEND=noninteractive

@@ -139,11 +139,11 @@ r_pkg_upgrade () {
 }
 
 i_base () {
-  apt-get -q=2 -y install ubuntu-minimal software-properties-common curl u-boot-tools ssh linux-firmware vim libpam-systemd
+  apt-get -q=2 -y install ubuntu-minimal software-properties-common curl u-boot-tools ssh linux-firmware vim libpam-systemd initramfs-tools
 }
 
 i_base_debian () {
-  apt-get -q=2 -y install curl xz-utils u-boot-tools sudo openssh-server ntpdate ntp usbutils pciutils less lsof most sysfsutils ntfs-3g exfat-utils exfat-fuse firmware-linux libpam-systemd
+  apt-get -q=2 -y install curl xz-utils u-boot-tools sudo openssh-server ntpdate ntp usbutils pciutils less lsof most sysfsutils ntfs-3g exfat-utils exfat-fuse firmware-linux libpam-systemd initramfs-tools
 }
 
 i_base_centos () {
@@ -173,15 +173,16 @@ i_gcc_6 () {
 
 # Install HK default distro kernel
 i_kernel_odroid_c1 () {
-  apt-get -q=2 -y install initramfs-tools
 # <HK quirk>
-  echo "#!/bin/sh" > /etc/initramfs-tools/hooks/e2fsck.sh
-  echo ". /usr/share/initramfs-tools/hook-functions" >> /etc/initramfs-tools/hooks/e2fsck.sh
-  echo "copy_exec /sbin/e2fsck /sbin" >> /etc/initramfs-tools/hooks/e2fsck.sh
-  echo "copy_exec /sbin/fsck /sbin" >> /etc/initramfs-tools/hooks/e2fsck.sh
-  echo "copy_exec /sbin/fsck.ext2 /sbin" >> /etc/initramfs-tools/hooks/e2fsck.sh
-  echo "copy_exec /sbin/fsck.ext4 /sbin" >> /etc/initramfs-tools/hooks/e2fsck.sh
-  echo "copy_exec /sbin/logsave /sbin" >> /etc/initramfs-tools/hooks/e2fsck.sh
+  echo \
+'#!/bin/sh
+. /usr/share/initramfs-tools/hook-functions
+copy_exec /sbin/e2fsck /sbin
+copy_exec /sbin/fsck /sbin
+copy_exec /sbin/fsck.ext2 /sbin
+copy_exec /sbin/fsck.ext4 /sbin
+copy_exec /sbin/logsave /sbin' \
+  > /etc/initramfs-tools/hooks/e2fsck.sh
   chmod +x /etc/initramfs-tools/hooks/e2fsck.sh
 # </HK quirk>
   apt-key adv --keyserver keyserver.ubuntu.com --recv-keys AB19BAC9
@@ -212,15 +213,16 @@ i_kernel_odroid_c1_31080142 () {
 
 # Install HK default distro kernel
 i_kernel_odroid_c2 () {
-  apt-get -q=2 -y install initramfs-tools
 # <HK quirk>
-  echo "#!/bin/sh" > /etc/initramfs-tools/hooks/e2fsck.sh
-  echo ". /usr/share/initramfs-tools/hook-functions" >> /etc/initramfs-tools/hooks/e2fsck.sh
-  echo "copy_exec /sbin/e2fsck /sbin" >> /etc/initramfs-tools/hooks/e2fsck.sh
-  echo "copy_exec /sbin/fsck /sbin" >> /etc/initramfs-tools/hooks/e2fsck.sh
-  echo "copy_exec /sbin/fsck.ext2 /sbin" >> /etc/initramfs-tools/hooks/e2fsck.sh
-  echo "copy_exec /sbin/fsck.ext4 /sbin" >> /etc/initramfs-tools/hooks/e2fsck.sh
-  echo "copy_exec /sbin/logsave /sbin" >> /etc/initramfs-tools/hooks/e2fsck.sh
+  echo \
+'#!/bin/sh
+. /usr/share/initramfs-tools/hook-functions
+copy_exec /sbin/e2fsck /sbin
+copy_exec /sbin/fsck /sbin
+copy_exec /sbin/fsck.ext2 /sbin
+copy_exec /sbin/fsck.ext4 /sbin
+copy_exec /sbin/logsave /sbin' \
+  > /etc/initramfs-tools/hooks/e2fsck.sh
   chmod +x /etc/initramfs-tools/hooks/e2fsck.sh
 # </HK quirk>
   apt-key adv --keyserver keyserver.ubuntu.com --recv-keys AB19BAC9
@@ -256,15 +258,16 @@ i_kernel_odroid_c2_412 () {
 }
 
 i_kernel_odroid_xu4 () {
-  apt-get -q=2 -y install initramfs-tools
 # <HK quirk>
-  echo "#!/bin/sh" > /etc/initramfs-tools/hooks/e2fsck.sh
-  echo ". /usr/share/initramfs-tools/hook-functions" >> /etc/initramfs-tools/hooks/e2fsck.sh
-  echo "copy_exec /sbin/e2fsck /sbin" >> /etc/initramfs-tools/hooks/e2fsck.sh
-  echo "copy_exec /sbin/fsck /sbin" >> /etc/initramfs-tools/hooks/e2fsck.sh
-  echo "copy_exec /sbin/fsck.ext2 /sbin" >> /etc/initramfs-tools/hooks/e2fsck.sh
-  echo "copy_exec /sbin/fsck.ext4 /sbin" >> /etc/initramfs-tools/hooks/e2fsck.sh
-  echo "copy_exec /sbin/logsave /sbin" >> /etc/initramfs-tools/hooks/e2fsck.sh
+  echo \
+'#!/bin/sh
+. /usr/share/initramfs-tools/hook-functions
+copy_exec /sbin/e2fsck /sbin
+copy_exec /sbin/fsck /sbin
+copy_exec /sbin/fsck.ext2 /sbin
+copy_exec /sbin/fsck.ext4 /sbin
+copy_exec /sbin/logsave /sbin' \
+  > /etc/initramfs-tools/hooks/e2fsck.sh
   chmod +x /etc/initramfs-tools/hooks/e2fsck.sh
 # </HK quirk>
   apt-key adv --keyserver keyserver.ubuntu.com --recv-keys AB19BAC9
@@ -290,18 +293,6 @@ i_kernel_odroid_xu3_31096 () {
 }
 
 i_kernel_odroid_xu4_490 () {
-  apt-get -q=2 -y install initramfs-tools
-  echo \
-'#!/bin/sh
-. /usr/share/initramfs-tools/hook-functions
-copy_exec /sbin/e2fsck /sbin
-copy_exec /sbin/fsck /sbin
-copy_exec /sbin/fsck.ext2 /sbin
-copy_exec /sbin/fsck.ext4 /sbin
-copy_exec /sbin/logsave /sbin' \
-  > /etc/initramfs-tools/hooks/e2fsck.sh
-  chmod +x /etc/initramfs-tools/hooks/e2fsck.sh
-
   curl -sSL https://www.dropbox.com/s/qfwfq3ctjg5g6eo/linux-4.9.35-xu4-00010-gbb4d025.tar.xz?dl=0 | tar --numeric-owner -xhJpf -
 # U-571
   mkdir -p /boot/conf.d/system.default
