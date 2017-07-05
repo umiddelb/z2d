@@ -236,7 +236,13 @@ i_kernel_odroid_c2 () {
 }
 
 i_kernel_odroid_kvim_31429 () {
-  curl -sSL https://www.dropbox.com/s/beda84t9cfj89t9/linux-3.14.29-kvim-g2e7dc31-dirty.tar.xz?dl=0 | tar --numeric-owner -xhJpf -
+  curl -sSL https://www.dropbox.com/s/8uu3p6lpg5mb08l/linux-3.14.29-kvim.tar.xz?dl=0 | tar --numeric-owner -xhJpf -
+# U-571
+  mkdir -p /boot/conf.d/system.default
+  curl -sSL https://raw.githubusercontent.com/umiddelb/u-571/master/board/khadas-vim/uEnv.txt > /boot/conf.d/system.default/uEnv.txt
+  (cd /boot/conf.d/ ; ln -s system.default default)
+  (cd /boot/conf.d/system.default; ln -s ../../kernel.d/linux-* kernel)
+  (cd /boot; ln -s kernel.d/linux-*/config-* .)
 }
 
 i_kernel_odroid_c2_412 () {
