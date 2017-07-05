@@ -246,7 +246,7 @@ i_kernel_odroid_kvim_31429 () {
 }
 
 i_kernel_odroid_c2_412 () {
-  curl -sSL https://www.dropbox.com/s/9i4atdzmpgts9cv/linux-4.12.0-rc1-gx-g32c9d83.tar.xz?dl=0 | tar --numeric-owner -xhJpf -
+  curl -sSL https://www.dropbox.com/s/t76t737wcdqplbr/linux-4.12.0-gx-117137-ga9f9749.tar.xz?dl=0 | tar --numeric-owner -xhJpf -
 # U-571
   mkdir -p /boot/conf.d/system.default
   curl -sSL https://raw.githubusercontent.com/umiddelb/u-571/master/board/odroid-c2/uEnv.txt > /boot/conf.d/system.default/uEnv.txt
@@ -290,7 +290,7 @@ i_kernel_odroid_xu3_31096 () {
 }
 
 i_kernel_odroid_xu4_490 () {
-  curl -sSL https://www.dropbox.com/s/ytny7vvriorv1ac/linux-4.9.33-xu4-00008-gf0e77c0.tar.xz?dl=0 | tar --numeric-owner -xhJpf -
+  curl -sSL https://www.dropbox.com/s/qfwfq3ctjg5g6eo/linux-4.9.35-xu4-00010-gbb4d025.tar.xz?dl=0 | tar --numeric-owner -xhJpf -
 # U-571
   mkdir -p /boot/conf.d/system.default
   curl -sSL https://raw.githubusercontent.com/umiddelb/u-571/master/board/odroid-xu4/uEnv.txt > /boot/conf.d/system.default/uEnv.txt
@@ -299,7 +299,7 @@ i_kernel_odroid_xu4_490 () {
 }
 
 i_kernel_utilite_pro () {
-  curl -sSL https://www.dropbox.com/s/misb27zuqt304k8/linux-4.11.0-imx6-g68e0679.tar.xz?dl=0 | tar --numeric-owner -xhJpf -
+  curl -sSL https://www.dropbox.com/s/v2pk0uzampkfbah/linux-4.12.0-imx6-117135-g5a9a607.tar.xz?dl=0 | tar --numeric-owner -xhJpf -
 # U-571
   mkdir -p /boot/conf.d/system.default
   curl -sSL https://raw.githubusercontent.com/umiddelb/u-571/master/board/utilite-pro/uEnv.txt > /boot/conf.d/system.default/uEnv.txt
@@ -308,7 +308,7 @@ i_kernel_utilite_pro () {
 }
 
 i_kernel_cubox_i () {
-  curl -sSL https://www.dropbox.com/s/misb27zuqt304k8/linux-4.11.0-imx6-g68e0679.tar.xz?dl=0 | tar --numeric-owner -xhJpf -
+  curl -sSL https://www.dropbox.com/s/v2pk0uzampkfbah/linux-4.12.0-imx6-117135-g5a9a607.tar.xz?dl=0 | tar --numeric-owner -xhJpf -
 # U-571
   mkdir -p /boot/conf.d/system.default
   curl -sSL https://raw.githubusercontent.com/umiddelb/u-571/master/board/cubox-i/uEnv.txt > /boot/conf.d/system.default/uEnv.txt
@@ -317,7 +317,7 @@ i_kernel_cubox_i () {
 }
 
 i_kernel_pine64 () {
-  curl -sSL https://www.dropbox.com/s/g4tkogrbawueu6q/linux-4.9.22-p64-g9a1638e.tar.xz?dl=0 | tar --numeric-owner -xhJpf -
+  curl -sSL https://www.dropbox.com/s/v3uyo6cer7gnj4x/linux-4.9.35-p64-gd3c7ef9.tar.xz?dl=0 | tar --numeric-owner -xhJpf -
 # U-571
   mkdir -p /boot/conf.d/system.default
   curl -sSL https://raw.githubusercontent.com/umiddelb/u-571/master/board/pine64%2B/uEnv.txt > /boot/conf.d/system.default/uEnv.txt
