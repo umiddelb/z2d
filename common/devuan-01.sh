@@ -3,7 +3,7 @@ set -ex
 
 sudo apt-get install debootstrap
 
-sudo debootstrap --foreign --include=vim,locales,dialog,apt jessie rootfs http://auto.mirror.devuan.org/merged
+sudo debootstrap --foreign --include=vim,locales,dialog,apt --no-check-gpg jessie rootfs http://auto.mirror.devuan.org/merged
 
 sudo mount -o bind /dev ./rootfs/dev
 sudo mount -o bind /dev/pts ./rootfs/dev/pts
