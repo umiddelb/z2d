@@ -16,6 +16,6 @@ c_yum_list_epel_aarch64
 c_yum_list_f25_second
 i_base_centos
 
-c_docker_centos
+c_docker_centos_fedora
 
 c_fw_utils "/dev/mmcblk0 0x7400000 0x10000"

@@ -358,7 +358,7 @@ c_user () {
   usermod -aG adm,cdrom,dialout,sudo,plugdev $1
 }
 
-c_docker_centos () {
+c_docker_centos_fedora () {
   echo "STORAGE_DRIVER=overlay" >> /etc/sysconfig/docker-storage-setup
   docker-storage-setup
   systemctl enable docker
