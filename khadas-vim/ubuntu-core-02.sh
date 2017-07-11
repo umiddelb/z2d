@@ -16,7 +16,7 @@ r_pkg_upgrade
 i_base
 i_extra
 i_gcc
-i_kernel_odroid_kvim_31429
+i_kernel_khadas_vim_31429
 c_if_lo
 c_if_dhcp "eth0"
 c_ttyS "ttyS0"
