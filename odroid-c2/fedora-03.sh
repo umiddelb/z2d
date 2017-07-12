@@ -1,6 +1,8 @@
 #!/bin/sh
 set -ex
 
+. ./common-functions.sh
+
 timedatectl set-timezone Europe/Berlin
 localectl set-locale LANG=en_GB.UTF-8
 

@@ -36,7 +36,7 @@ c_apt_list_debian () {
 c_yum_list_f23_prim () {
   echo \
 '[warning:fedora23]
-name=fedora
+name=Fedora 23
 mirrorlist=http://mirrors.fedoraproject.org/mirrorlist?repo=fedora-23&arch=$basearch
 enabled=0
 gpgcheck=1
@@ -47,7 +47,7 @@ gpgkey=https://getfedora.org/static/34EC9CBA.txt' \
 c_yum_list_f23_second () {
   echo \
 '[warning:fedora23]
-name=fedora
+name=Fedora 23
 mirrorlist=http://mirrors.fedoraproject.org/mirrorlist?repo=fedora-23&arch=$basearch
 enabled=0
 gpgcheck=1
@@ -58,7 +58,7 @@ gpgkey=https://getfedora.org/static/873529B8.txt' \
 c_yum_list_f24_prim () {
   echo \
 '[warning:fedora24]
-name=fedora
+name=Fedora 24
 mirrorlist=http://mirrors.fedoraproject.org/mirrorlist?repo=fedora-24&arch=$basearch
 enabled=0
 gpgcheck=1
@@ -69,7 +69,7 @@ gpgkey=https://getfedora.org/static/81B46521.txt' \
 c_yum_list_f24_second () {
   echo \
 '[warning:fedora24]
-name=fedora
+name=Fedora 24
 mirrorlist=http://mirrors.fedoraproject.org/mirrorlist?repo=fedora-24&arch=$basearch
 enabled=0
 gpgcheck=1
@@ -80,7 +80,7 @@ gpgkey=https://getfedora.org/static/030D5AED.txt' \
 c_yum_list_f25_prim () {
   echo \
 '[warning:fedora25]
-name=fedora
+name=Fedora 25
 mirrorlist=http://mirrors.fedoraproject.org/mirrorlist?repo=fedora-25&arch=$basearch
 enabled=0
 gpgcheck=1
@@ -91,12 +91,34 @@ gpgkey=https://getfedora.org/static/FDB19C98.txt' \
 c_yum_list_f25_second () {
   echo \
 '[warning:fedora25]
-name=fedora
+name=Fedora 25
 mirrorlist=http://mirrors.fedoraproject.org/mirrorlist?repo=fedora-25&arch=$basearch
 enabled=0
 gpgcheck=1
 gpgkey=https://getfedora.org/static/E372E838.txt' \
   > /etc/yum.repos.d/Fedora25Repo.repo
+}
+
+c_yum_list_f26_prim () {
+  echo \
+'[warning:fedora26]
+name=Fedora 26
+mirrorlist=http://mirrors.fedoraproject.org/mirrorlist?repo=fedora-26&arch=$basearch
+enabled=0
+gpgcheck=1
+gpgkey=https://getfedora.org/static/64DAB85D.txt' \
+  > /etc/yum.repos.d/Fedora26Repo.repo
+}
+
+c_yum_list_f26_second () {
+  echo \
+'[warning:fedora26]
+name=Fedora 26
+mirrorlist=http://mirrors.fedoraproject.org/mirrorlist?repo=fedora-26&arch=$basearch
+enabled=0
+gpgcheck=1
+gpgkey=https://getfedora.org/static/3B921D09.txt' \
+  > /etc/yum.repos.d/Fedora26Repo.repo
 }
 
 # yum install epel-release
@@ -248,7 +270,7 @@ i_kernel_khadas_vim_31429 () {
 }
 
 i_kernel_odroid_c2_412 () {
-  curl -sSL https://www.dropbox.com/s/t76t737wcdqplbr/linux-4.12.0-gx-117137-ga9f9749.tar.xz?dl=0 | tar --numeric-owner -xhJpf -
+  curl -sSL https://www.dropbox.com/s/2idwwmeyuth1y7o/linux-4.12.0-gx-117138-g2921528.tar.xz?dl=0 | tar --numeric-owner -xhJpf -
 # U-571
   mkdir -p /boot/conf.d/system.default
   curl -sSL https://raw.githubusercontent.com/umiddelb/u-571/master/board/odroid-c2/uEnv.txt > /boot/conf.d/system.default/uEnv.txt

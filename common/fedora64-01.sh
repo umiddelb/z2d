@@ -2,7 +2,8 @@
 set -ex
 
 #curl -sSL http://libguestfs.org/download/builder/fedora-25-aarch64.xz | sudo tar --numeric-owner -xpihJf - -C rootfs/
-curl -sSL https://www.dropbox.com/s/rf374x4foeo2dso/Fedora25-rootfs-aarch64.xz?dl=0 | sudo tar --numeric-owner -xpihJf - -C rootfs/
+#curl -sSL https://www.dropbox.com/s/rf374x4foeo2dso/Fedora25-rootfs-aarch64.xz?dl=0 | sudo tar --numeric-owner -xpihJf - -C rootfs/
+curl -sSL https://www.dropbox.com/s/wgxtn7ulfd3ggip/Fedora-Server-26-1.5.aarch64.tar.xz?dl=0 | sudo tar --numeric-owner -xpihJf - -C rootfs/
 
 sudo cp fedora-02.sh ./rootfs
 sudo cp fedora-03.sh ./rootfs
