@@ -19,7 +19,7 @@ i_base_debian
 apt-get -q=2 -y install screen wireless-tools iw libncurses5-dev cpufrequtils rcs aptitude gcc make bc man-db ntp usbutils pciutils lsof most sysfsutils firmware-realtek
 
 #i_kernel_...
-curl -sSL https://www.dropbox.com/s/eyvezh8ryiil7q8/linux-4.12.0-rc7-ebin-117011-g14be5bf.tar.xz?dl=0 | tar --numeric-owner -C / -xhpPJf -
+i_kernel_espresso_bin
 
 c_if_lo
 c_if_dhcp "lan0"
