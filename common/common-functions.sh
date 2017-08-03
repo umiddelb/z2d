@@ -350,6 +350,15 @@ i_kernel_pine64 () {
   (cd /boot/conf.d/system.default; ln -s ../../kernel.d/linux-*-p64* kernel)
 }
 
+i_kernel_espresso_bin () {
+  curl -sSL https://www.dropbox.com/s/s2hhxaxb42hvf3w/linux-4.12.0-ebin-117139-gab5ee85.tar.xz?dl=0 | tar --numeric-owner -xhJpf -
+# U-571
+  mkdir -p /boot/conf.d/system.default
+  curl -sSL https://raw.githubusercontent.com/umiddelb/u-571/master/board/espresso-bin/uEnv.txt > /boot/conf.d/system.default/uEnv.txt
+  (cd /boot/conf.d/ ; ln -s system.default default)
+  (cd /boot/conf.d/system.default; ln -s ../../kernel.d/linux-* kernel)
+}
+
 c_if_lo () {
   echo "auto lo" > /etc/network/interfaces.d/lo
   echo "iface lo inet loopback" >> /etc/network/interfaces.d/lo
