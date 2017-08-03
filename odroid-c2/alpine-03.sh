@@ -29,9 +29,10 @@ c_hostname "c2"
 
 echo "UUID=deadbeef-dead-beef-dead-beefdeadbeef /                       ext4     defaults        0 0" > /etc/fstab
 
-apk add busybox-initscripts tar curl bc lzo bridge-utils docker dtc iw screen sysfsutils usbutils pciutils wget lsof ntfs-3g gcc
+apk add busybox-initscripts tar curl xz bc sudo lzo bridge-utils docker dtc iw screen sysfsutils usbutils pciutils wget lsof ntfs-3g gcc
 
-apk add rcs@testing most@testing uboot-tools@testing
+#apk add rcs@testing most@testing uboot-tools@testing
+apk add rcs@testing most@testing
 
 i_kernel_odroid_c2_412
 
@@ -45,6 +46,10 @@ iface eth0 inet dhcp " \
 echo "\
 ttyS0::respawn:/sbin/getty -L ttyAML0 115200 vt100 " \
 > /etc/inittab
+
+echo "\
+ttyAML0" \
+>> /etc/securetty
 
 c_fw_utils "/dev/mmcblk0 0xB4000 0x8000"
 
