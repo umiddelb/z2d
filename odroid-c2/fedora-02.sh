@@ -9,7 +9,7 @@ echo "UUID=deadbeef-dead-beef-dead-beefdeadbeef /                       ext4    
 
 i_base_fedora
 
-i_kernel_odroid_c2_412
+i_kernel_odroid_c2_413
 
 c_fw_utils "/dev/mmcblk0 0xB4000 0x8000"
 

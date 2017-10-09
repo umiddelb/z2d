@@ -18,7 +18,7 @@ i_base_debian
 # i_extra_debian
 apt-get -q=2 -y install screen wireless-tools iw libncurses5-dev cpufrequtils rcs aptitude gcc make bc man-db ntp usbutils pciutils lsof most sysfsutils
 
-i_kernel_odroid_c2_412
+i_kernel_odroid_c2_413
 
 c_if_lo
 c_if_dhcp "eth0"

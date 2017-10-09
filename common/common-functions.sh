@@ -269,8 +269,8 @@ i_kernel_khadas_vim_31429 () {
   (cd /boot; ln -s kernel.d/linux-*/config-* .)
 }
 
-i_kernel_odroid_c2_412 () {
-  curl -sSL https://www.dropbox.com/s/2idwwmeyuth1y7o/linux-4.12.0-gx-117138-g2921528.tar.xz?dl=0 | tar --numeric-owner -xhJpf -
+i_kernel_odroid_c2_413 () {
+  curl -sSL https://www.dropbox.com/s/v4pubzrqrok3lxh/linux-4.13.0-gx-131311-ge5c332b.tar.xz?dl=0 | tar --numeric-owner -xhJpf -
 # U-571
   mkdir -p /boot/conf.d/system.default
   curl -sSL https://raw.githubusercontent.com/umiddelb/u-571/master/board/odroid-c2/uEnv.txt > /boot/conf.d/system.default/uEnv.txt
