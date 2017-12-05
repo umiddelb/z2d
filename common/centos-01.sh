@@ -1,7 +1,7 @@
 #!/bin/sh
 set -ex
 
-curl -sSL https://www.dropbox.com/s/8jv998a9s267ilb/CentOS7-rootfs-armv7hl.tar.xz?dl=0 | sudo tar --numeric-owner -xpJf - -C rootfs/
+curl -sSL https://www.dropbox.com/s/8e50rg1vtz0d8kf/CentOS7-rootfs-armv7hl.tar.xz?dl=0 | sudo tar --numeric-owner -xpJf - -C rootfs/
 
 sudo cp centos-02.sh ./rootfs
 sudo cp centos-03.sh ./rootfs
