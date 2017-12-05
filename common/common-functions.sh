@@ -121,6 +121,28 @@ gpgkey=https://getfedora.org/static/3B921D09.txt' \
   > /etc/yum.repos.d/Fedora26Repo.repo
 }
 
+c_yum_list_f27_prim () {
+  echo \
+'[warning:fedora27]
+name=Fedora 27
+mirrorlist=http://mirrors.fedoraproject.org/mirrorlist?repo=fedora-27&arch=$basearch
+enabled=0
+gpgcheck=1
+gpgkey=https://getfedora.org/static/F5282EE4.txt' \
+  > /etc/yum.repos.d/Fedora27Repo.repo
+}
+
+c_yum_list_f27_second () {
+  echo \
+'[warning:fedora27]
+name=Fedora 27
+mirrorlist=http://mirrors.fedoraproject.org/mirrorlist?repo=fedora-27&arch=$basearch
+enabled=0
+gpgcheck=1
+gpgkey=https://getfedora.org/static/F5282EE4.txt' \
+  > /etc/yum.repos.d/Fedora27Repo.repo
+}
+
 # yum install epel-release
 c_yum_list_epel_aarch64 (){
   echo \
@@ -171,7 +193,6 @@ i_base_debian () {
 i_base_centos () {
   yum update -y
   yum install -y bc bridge-utils docker dtc iw lzop rcs screen sysfsutils usbutils pciutils wget lsof ntfs-3g net-tools
-  yum install -y uboot-tools --enablerepo=warning:fedora25
   yum clean all
 }
 
@@ -315,7 +336,7 @@ i_kernel_odroid_xu3_31096 () {
 }
 
 i_kernel_odroid_xu4_490 () {
-  curl -sSL https://www.dropbox.com/s/qfwfq3ctjg5g6eo/linux-4.9.35-xu4-00010-gbb4d025.tar.xz?dl=0 | tar --numeric-owner -xhJpf -
+  curl -sSL https://www.dropbox.com/s/f3ua6fahdszs6ka/linux-4.9.65-xu4-00008-g8bac128.tar.xz?dl=0 | tar --numeric-owner -xhJpf -
 # U-571
   mkdir -p /boot/conf.d/system.default
   curl -sSL https://raw.githubusercontent.com/umiddelb/u-571/master/board/odroid-xu4/uEnv.txt > /boot/conf.d/system.default/uEnv.txt
