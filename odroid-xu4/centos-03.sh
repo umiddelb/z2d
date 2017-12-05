@@ -18,4 +18,4 @@ i_base_centos
 
 # c_docker_centos_fedora
 
-c_fw_utils "/dev/mmcblk0 0x99E00 0x4000"
+c_fw_utils "/dev/mmcblk0 0x99E00 0x4000 0x100"
