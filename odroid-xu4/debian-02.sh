@@ -17,7 +17,7 @@ r_pkg_upgrade
 i_base_debian
 #i_extra
 apt-get -q=2 -y install dialog screen wireless-tools iw libncurses5-dev cpufrequtils rcs aptitude gcc make bc lzop man-db ntp usbutils pciutils lsof most sysfsutils
-i_kernel_odroid_xu4_490
+i_kernel_odroid_xu4_414
 
 c_if_lo
 c_if_dhcp "eth0"
