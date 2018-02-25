@@ -1,7 +1,7 @@
 #!/bin/sh
 
 c_tzone () {
-  echo "$1" > /etc/timezone
+  ln -fs /usr/share/zoneinfo/$1 /etc/localtime
   dpkg-reconfigure -f noninteractive tzdata
 }
 
@@ -203,7 +203,7 @@ i_base_fedora () {
 }
 
 i_extra () {
-  apt-get -q=2 -y install dialog screen wireless-tools iw libncurses5-dev cpufrequtils rcs aptitude gcc make bc lzop man-db ntp usbutils pciutils lsof most sysfsutils
+  apt-get -q=2 -y install dialog screen wireless-tools iw libncurses5-dev cpufrequtils rcs aptitude gcc make bc lzop man-db ntp usbutils pciutils lsof most sysfsutils libssl-dev bison flex
 }
 
 i_gcc_6 () {
