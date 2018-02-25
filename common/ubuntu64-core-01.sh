@@ -3,6 +3,7 @@
 set -ex
 
 curl -sSL http://cdimage.ubuntu.com/ubuntu-base/releases/16.04/release/ubuntu-base-16.04-core-arm64.tar.gz | sudo tar --numeric-owner -xpzf - -C rootfs/
+#curl -sSL http://cdimage.ubuntu.com/ubuntu-base/daily/current/bionic-base-arm64.tar.gz | sudo tar --numeric-owner -xpzf - -C rootfs/
 
 sudo mount -o bind /dev ./rootfs/dev
 sudo mount -o bind /dev/pts ./rootfs/dev/pts
