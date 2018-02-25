@@ -300,6 +300,16 @@ i_kernel_odroid_c2_413 () {
   (cd /boot; ln -s kernel.d/linux-*/config-* .)
 }
 
+i_kernel_odroid_n1_44 () {
+  curl -sSL https://www.dropbox.com/s/9bm6x8zeizdcqc2/linux-4.4.112-n1.tar.xz?dl=0 | tar --numeric-owner -xhJpf -
+# U-571
+  mkdir -p /boot/conf.d/system.default
+  curl -sSL https://raw.githubusercontent.com/umiddelb/u-571/master/board/odroid-n1/uEnv.txt > /boot/conf.d/system.default/uEnv.txt
+  (cd /boot/conf.d/ ; ln -s system.default default)
+  (cd /boot/conf.d/system.default; ln -s ../../kernel.d/linux-*-n1* kernel)
+  (cd /boot; ln -s kernel.d/linux-*/config-* .)
+}
+
 i_kernel_odroid_xu4 () {
 # <HK quirk>
   echo \
