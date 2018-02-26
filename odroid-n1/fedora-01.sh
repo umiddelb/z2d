@@ -1,0 +1,1 @@
+../common/fedora64-01.sh
