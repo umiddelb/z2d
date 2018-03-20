@@ -184,6 +184,7 @@ r_pkg_upgrade () {
 
 i_base () {
   apt-get -q=2 -y install ubuntu-minimal software-properties-common curl u-boot-tools ssh linux-firmware vim libpam-systemd initramfs-tools
+  # apt-get -q=2 -y install software-properties-common curl u-boot-tools ssh linux-firmware vim ifupdown 
 }
 
 i_base_debian () {
@@ -290,8 +291,8 @@ i_kernel_khadas_vim_31429 () {
   (cd /boot; ln -s kernel.d/linux-*/config-* .)
 }
 
-i_kernel_odroid_c2_413 () {
-  curl -sSL https://www.dropbox.com/s/v4pubzrqrok3lxh/linux-4.13.0-gx-131311-ge5c332b.tar.xz?dl=0 | tar --numeric-owner -xhJpf -
+i_kernel_odroid_c2_415 () {
+  curl -sSL https://www.dropbox.com/s/zs3n25t0dskh8m6/linux-4.15.0-gx-162205-gd43a132.tar.xz?dl=0 | tar --numeric-owner -xhJpf -
 # U-571
   mkdir -p /boot/conf.d/system.default
   curl -sSL https://raw.githubusercontent.com/umiddelb/u-571/master/board/odroid-c2/uEnv.txt > /boot/conf.d/system.default/uEnv.txt

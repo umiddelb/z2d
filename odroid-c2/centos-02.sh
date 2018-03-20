@@ -11,7 +11,7 @@ fi
 
 echo "UUID=deadbeef-dead-beef-dead-beefdeadbeef /                       ext4     defaults        0 0" > ./etc/fstab
 
-i_kernel_odroid_c2_413
+i_kernel_odroid_c2_415
 
 passwd root
 adduser -c '' centos
