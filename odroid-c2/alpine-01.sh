@@ -1,7 +1,7 @@
 #!/bin/sh
 set -ex
 
-curl -sSL https://nl.alpinelinux.org/alpine/v3.5/releases/aarch64/alpine-minirootfs-3.5.2-aarch64.tar.gz | sudo tar --numeric-owner -xpihzf - -C rootfs/
+curl -sSL https://nl.alpinelinux.org/alpine/v3.7/releases/aarch64/alpine-minirootfs-3.7.0-aarch64.tar.gz | sudo tar --numeric-owner -xpihzf - -C rootfs/
 
 sudo chmod 755 ./rootfs
 sudo cp alpine-02.sh alpine-03.sh ./rootfs
