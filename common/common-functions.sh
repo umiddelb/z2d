@@ -365,7 +365,7 @@ i_kernel_odroid_xu4_414 () {
 }
 
 i_kernel_utilite_pro () {
-  curl -sSL https://www.dropbox.com/s/v2pk0uzampkfbah/linux-4.12.0-imx6-117135-g5a9a607.tar.xz?dl=0 | tar --numeric-owner -xhJpf -
+  curl -sSL https://www.dropbox.com/s/qvz7ec511ve4551/linux-4.16.0-imx6-177113-gc19335c.tar.xz?dl=0 | tar --numeric-owner -xhJpf -
 # U-571
   mkdir -p /boot/conf.d/system.default
   curl -sSL https://raw.githubusercontent.com/umiddelb/u-571/master/board/utilite-pro/uEnv.txt > /boot/conf.d/system.default/uEnv.txt
@@ -374,7 +374,7 @@ i_kernel_utilite_pro () {
 }
 
 i_kernel_cubox_i () {
-  curl -sSL https://www.dropbox.com/s/v2pk0uzampkfbah/linux-4.12.0-imx6-117135-g5a9a607.tar.xz?dl=0 | tar --numeric-owner -xhJpf -
+  curl -sSL https://www.dropbox.com/s/qvz7ec511ve4551/linux-4.16.0-imx6-177113-gc19335c.tar.xz?dl=0 | tar --numeric-owner -xhJpf -
 # U-571
   mkdir -p /boot/conf.d/system.default
   curl -sSL https://raw.githubusercontent.com/umiddelb/u-571/master/board/cubox-i/uEnv.txt > /boot/conf.d/system.default/uEnv.txt
