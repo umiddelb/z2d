@@ -410,6 +410,17 @@ c_if_dhcp () {
   echo "iface $1 inet dhcp" >>/etc/network/interfaces.d/$1
 }
 
+c_if_netplan (){
+  echo \
+"network:
+  version: 2
+  renderer: networkd
+  ethernets:
+    $1:
+      dhcp4: true" \
+  > /etc/netplan/config.yaml
+}
+
 c_ttyS () {
   echo "start on stopped rc or RUNLEVEL=[12345]" > /etc/init/${1}.conf
   echo "stop on runlevel [!12345]" >> /etc/init/${1}.conf
