@@ -183,8 +183,9 @@ r_pkg_upgrade () {
 }
 
 i_base () {
-  apt-get -q=2 -y install ubuntu-minimal software-properties-common curl u-boot-tools ssh linux-firmware vim libpam-systemd initramfs-tools
+  # apt-get -q=2 -y install ubuntu-minimal software-properties-common curl u-boot-tools ssh linux-firmware vim libpam-systemd initramfs-tools
   # apt-get -q=2 -y install software-properties-common curl u-boot-tools ssh linux-firmware vim ifupdown 
+  apt-get -q=2 -y install software-properties-common curl u-boot-tools ssh linux-firmware vim
 }
 
 i_base_debian () {
