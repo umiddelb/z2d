@@ -4,23 +4,22 @@ set -ex
 
 export DEBIAN_FRONTEND=noninteractive
 
-c_locale "en_GB.UTF-8" "de_DE.UTF-8"
-c_tzone "Europe/Berlin"
 c_hostname "p64"
-c_apt_list "xenial"
-c_nameserver "8.8.8.8"
+c_apt_list "bionic"
+c_nameserver "1.1.1.1"
 
 dpkg-divert --local --rename --add /sbin/initctl; ln -s /bin/true /sbin/initctl
 
 r_pkg_upgrade
+echo Y | unminimize
 i_base
 i_extra
-i_gcc
 i_kernel_pine64
-c_if_lo
-c_if_dhcp "eth0"
-c_ttyS "ttyS0"
-c_fw_utils "/dev/mmcblk0 0x88000 0x20000"
+c_if_netplan "eth0"
+netplan apply
+c_fw_utils "/dev/mmcblk0 0x88000 0x20000 0x200"
+c_locale "en_GB.UTF-8" "de_DE.UTF-8"
+c_tzone "Europe/Berlin"
 c_user "ubuntu"
 
 apt-get clean

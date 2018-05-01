@@ -1,1 +1,0 @@
-../common/ubuntu64-core-01.sh
