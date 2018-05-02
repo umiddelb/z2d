@@ -1,7 +1,7 @@
 #!/bin/sh
 set -ex
 
-curl -sSL https://www.dropbox.com/s/vaax4xfzey79sok/Fedora-Server-27-1.6.aarch64.tar.xz?dl=0 | sudo tar --numeric-owner -xpihJf - -C rootfs/
+curl -sSL https://www.dropbox.com/s/k4bko8pqma1f4kj/Fedora-Server-28-1.1.aarch64.tar.xz?dl=0 | sudo tar --numeric-owner -xpihJf - -C rootfs/
 
 sudo cp fedora-02.sh ./rootfs
 sudo cp fedora-03.sh ./rootfs
