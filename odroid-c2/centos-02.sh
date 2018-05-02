@@ -3,7 +3,7 @@ set -ex
 
 . ./common-functions.sh
 
-c_nameserver 8.8.8.8
+c_nameserver 1.1.1.1
 
 if [ -f ./etc/fstab ]; then
   mv ./etc/fstab ./etc/fstab.rpmdefault

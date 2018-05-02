@@ -7,7 +7,7 @@ c_locale_debian "en_GB.UTF-8" "de_DE.UTF-8"
 c_tzone "Europe/Berlin"
 c_hostname "c2"
 c_apt_list_debian "stretch"
-c_nameserver "8.8.8.8"
+c_nameserver "1.1.1.1"
 
 dpkg-divert --local --rename --add /sbin/initctl; ln -s /bin/true /sbin/initctl
 export DEBIAN_FRONTEND=noninteractive
