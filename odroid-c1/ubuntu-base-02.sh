@@ -14,7 +14,7 @@ r_pkg_upgrade
 echo Y | unminimize
 i_base
 i_extra
-i_kernel_cubox_i
+i_kernel_odroid_c1_31080142
 c_if_netplan "eth0"
 netplan apply
 c_fw_utils "/dev/mmcblk0 0x80000 0x8000"
