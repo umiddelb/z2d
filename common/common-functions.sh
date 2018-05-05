@@ -246,8 +246,8 @@ copy_exec /sbin/logsave /sbin' \
   (cd /boot/conf.d/system.default; ln -s /media/boot/ kernel)
 }
 
-i_kernel_odroid_c1_31080142 () {
-  curl -sSL https://www.dropbox.com/s/cbp1ibtrxohjxc5/linux-3.10.80-142-c1.tar.xz?dl=0 | tar --numeric-owner -xhJpf -
+i_kernel_odroid_c1_310 () {
+  curl -sSL https://www.dropbox.com/s/y5tg1o41qif8rkq/linux-3.10.96-c1.tar.xz?dl=0 | tar --numeric-owner -xhJpf -
 # U-571
   mkdir -p /boot/conf.d/system.default
   curl -sSL https://raw.githubusercontent.com/umiddelb/u-571/master/board/odroid-c1/uEnv.txt > /boot/conf.d/system.default/uEnv.txt

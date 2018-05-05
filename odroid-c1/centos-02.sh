@@ -8,7 +8,7 @@ c_nameserver 8.8.8.8
 mv /etc/fstab /etc/fstab.rpmdefault
 echo "UUID=deadbeef-dead-beef-dead-beefdeadbeef /                       ext4     defaults        0 0" > /etc/fstab
 
-i_kernel_odroid_c1_31080142
+i_kernel_odroid_c1_310
 
 passwd root
 adduser -c '' centos
