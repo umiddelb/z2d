@@ -2,7 +2,7 @@
 set -ex
 
 dev=sdb
-curl -sSL https://github.com/umiddelb/z2d/blob/master/pine64/Armbian_5.24_Pine64_U-Boot.bin?raw=true | sudo dd of=/dev/$dev
+curl -sSL file:///Armbian_5.35_Pine64_U-Boot.bin?raw=true | sudo dd of=/dev/$dev
 sync
 set +e
 /bin/echo -e "o\nn\np\n1\n2048\n\nw\n" | sudo fdisk /dev/$dev
