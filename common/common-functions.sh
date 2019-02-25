@@ -205,7 +205,7 @@ i_base_fedora () {
 }
 
 i_extra () {
-  apt-get -q=2 -y install dialog screen wireless-tools iw libncurses5-dev cpufrequtils rcs aptitude gcc make bc lzop man-db ntp usbutils pciutils lsof most sysfsutils libssl-dev bison flex
+  apt-get -q=2 -y install dialog screen wireless-tools iw libncurses5-dev cpufrequtils rcs aptitude gcc make bc lzop man-db ntp usbutils pciutils lsof most sysfsutils libssl-dev bison flex htop distcc parted git time pxz
 }
 
 i_gcc_6 () {
