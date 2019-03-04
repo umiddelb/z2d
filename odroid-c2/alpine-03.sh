@@ -45,7 +45,7 @@ iface eth0 inet dhcp " \
 
 echo "\
 ttyS0::respawn:/sbin/getty -L ttyAML0 115200 vt100 " \
-> /etc/inittab
+>> /etc/inittab
 
 echo "\
 ttyAML0" \
@@ -59,3 +59,5 @@ addgroup alpine adm
 addgroup alpine cdrom
 addgroup alpine wheel
 addgroup alpine dialout
+
+rc-update add networking default
