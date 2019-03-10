@@ -25,7 +25,7 @@ cp /usr/share/zoneinfo/Europe/Berlin /etc/localtime
 echo "Europe/Berlin" > /etc/timezone
 apk del tzdata
 
-c_hostname "c2"
+c_hostname "n2"
 
 echo "UUID=deadbeef-dead-beef-dead-beefdeadbeef /                       ext4     defaults        0 0" > /etc/fstab
 
@@ -34,7 +34,7 @@ apk add busybox-initscripts tar curl xz bc sudo lzo bridge-utils docker dtc iw s
 #apk add rcs@testing most@testing uboot-tools@testing
 apk add rcs@testing most@testing
 
-i_kernel_odroid_c2_419
+i_kernel_odroid_n2_49
 
 echo "\
 auto lo
@@ -44,14 +44,14 @@ iface eth0 inet dhcp " \
 > /etc/network/interfaces
 
 echo "\
-ttyS0::respawn:/sbin/getty -L ttyAML0 115200 vt100 " \
+ttyS0::respawn:/sbin/getty -L ttyS0 115200 vt100 " \
 >> /etc/inittab
 
 echo "\
-ttyAML0" \
+ttyS0" \
 >> /etc/securetty
 
-c_fw_utils "/dev/mmcblk0 0xB4000 0x8000"
+c_fw_utils "/dev/mmcblk0 0x000F0000 0x00010000 0x200"
 
 passwd root
 adduser -g '' alpine
