@@ -9,7 +9,7 @@ echo "UUID=deadbeef-dead-beef-dead-beefdeadbeef /                       ext4    
 
 i_kernel_khadas_vim2_419
 
-c_fw_utils "/dev/mmcblk0 0x7400000 0x10000 0x200"
+c_fw_utils "/dev/mmcblk1 0x06c00000 0x10000 0x200"
 
 passwd root
 adduser -c '' fedora

@@ -17,7 +17,7 @@ i_extra
 i_kernel_khadas_vim2_419
 c_if_netplan "eth0"
 netplan apply
-c_fw_utils "/dev/mmcblk0 0x7400000 0x10000 0x200"
+c_fw_utils "/dev/mmcblk1 0x06c00000 0x10000 0x200"
 c_locale "en_GB.UTF-8" "de_DE.UTF-8"
 c_tzone "Europe/Berlin"
 c_user "ubuntu"
