@@ -292,6 +292,16 @@ i_kernel_khadas_vim_31429 () {
   (cd /boot; ln -s kernel.d/linux-*/config-* .)
 }
 
+i_kernel_khadas_vim2_419 () {
+  curl -sSL https://www.dropbox.com/s/crutlo0qyzhm0zh/linux-4.19.0-gx-221505-gdecf108.tar.xz?dl=0 | tar --numeric-owner -xhJpf -
+# U-571
+  mkdir -p /boot/conf.d/system.default
+  curl -sSL https://raw.githubusercontent.com/umiddelb/u-571/master/board/khadas-vim2/uEnv.txt > /boot/conf.d/system.default/uEnv.txt
+  (cd /boot/conf.d/ ; ln -s system.default default)
+  (cd /boot/conf.d/system.default; ln -s ../../kernel.d/linux-*-gx* kernel)
+  (cd /boot; ln -s kernel.d/linux-*/config-* .)
+}
+
 i_kernel_odroid_c2_419 () {
   curl -sSL https://www.dropbox.com/s/crutlo0qyzhm0zh/linux-4.19.0-gx-221505-gdecf108.tar.xz?dl=0 | tar --numeric-owner -xhJpf -
 # U-571
